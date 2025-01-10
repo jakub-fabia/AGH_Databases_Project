@@ -1,0 +1,784 @@
+{
+    "majors": [
+      {
+        "major": "Automatyka i Robotyka",
+        "description": "Kierunek zajmujący się projektowaniem i implementacją systemów automatycznych oraz robotów.",
+        "price": 30000,
+        "capacity": 80,
+        "semesters": [
+          {
+            "semester": 1,
+            "subjects": [
+              {"subject": "Podstawy Elektrotechniki", "description": "Wprowadzenie do obwodów elektrycznych i praw Kirchhoffa."},
+              {"subject": "Matematyka I", "description": "Podstawowe pojęcia analizy matematycznej."},
+              {"subject": "Fizyka Techniczna", "description": "Podstawy fizyki w kontekście technicznym."},
+              {"subject": "Programowanie w C", "description": "Podstawy programowania w języku C."},
+              {"subject": "Mechanika", "description": "Podstawy mechaniki klasycznej i zastosowania w technice."}
+            ]
+          },
+          {
+            "semester": 2,
+            "subjects": [
+              {"subject": "Teoria Obwodów", "description": "Zaawansowane zagadnienia dotyczące obwodów elektrycznych."},
+              {"subject": "Matematyka II", "description": "Równania różniczkowe i zastosowania w inżynierii."},
+              {"subject": "Podstawy Elektroniki", "description": "Podstawowe elementy elektroniczne i ich zastosowania."},
+              {"subject": "Algorytmy i Struktury Danych", "description": "Zaawansowane algorytmy i struktury danych."},
+              {"subject": "Języki Programowania", "description": "Wprowadzenie do różnych języków programowania."}
+            ]
+          },
+          {
+            "semester": 3,
+            "subjects": [
+              {"subject": "Automatyka I", "description": "Podstawowe pojęcia z zakresu automatyki i sterowania."},
+              {"subject": "Matematyka III", "description": "Analiza wektorowa i macierzowa."},
+              {"subject": "Podstawy Mikrokontrolerów", "description": "Wprowadzenie do mikrokontrolerów i ich programowania."},
+              {"subject": "Fizyka II", "description": "Fizyka fal i optyki."},
+              {"subject": "Metody Numeryczne", "description": "Wprowadzenie do metod numerycznych w inżynierii."}
+            ]
+          },
+          {
+            "semester": 4,
+            "subjects": [
+              {"subject": "Automatyka II", "description": "Zaawansowane techniki sterowania i regulacji."},
+              {"subject": "Elektronika Cyfrowa", "description": "Podstawy układów cyfrowych i ich zastosowania."},
+              {"subject": "Miernictwo Elektryczne", "description": "Techniki pomiarowe w elektryce i elektronice."},
+              {"subject": "Podstawy Sztucznej Inteligencji", "description": "Wprowadzenie do sztucznej inteligencji i uczenia maszynowego."},
+              {"subject": "Przetwarzanie Sygnałów", "description": "Podstawowe techniki analizy sygnałów."}
+            ]
+          },
+          {
+            "semester": 5,
+            "subjects": [
+              {"subject": "Robotyka I", "description": "Podstawowe pojęcia z zakresu robotyki."},
+              {"subject": "Systemy Wbudowane", "description": "Projektowanie i implementacja systemów wbudowanych."},
+              {"subject": "Teoria Sterowania", "description": "Zaawansowane metody sterowania systemami."},
+              {"subject": "Sieci Neuronowe", "description": "Wprowadzenie do sieci neuronowych."},
+              {"subject": "Programowanie Systemowe", "description": "Programowanie niskopoziomowe i systemowe."}
+            ]
+          },
+          {
+            "semester": 6,
+            "subjects": [
+              {"subject": "Robotyka II", "description": "Zaawansowane systemy robotyczne."},
+              {"subject": "Analiza Obrazów", "description": "Podstawy analizy i przetwarzania obrazów."},
+              {"subject": "Projektowanie Układów FPGA", "description": "Podstawy projektowania układów FPGA."},
+              {"subject": "Automatyka Przemysłowa", "description": "Techniki sterowania w przemyśle."},
+              {"subject": "Systemy Operacyjne", "description": "Podstawy systemów operacyjnych."}
+            ]
+          },
+          {
+            "semester": 7,
+            "subjects": [
+              {"subject": "Projekt Dyplomowy", "description": "Realizacja projektu inżynierskiego."},
+              {"subject": "Zarządzanie Projektami", "description": "Podstawy zarządzania projektami technicznymi."},
+              {"subject": "Bezpieczeństwo Systemów", "description": "Podstawy bezpieczeństwa systemów informatycznych."},
+              {"subject": "Techniki Wytwarzania", "description": "Podstawy technologii wytwarzania urządzeń."},
+              {"subject": "Pracownia Robotyki", "description": "Praktyczne zajęcia wytwarzania robotów.."}
+            ]
+          }
+        ]
+      },
+      {
+        "major": "Informatyka",
+        "description": "Kierunek obejmujący naukę programowania, algorytmów, baz danych oraz sztucznej inteligencji.",
+        "price": 33000,
+        "capacity": 100,
+        "semesters": [
+          {
+            "semester": 1,
+            "subjects": [
+              {"subject": "Analiza Matematyczna", "description": "Podstawy rachunku różniczkowego i całkowego."},
+              {"subject": "Podstawy Programowania", "description": "Wprowadzenie do programowania w Pythonie."},
+              {"subject": "Algebra Liniowa", "description": "Podstawowe pojęcia algebry, macierze i wektory."},
+              {"subject": "Logika Matematyczna", "description": "Podstawy logiki formalnej i dowodzenia twierdzeń."},
+              {"subject": "Wstęp do Informatyki", "description": "Historia i podstawowe pojęcia informatyki."}
+            ]
+          },
+          {
+            "semester": 2,
+            "subjects": [
+              {"subject": "Matematyka Dyskretna", "description": "Grafy, relacje i kombinatoryka."},
+              {"subject": "Programowanie Obiektowe", "description": "Zaawansowane techniki programowania w Java."},
+              {"subject": "Bazy Danych", "description": "Podstawy projektowania i zapytań w SQL."},
+              {"subject": "Algorytmy i Struktury Danych", "description": "Podstawowe algorytmy sortowania i wyszukiwania."},
+              {"subject": "Fizyka dla Informatyków", "description": "Podstawy fizyki w kontekście informatyki."}
+            ]
+          },
+          {
+            "semester": 3,
+            "subjects": [
+              {"subject": "Systemy Operacyjne", "description": "Podstawy działania systemów operacyjnych."},
+              {"subject": "Architektura Komputerów", "description": "Budowa i działanie komputerów."},
+              {"subject": "Programowanie Funkcyjne", "description": "Podstawy programowania funkcyjnego w Haskell."},
+              {"subject": "Sieci Komputerowe", "description": "Podstawy działania sieci komputerowych."},
+              {"subject": "Analiza Algorytmów", "description": "Analiza złożoności algorytmów."}
+            ]
+          },
+          {
+            "semester": 4,
+            "subjects": [
+              {"subject": "Sztuczna Inteligencja", "description": "Wprowadzenie do sztucznej inteligencji."},
+              {"subject": "Inżynieria Oprogramowania", "description": "Metodyki i narzędzia wytwarzania oprogramowania."},
+              {"subject": "Zarządzanie Projektami IT", "description": "Podstawy zarządzania projektami w branży IT."},
+              {"subject": "Przetwarzanie Równoległe", "description": "Podstawy programowania równoległego."},
+              {"subject": "Programowanie Webowe", "description": "Tworzenie stron internetowych z użyciem HTML, CSS, JS."}
+            ]
+          },
+          {
+            "semester": 5,
+            "subjects": [
+              {"subject": "Uczenie Maszynowe", "description": "Wprowadzenie do uczenia maszynowego."},
+              {"subject": "Bezpieczeństwo Systemów", "description": "Podstawy bezpieczeństwa systemów komputerowych."},
+              {"subject": "Przetwarzanie Danych", "description": "Przetwarzanie dużych zbiorów danych."},
+              {"subject": "Grafika Komputerowa", "description": "Podstawy grafiki komputerowej."},
+              {"subject": "Systemy Wbudowane", "description": "Podstawy programowania urządzeń wbudowanych."}
+            ]
+          },
+          {
+            "semester": 6,
+            "subjects": [
+              {"subject": "Chmura Obliczeniowa", "description": "Podstawy technologii chmurowych."},
+              {"subject": "Projektowanie Interfejsów", "description": "Zasady projektowania interfejsów użytkownika."},
+              {"subject": "Technologie Mobilne", "description": "Programowanie aplikacji mobilnych."},
+              {"subject": "Analiza Danych", "description": "Podstawy analizy danych."},
+              {"subject": "Zarządzanie Danymi", "description": "Techniki zarządzania danymi w dużych zbiorach."}
+            ]
+          },
+          {
+            "semester": 7,
+            "subjects": [
+              {"subject": "Projekt Dyplomowy", "description": "Realizacja projektu inżynierskiego."},
+              {"subject": "Programowanie autonomicznych robotów mobilnych", "description": "Tworzenie autonomicznych robotów."},
+              {"subject": "Testowanie Oprogramowania", "description": "Podstawy testowania oprogramowania."},
+              {"subject": "Etyka w Informatyce", "description": "Zagadnienia etyczne w IT."},
+              {"subject": "Wirtualne sieci prywatne", "description": "Przedmiot koncentruje się na zabezpieczaniu styku sieci firmowej z Internetem."}
+            ]
+          }
+        ]
+      },
+      {
+        "major": "Mechanika i Budowa Maszyn",
+        "description": "Kierunek obejmujący projektowanie, analizę oraz eksploatację maszyn i urządzeń technicznych.",
+        "price": 25000,
+        "capacity": 60,
+        "semesters": [
+          {
+            "semester": 1,
+            "subjects": [
+              {"subject": "Matematyka I", "description": "Podstawy analizy matematycznej i algebry liniowej."},
+              {"subject": "Fizyka", "description": "Podstawy mechaniki i termodynamiki."},
+              {"subject": "Podstawy Konstrukcji Maszyn", "description": "Wprowadzenie do projektowania mechanizmów."},
+              {"subject": "Rysunek Techniczny", "description": "Podstawy rysunku technicznego i CAD."},
+              {"subject": "Materiały Inżynierskie", "description": "Wprowadzenie do materiałoznawstwa."}
+            ]
+          },
+          {
+            "semester": 2,
+            "subjects": [
+              {"subject": "Matematyka II", "description": "Równania różniczkowe i liczby zespolone."},
+              {"subject": "Mechanika Ogólna", "description": "Statyka i dynamika układów mechanicznych."},
+              {"subject": "Podstawy Automatyki", "description": "Podstawy automatyki i sterowania."},
+              {"subject": "Technologie Wytwarzania", "description": "Procesy obróbki materiałów i produkcji."},
+              {"subject": "Podstawy Informatyki", "description": "Wprowadzenie do algorytmów i programowania."}
+            ]
+          },
+          {
+            "semester": 3,
+            "subjects": [
+              {"subject": "Mechanika Techniczna", "description": "Mechanika ciał sztywnych i odkształcalnych."},
+              {"subject": "Wytrzymałość Materiałów", "description": "Analiza wytrzymałości elementów konstrukcyjnych."},
+              {"subject": "Podstawy Elektrotechniki", "description": "Podstawy obwodów elektrycznych."},
+              {"subject": "Termodynamika", "description": "Podstawy termodynamiki technicznej."},
+              {"subject": "Metrologia", "description": "Podstawy pomiarów inżynierskich."}
+            ]
+          },
+          {
+            "semester": 4,
+            "subjects": [
+              {"subject": "Projektowanie Maszyn", "description": "Metody projektowania konstrukcji mechanicznych."},
+              {"subject": "Hydraulika i Pneumatyka", "description": "Podstawy układów hydraulicznych i pneumatycznych."},
+              {"subject": "Napędy Elektryczne", "description": "Zasady działania napędów elektrycznych."},
+              {"subject": "Techniki Wytwarzania", "description": "Zaawansowane procesy produkcyjne."},
+              {"subject": "Informatyka Stosowana", "description": "Zastosowania technologii informatycznych w inżynierii."}
+            ]
+          },
+          {
+            "semester": 5,
+            "subjects": [
+              {"subject": "Projektowanie CAD", "description": "Zaawansowane techniki projektowania CAD."},
+              {"subject": "Eksploatacja Maszyn", "description": "Zasady eksploatacji i utrzymania ruchu maszyn."},
+              {"subject": "Podstawy Mechatroniki", "description": "Integracja mechaniki, elektroniki i informatyki."},
+              {"subject": "Zarządzanie Produkcją", "description": "Planowanie i organizacja procesów produkcyjnych."},
+              {"subject": "Podstawy Robotyki", "description": "Wprowadzenie do robotyki przemysłowej."}
+            ]
+          },
+          {
+            "semester": 6,
+            "subjects": [
+              {"subject": "Symulacje Komputerowe", "description": "Symulacje numeryczne w inżynierii."},
+              {"subject": "Diagnostyka Techniczna", "description": "Metody diagnostyki stanu technicznego maszyn."},
+              {"subject": "Materiały Kompozytowe", "description": "Właściwości i zastosowanie materiałów kompozytowych."},
+              {"subject": "Automatyzacja Procesów", "description": "Automatyzacja linii produkcyjnych."},
+              {"subject": "Bezpieczeństwo Maszyn", "description": "Zasady zapewnienia bezpieczeństwa w eksploatacji maszyn."}
+            ]
+          },
+          {
+            "semester": 7,
+            "subjects": [
+              {"subject": "Projekt Dyplomowy", "description": "Realizacja projektu inżynierskiego."},
+              {"subject": "Maszyny i urządzenia transportowe", "description": "Przedstawienie podstawowych maszyn i urządzeń transportowych."},
+              {"subject": "Nowoczesne Technologie", "description": "Innowacyjne technologie w budowie maszyn."},
+              {"subject": "Zarządzanie Projektem", "description": "Planowanie i realizacja projektów technicznych."},
+              {"subject": "Konstrukcje Stalowe", "description": "Poznanie zasad obliczania oraz podstaw projektowania konstrukcji stalowych."}
+            ]
+          }
+        ]
+      },
+      {
+        "major": "Geodezja",
+        "description": "Kierunek obejmujący pomiary geodezyjne, kartografię i systemy informacji przestrzennej.",
+        "price": 28000,
+        "capacity": 50,
+        "semesters": [
+          {
+            "semester": 1,
+            "subjects": [
+              {"subject": "Matematyka I", "description": "Podstawy analizy matematycznej i algebry liniowej."},
+              {"subject": "Fizyka", "description": "Podstawy fizyki z ukierunkowaniem na geodezję."},
+              {"subject": "Podstawy Geodezji", "description": "Wprowadzenie do pomiarów geodezyjnych."},
+              {"subject": "Rysunek Techniczny", "description": "Podstawy rysunku technicznego i CAD."},
+              {"subject": "Geodezyjne Metody Pomiarowe", "description": "Techniki pomiarów geodezyjnych."}
+            ]
+          },
+          {
+            "semester": 2,
+            "subjects": [
+              {"subject": "Matematyka II", "description": "Równania różniczkowe i liczby zespolone."},
+              {"subject": "Kartografia", "description": "Podstawy tworzenia map i odwzorowań kartograficznych."},
+              {"subject": "Fotogrametria", "description": "Podstawy obrazowania i pomiarów fotogrametrycznych."},
+              {"subject": "Geodezja Inżynieryjna", "description": "Pomiar i kontrola w inżynierii lądowej."},
+              {"subject": "Systemy Informacji Geograficznej", "description": "Podstawy GIS i analizy danych przestrzennych."}
+            ]
+          },
+          {
+            "semester": 3,
+            "subjects": [
+              {"subject": "Geodezja Wyższa", "description": "Zaawansowane metody pomiarowe w geodezji."},
+              {"subject": "Geodezja Katastralna", "description": "Podstawy ewidencji gruntów i budynków."},
+              {"subject": "Geoinformatyka", "description": "Podstawy obliczeń i analiz geodezyjnych."},
+              {"subject": "Teledetekcja", "description": "Podstawy teledetekcji i analizy zdjęć satelitarnych."},
+              {"subject": "Metrologia Geodezyjna", "description": "Techniki pomiarowe i kalibracja urządzeń."}
+            ]
+          },
+          {
+            "semester": 4,
+            "subjects": [
+              {"subject": "Projektowanie Geodezyjne", "description": "Metody projektowania sieci geodezyjnych."},
+              {"subject": "Geodezja Przemysłowa", "description": "Pomiary w środowisku przemysłowym."},
+              {"subject": "Prawo Geodezyjne", "description": "Podstawy prawne działalności geodezyjnej."},
+              {"subject": "Systemy GPS", "description": "Podstawy działania systemów GPS."},
+              {"subject": "Modelowanie Terenu", "description": "Tworzenie cyfrowych modeli terenu."}
+            ]
+          },
+          {
+            "semester": 5,
+            "subjects": [
+              {"subject": "Geodezja Satelitarna", "description": "Zastosowanie technik satelitarnych w geodezji."},
+              {"subject": "Analiza Danych Geodezyjnych", "description": "Metody analizy i interpretacji danych pomiarowych."},
+              {"subject": "Geodezja Morska", "description": "Techniki pomiarów geodezyjnych na akwenach."},
+              {"subject": "Systemy GIS", "description": "Zaawansowane techniki analizy GIS."},
+              {"subject": "Hydrografia", "description": "Podstawy pomiarów hydrograficznych."}
+            ]
+          },
+          {
+            "semester": 6,
+            "subjects": [
+              {"subject": "Monitoring Deformacji", "description": "Techniki monitorowania deformacji terenu."},
+              {"subject": "Fotogrametria Lotnicza", "description": "Zaawansowane techniki fotogrametrii lotniczej."},
+              {"subject": "Zarządzanie Projektami Geodezyjnymi", "description": "Podstawy zarządzania projektami w geodezji."},
+              {"subject": "Automatyzacja Pomiarów", "description": "Wprowadzenie do automatyzacji procesów pomiarowych."},
+              {"subject": "Oprogramowanie GIS", "description": "Zaawansowane narzędzia i oprogramowanie GIS."}
+            ]
+          },
+          {
+            "semester": 7,
+            "subjects": [
+              {"subject": "Projekt Dyplomowy", "description": "Realizacja projektu inżynierskiego."},
+              {"subject": "Nowoczesne Technologie Geodezyjne", "description": "Innowacyjne technologie w geodezji."},
+              {"subject": "Geodezja Terenowa", "description": "Zaawansowane techniki pomiarowe w terenie."},
+              {"subject": "Modelowanie 3D", "description": "Techniki modelowania trójwymiarowego w geodezji."},
+              {"subject": "Systemy Informacji Przestrzennej II", "description": "Student poznaje historię, różne wdrożenia, zastosowania i tendencje rozwojowe SIP."}
+            ]
+          }
+        ]
+      },
+      {
+        "major": "Energetyka",
+        "description": "Kierunek obejmujący technologie wytwarzania, przesyłu i zarządzania energią.",
+        "price": 30000,
+        "capacity": 60,
+        "semesters": [
+          {
+            "semester": 1,
+            "subjects": [
+              {"subject": "Matematyka I", "description": "Podstawy analizy matematycznej."},
+              {"subject": "Fizyka", "description": "Podstawy fizyki z ukierunkowaniem na energetykę."},
+              {"subject": "Podstawy Energetyki", "description": "Wprowadzenie do procesów energetycznych."},
+              {"subject": "Chemia Techniczna", "description": "Podstawy chemii w energetyce."},
+              {"subject": "Rysunek Techniczny", "description": "Podstawy rysunku technicznego i CAD."}
+            ]
+          },
+          {
+            "semester": 2,
+            "subjects": [
+              {"subject": "Matematyka II", "description": "Równania różniczkowe i algebra liniowa."},
+              {"subject": "Termodynamika", "description": "Podstawy termodynamiki technicznej."},
+              {"subject": "Mechanika Płynów", "description": "Podstawy mechaniki płynów."},
+              {"subject": "Elektrotechnika", "description": "Podstawy elektrotechniki i obwodów elektrycznych."},
+              {"subject": "Technologie Odnawialne", "description": "Podstawy technologii odnawialnych źródeł energii."}
+            ]
+          },
+          {
+            "semester": 3,
+            "subjects": [
+              {"subject": "Maszyny i Urządzenia Energetyczne", "description": "Podstawy działania maszyn energetycznych."},
+              {"subject": "Fizyka Jądrowa", "description": "Podstawy fizyki jądrowej."},
+              {"subject": "Energetyka Konwencjonalna", "description": "Podstawy elektrowni konwencjonalnych."},
+              {"subject": "Automatyka i Sterowanie", "description": "Podstawy automatyki i sterowania."},
+              {"subject": "Technika Cieplna", "description": "Zastosowanie procesów cieplnych w energetyce."}
+            ]
+          },
+          {
+            "semester": 4,
+            "subjects": [
+              {"subject": "Odnawialne Źródła Energii", "description": "Technologie energii odnawialnej."},
+              {"subject": "Pomiary Energetyczne", "description": "Techniki pomiarowe w energetyce."},
+              {"subject": "Projektowanie Systemów Energetycznych", "description": "Projektowanie układów energetycznych."},
+              {"subject": "Materiały Energetyczne", "description": "Materiały stosowane w energetyce."},
+              {"subject": "Ekologia i Energetyka", "description": "Wpływ energetyki na środowisko."}
+            ]
+          },
+          {
+            "semester": 5,
+            "subjects": [
+              {"subject": "Energetyka Jądrowa", "description": "Podstawy energetyki jądrowej."},
+              {"subject": "Inżynieria Procesów Energetycznych", "description": "Projektowanie procesów energetycznych."},
+              {"subject": "Analiza Systemów Energetycznych", "description": "Analiza i optymalizacja systemów energetycznych."},
+              {"subject": "Bezpieczeństwo Energetyczne", "description": "Zasady bezpieczeństwa w energetyce."},
+              {"subject": "Zarządzanie Energią", "description": "Zarządzanie zasobami energetycznymi."}
+            ]
+          },
+          {
+            "semester": 6,
+            "subjects": [
+              {"subject": "Systemy Elektroenergetyczne", "description": "Zasady działania systemów elektroenergetycznych."},
+              {"subject": "Technologie Wodoru", "description": "Podstawy technologii wodorowych."},
+              {"subject": "Monitoring Procesów Energetycznych", "description": "Techniki monitorowania procesów."},
+              {"subject": "Zastosowania Informatyki w Energetyce", "description": "Wykorzystanie narzędzi informatycznych w energetyce."},
+              {"subject": "Audyt Energetyczny", "description": "Podstawy przeprowadzania audytów energetycznych."}
+            ]
+          },
+          {
+            "semester": 7,
+            "subjects": [
+              {"subject": "Projekt Dyplomowy", "description": "Realizacja projektu inżynierskiego."},
+              {"subject": "Nowoczesne Technologie Energetyczne", "description": "Innowacje w energetyce."},
+              {"subject": "Systemy Magazynowania Energii", "description": "Technologie magazynowania energii."},
+              {"subject": "Efektywność Energetyczna", "description": "Optymalizacja zużycia energii."},
+              {"subject": "Podstawy projektowania reaktorów jądrowych", "description": "Projektowanie reaktorów jądrowych wykorzystując istniejące bazy danych."}
+            ]
+          }
+        ]
+      },
+      {
+        "major": "Elektronika i Telekomunikacja",
+        "description": "Kierunek obejmujący technologie transmisji danych, systemy elektroniczne oraz komunikację bezprzewodową.",
+        "price": 35000,
+        "capacity": 40,
+        "semesters": [
+          {
+            "semester": 1,
+            "subjects": [
+              {"subject": "Matematyka I", "description": "Podstawy analizy matematycznej."},
+              {"subject": "Fizyka", "description": "Podstawy fizyki z ukierunkowaniem na elektronikę."},
+              {"subject": "Podstawy Elektroniki", "description": "Podstawowe pojęcia z zakresu układów elektronicznych."},
+              {"subject": "Programowanie w C", "description": "Podstawy programowania w języku C."},
+              {"subject": "Rysunek Techniczny", "description": "Podstawy rysunku technicznego i CAD."}
+            ]
+          },
+          {
+            "semester": 2,
+            "subjects": [
+              {"subject": "Matematyka II", "description": "Równania różniczkowe i algebra liniowa."},
+              {"subject": "Teoria Obwodów", "description": "Podstawy teorii obwodów elektrycznych."},
+              {"subject": "Podstawy Telekomunikacji", "description": "Wprowadzenie do technik transmisji danych."},
+              {"subject": "Elektronika Analogowa", "description": "Analiza i projektowanie układów analogowych."},
+              {"subject": "Algorytmy i Struktury Danych", "description": "Podstawy algorytmiki."}
+            ]
+          },
+          {
+            "semester": 3,
+            "subjects": [
+              {"subject": "Systemy Mikroprocesorowe", "description": "Budowa i programowanie mikroprocesorów."},
+              {"subject": "Elektronika Cyfrowa", "description": "Podstawy układów cyfrowych."},
+              {"subject": "Teoria Sygnałów", "description": "Analiza i przetwarzanie sygnałów."},
+              {"subject": "Komunikacja Bezprzewodowa", "description": "Technologie komunikacji bezprzewodowej."},
+              {"subject": "Fizyka II", "description": "Zjawiska falowe i elektromagnetyczne."}
+            ]
+          },
+          {
+            "semester": 4,
+            "subjects": [
+              {"subject": "Systemy Wbudowane", "description": "Projektowanie i programowanie systemów wbudowanych."},
+              {"subject": "Techniki Przetwarzania Sygnałów", "description": "Zaawansowane metody przetwarzania sygnałów."},
+              {"subject": "Sieci Telekomunikacyjne", "description": "Podstawy sieci telekomunikacyjnych."},
+              {"subject": "Miernictwo Elektroniczne", "description": "Techniki pomiarów w elektronice."},
+              {"subject": "Programowanie Obiektowe", "description": "Podstawy programowania obiektowego."}
+            ]
+          },
+          {
+            "semester": 5,
+            "subjects": [
+              {"subject": "Projektowanie Układów FPGA", "description": "Podstawy projektowania układów FPGA."},
+              {"subject": "Antenty i Propagacja", "description": "Zasady działania anten i propagacji sygnału."},
+              {"subject": "Elektronika Mocy", "description": "Techniki sterowania układami mocy."},
+              {"subject": "Systemy Operacyjne", "description": "Podstawy systemów operacyjnych."},
+              {"subject": "Modelowanie Systemów", "description": "Modelowanie i symulacje układów elektronicznych."}
+            ]
+          },
+          {
+            "semester": 6,
+            "subjects": [
+              {"subject": "Komunikacja Satelitarna", "description": "Podstawy komunikacji satelitarnej."},
+              {"subject": "Bezpieczeństwo Sieci", "description": "Podstawy bezpieczeństwa w sieciach telekomunikacyjnych."},
+              {"subject": "Internet Rzeczy (IoT)", "description": "Technologie komunikacji IoT."},
+              {"subject": "Projektowanie PCB", "description": "Zaawansowane projektowanie obwodów drukowanych."},
+              {"subject": "Analiza Układów Elektronicznych", "description": "Zaawansowana analiza układów elektronicznych."}
+            ]
+          },
+          {
+            "semester": 7,
+            "subjects": [
+              {"subject": "Projekt Dyplomowy", "description": "Realizacja projektu inżynierskiego."},
+              {"subject": "Nowoczesne Technologie Komunikacyjne", "description": "Innowacyjne rozwiązania w telekomunikacji."},
+              {"subject": "Analiza Sygnałów w Czasie Rzeczywistym", "description": "Techniki przetwarzania sygnałów w czasie rzeczywistym."},
+              {"subject": "Technologie Radiowe", "description": "Zasady działania technologii radiowych."},
+              {"subject": "Inżynieria Komunikacji", "description": "Zaawansowane techniki inżynierii komunikacyjnej."}
+            ]
+          }
+        ]
+      },
+      {
+        "major": "Cyberbezpieczeństwo",
+        "description": "Kierunek obejmujący techniki ochrony danych, kryptografii i bezpieczeństwa sieciowego.",
+        "price": 29000,
+        "capacity": 30,
+        "semesters": [
+          {
+            "semester": 1,
+            "subjects": [
+              {"subject": "Matematyka Dyskretna", "description": "Podstawy matematyki dyskretnej."},
+              {"subject": "Podstawy Informatyki", "description": "Wprowadzenie do programowania i algorytmów."},
+              {"subject": "Systemy Operacyjne", "description": "Podstawy systemów operacyjnych."},
+              {"subject": "Podstawy Sieci Komputerowych", "description": "Wprowadzenie do działania sieci komputerowych."},
+              {"subject": "Wprowadzenie do Cyberbezpieczeństwa", "description": "Podstawy ochrony danych i systemów."}
+            ]
+          },
+          {
+            "semester": 2,
+            "subjects": [
+              {"subject": "Algorytmy i Struktury Danych", "description": "Podstawowe algorytmy i struktury danych."},
+              {"subject": "Kryptografia", "description": "Podstawy kryptografii i szyfrowania danych."},
+              {"subject": "Bezpieczeństwo Sieci", "description": "Podstawy zabezpieczeń w sieciach komputerowych."},
+              {"subject": "Programowanie w Pythonie", "description": "Podstawy programowania w języku Python."},
+              {"subject": "Audyt Bezpieczeństwa", "description": "Podstawy przeprowadzania audytów bezpieczeństwa."}
+            ]
+          },
+          {
+            "semester": 3,
+            "subjects": [
+              {"subject": "Zaawansowana Kryptografia", "description": "Techniki zaawansowanego szyfrowania danych."},
+              {"subject": "Zarządzanie Ryzykiem", "description": "Techniki zarządzania ryzykiem w IT."},
+              {"subject": "Programowanie Systemowe", "description": "Zaawansowane programowanie na poziomie systemu."},
+              {"subject": "Analiza Malware", "description": "Techniki analizy złośliwego oprogramowania."},
+              {"subject": "Bezpieczeństwo Aplikacji Webowych", "description": "Zabezpieczenia aplikacji webowych."}
+            ]
+          },
+          {
+            "semester": 4,
+            "subjects": [
+              {"subject": "Testy Penetracyjne", "description": "Techniki przeprowadzania testów penetracyjnych."},
+              {"subject": "Sieci VPN", "description": "Zasady działania i konfiguracji sieci VPN."},
+              {"subject": "Inżynieria Wsteczna", "description": "Techniki inżynierii wstecznej oprogramowania."},
+              {"subject": "Forensics Komputerowy", "description": "Podstawy analizy powłamaniowej."},
+              {"subject": "Bezpieczeństwo Mobilne", "description": "Zabezpieczenia urządzeń mobilnych."}
+            ]
+          },
+          {
+            "semester": 5,
+            "subjects": [
+              {"subject": "Bezpieczeństwo w Chmurze", "description": "Zasady bezpieczeństwa w środowiskach chmurowych."},
+              {"subject": "Automatyzacja Bezpieczeństwa", "description": "Techniki automatyzacji zadań bezpieczeństwa."},
+              {"subject": "Analiza Ruchu Sieciowego", "description": "Analiza ruchu sieciowego w kontekście bezpieczeństwa."},
+              {"subject": "Zarządzanie Tożsamością", "description": "Techniki zarządzania tożsamością w systemach IT."},
+              {"subject": "Bezpieczeństwo IoT", "description": "Zabezpieczenia Internetu Rzeczy."}
+            ]
+          },
+          {
+            "semester": 6,
+            "subjects": [
+              {"subject": "Bezpieczeństwo Systemów SCADA", "description": "Zabezpieczenia systemów przemysłowych."},
+              {"subject": "AI w Cyberbezpieczeństwie", "description": "Zastosowanie AI w detekcji zagrożeń."},
+              {"subject": "Bezpieczeństwo Baz Danych", "description": "Ochrona baz danych przed atakami."},
+              {"subject": "Zarządzanie Incydentami", "description": "Zasady reagowania na incydenty bezpieczeństwa."},
+              {"subject": "Projektowanie Bezpiecznych Sieci", "description": "Projektowanie i wdrażanie bezpiecznych sieci."}
+            ]
+          },
+          {
+            "semester": 7,
+            "subjects": [
+              {"subject": "Projekt Dyplomowy", "description": "Realizacja projektu końcowego."},
+              {"subject": "Nowoczesne Techniki Ataków", "description": "Przegląd najnowszych zagrożeń w cyberprzestrzeni."},
+              {"subject": "Bezpieczeństwo Systemów Wbudowanych", "description": "Ochrona systemów wbudowanych."},
+              {"subject": "Analiza Złośliwego Oprogramowania", "description": "Zaawansowane techniki analizy malware."},
+              {"subject": "Etyka w Cyberbezpieczeństwie", "description": "Etyczne aspekty działań w obszarze bezpieczeństwa IT."}
+            ]
+          }
+        ]
+      },
+      {
+        "major": "Inżynieria i Analiza Danych",
+        "description": "Kierunek obejmujący metody analizy danych, uczenia maszynowego oraz inżynierii danych.",
+        "price": 23000,
+        "capacity": 40,
+        "semesters": [
+          {
+            "semester": 1,
+            "subjects": [
+              {"subject": "Matematyka Dyskretna", "description": "Podstawy matematyki dyskretnej i logiki matematycznej."},
+              {"subject": "Podstawy Programowania", "description": "Wprowadzenie do programowania w Pythonie."},
+              {"subject": "Analiza Matematyczna", "description": "Podstawy analizy matematycznej."},
+              {"subject": "Bazy Danych", "description": "Podstawy relacyjnych baz danych."},
+              {"subject": "Statystyka", "description": "Podstawy statystyki i analizy danych."}
+            ]
+          },
+          {
+            "semester": 2,
+            "subjects": [
+              {"subject": "Algebra Liniowa", "description": "Podstawy algebry liniowej."},
+              {"subject": "Zaawansowane Programowanie", "description": "Programowanie obiektowe w Pythonie."},
+              {"subject": "Wstęp do Uczenia Maszynowego", "description": "Podstawowe techniki uczenia maszynowego."},
+              {"subject": "Bazy Danych NoSQL", "description": "Wprowadzenie do baz danych NoSQL."},
+              {"subject": "Wizualizacja Danych", "description": "Techniki wizualizacji danych."}
+            ]
+          },
+          {
+            "semester": 3,
+            "subjects": [
+              {"subject": "Teoria Prawdopodobieństwa", "description": "Podstawy teorii prawdopodobieństwa."},
+              {"subject": "Big Data", "description": "Podstawy przetwarzania dużych zbiorów danych."},
+              {"subject": "Uczenie Maszynowe", "description": "Zaawansowane metody uczenia maszynowego."},
+              {"subject": "Języki Zapytań", "description": "Zaawansowane zapytania SQL."},
+              {"subject": "Analiza Czasu Rzeczywistego", "description": "Analiza danych w czasie rzeczywistym."}
+            ]
+          },
+          {
+            "semester": 4,
+            "subjects": [
+              {"subject": "Sieci Neuronowe", "description": "Podstawy sieci neuronowych."},
+              {"subject": "Przetwarzanie Danych Strumieniowych", "description": "Techniki analizy danych strumieniowych."},
+              {"subject": "Optymalizacja Algorytmów", "description": "Techniki optymalizacji algorytmów uczenia."},
+              {"subject": "Inżynieria Oprogramowania", "description": "Podstawy inżynierii oprogramowania."},
+              {"subject": "Analiza Tekstu", "description": "Techniki analizy tekstu i NLP."}
+            ]
+          },
+          {
+            "semester": 5,
+            "subjects": [
+              {"subject": "Sztuczna Inteligencja", "description": "Zaawansowane metody AI."},
+              {"subject": "Projektowanie Hurtowni Danych", "description": "Techniki projektowania hurtowni danych."},
+              {"subject": "Zarządzanie Danymi", "description": "Techniki zarządzania dużymi zbiorami danych."},
+              {"subject": "Przetwarzanie Równoległe", "description": "Podstawy przetwarzania równoległego."},
+              {"subject": "Analiza Danych Czasowych", "description": "Analiza danych szeregów czasowych."}
+            ]
+          },
+          {
+            "semester": 6,
+            "subjects": [
+              {"subject": "Uczenie Głębokie", "description": "Podstawy deep learningu."},
+              {"subject": "Systemy Rozproszone", "description": "Podstawy systemów rozproszonych."},
+              {"subject": "Etyka w Analizie Danych", "description": "Etyczne aspekty przetwarzania danych."},
+              {"subject": "Zastosowania AI", "description": "Praktyczne zastosowania AI."},
+              {"subject": "Analiza Sentimentów", "description": "Techniki analizy sentymentów."}
+            ]
+          },
+          {
+            "semester": 7,
+            "subjects": [
+              {"subject": "Projekt Dyplomowy", "description": "Realizacja końcowego projektu analizy danych."},
+              {"subject": "Nowoczesne Technologie Danych", "description": "Przegląd nowoczesnych technologii danych."},
+              {"subject": "Uczenie Transferowe", "description": "Techniki transfer learningu."},
+              {"subject": "Analiza Predykcyjna", "description": "Zaawansowane techniki predykcyjne."},
+              {"subject": "Zastosowania Przemysłowe Analizy Danych", "description": "Przemysłowe wykorzystanie technik analizy danych."}
+            ]
+          }
+        ]
+      },
+      {
+        "major": "Inżynieria Materiałowa",
+        "description": "Kierunek obejmujący projektowanie, badanie i zastosowanie materiałów inżynierskich.",
+        "price": 20000,
+        "capacity": 20,
+        "semesters": [
+          {
+            "semester": 1,
+            "subjects": [
+              {"subject": "Chemia Ogólna", "description": "Podstawy chemii nieorganicznej i organicznej."},
+              {"subject": "Matematyka I", "description": "Podstawy analizy matematycznej."},
+              {"subject": "Fizyka I", "description": "Podstawy mechaniki klasycznej."},
+              {"subject": "Podstawy Materiałoznawstwa", "description": "Wprowadzenie do nauki o materiałach."},
+              {"subject": "Rysunek Techniczny", "description": "Podstawy rysunku technicznego i CAD."}
+            ]
+          },
+          {
+            "semester": 2,
+            "subjects": [
+              {"subject": "Matematyka II", "description": "Równania różniczkowe i algebra liniowa."},
+              {"subject": "Fizyka II", "description": "Podstawy fizyki cieplnej i elektromagnetyzmu."},
+              {"subject": "Mechanika Techniczna", "description": "Podstawy mechaniki ciał sztywnych i odkształcalnych."},
+              {"subject": "Podstawy Metalurgii", "description": "Wprowadzenie do procesów metalurgicznych."},
+              {"subject": "Analiza Strukturalna", "description": "Podstawy analizy mikrostruktury materiałów."}
+            ]
+          },
+          {
+            "semester": 3,
+            "subjects": [
+              {"subject": "Technologie Wytwarzania", "description": "Podstawy technologii wytwarzania materiałów."},
+              {"subject": "Termodynamika Techniczna", "description": "Podstawy termodynamiki w kontekście materiałów."},
+              {"subject": "Materiały Polimerowe", "description": "Podstawowe właściwości materiałów polimerowych."},
+              {"subject": "Analiza Mechaniczna", "description": "Podstawy testów mechanicznych materiałów."},
+              {"subject": "Podstawy Korozji", "description": "Podstawy procesów korozji i ochrony materiałów."}
+            ]
+          },
+          {
+            "semester": 4,
+            "subjects": [
+              {"subject": "Metody Badania Materiałów", "description": "Techniki badania mikrostruktury i właściwości materiałów."},
+              {"subject": "Materiały Kompozytowe", "description": "Podstawy materiałów kompozytowych."},
+              {"subject": "Fizyka Ciała Stałego", "description": "Podstawy fizyki ciała stałego."},
+              {"subject": "Zastosowanie Materiałów Inżynierskich", "description": "Praktyczne zastosowania materiałów."},
+              {"subject": "Projektowanie Materiałowe", "description": "Zasady projektowania materiałów w inżynierii."}
+            ]
+          },
+          {
+            "semester": 5,
+            "subjects": [
+              {"subject": "Materiały Zaawansowane", "description": "Nowoczesne materiały o wysokiej wydajności."},
+              {"subject": "Zarządzanie Jakością", "description": "Podstawy zarządzania jakością w materiałoznawstwie."},
+              {"subject": "Procesy Przetwórcze", "description": "Techniki przetwarzania materiałów."},
+              {"subject": "Projektowanie Eksperymentów", "description": "Zasady projektowania eksperymentów naukowych."},
+              {"subject": "Nanomateriały", "description": "Podstawy nanomateriałów i ich zastosowania."}
+            ]
+          },
+          {
+            "semester": 6,
+            "subjects": [
+              {"subject": "Symulacje Materiałowe", "description": "Podstawy symulacji właściwości materiałów."},
+              {"subject": "Materiały Inteligentne", "description": "Materiały o zmiennych właściwościach w czasie rzeczywistym."},
+              {"subject": "Analiza Termiczna", "description": "Techniki analizy cieplnej materiałów."},
+              {"subject": "Recykling Materiałów", "description": "Zasady recyklingu i odzysku materiałów."},
+              {"subject": "Materiały Biomedyczne", "description": "Zastosowania materiałów w medycynie."}
+            ]
+          },
+          {
+            "semester": 7,
+            "subjects": [
+              {"subject": "Projekt Dyplomowy", "description": "Realizacja końcowego projektu materiałowego."},
+              {"subject": "Nowoczesne Technologie Materiałowe", "description": "Przegląd innowacyjnych technologii materiałowych."},
+              {"subject": "Analiza Uszkodzeń", "description": "Techniki analizy uszkodzeń materiałów."},
+              {"subject": "Zrównoważony Rozwój w Materiałach", "description": "Zasady ekologicznego podejścia w inżynierii materiałowej."},
+              {"subject": "Technologie Powłok", "description": "Techniki nakładania i badania powłok ochronnych."}
+            ]
+          }
+        ]
+      },
+      {
+        "major": "Inżynieria Produkcji i Jakości",
+        "description": "Kierunek obejmujący zarządzanie procesami produkcyjnymi i kontrolą jakości w przemyśle.",
+        "price": 26000,
+        "capacity": 40,
+        "semesters": [
+          {
+            "semester": 1,
+            "subjects": [
+              {"subject": "Matematyka I", "description": "Podstawy analizy matematycznej i algebry."},
+              {"subject": "Fizyka", "description": "Podstawy fizyki klasycznej."},
+              {"subject": "Podstawy Zarządzania Produkcją", "description": "Wprowadzenie do zarządzania procesami produkcyjnymi."},
+              {"subject": "Chemia Techniczna", "description": "Podstawy chemii w kontekście materiałów inżynierskich."},
+              {"subject": "Rysunek Techniczny", "description": "Podstawy rysunku technicznego i CAD."}
+            ]
+          },
+          {
+            "semester": 2,
+            "subjects": [
+              {"subject": "Matematyka II", "description": "Równania różniczkowe i algebra liniowa."},
+              {"subject": "Podstawy Materiałoznawstwa", "description": "Wprowadzenie do nauki o materiałach stosowanych w produkcji."},
+              {"subject": "Technologie Wytwarzania", "description": "Podstawy procesów technologicznych w produkcji."},
+              {"subject": "Podstawy Automatyki", "description": "Podstawy automatyzacji procesów produkcyjnych."},
+              {"subject": "Zarządzanie Jakością", "description": "Podstawy zarządzania jakością w przedsiębiorstwie."}
+            ]
+          },
+          {
+            "semester": 3,
+            "subjects": [
+              {"subject": "Metrologia", "description": "Techniki pomiarów w kontroli jakości."},
+              {"subject": "Procesy Przemysłowe", "description": "Analiza i optymalizacja procesów produkcyjnych."},
+              {"subject": "Podstawy Lean Manufacturing", "description": "Techniki optymalizacji procesów produkcyjnych."},
+              {"subject": "Podstawy Informatyki Przemysłowej", "description": "Zastosowania systemów informatycznych w produkcji."},
+              {"subject": "Zarządzanie Projektami", "description": "Techniki zarządzania projektami technologicznymi."}
+            ]
+          },
+          {
+            "semester": 4,
+            "subjects": [
+              {"subject": "Inżynieria Systemów Produkcyjnych", "description": "Projektowanie i analiza systemów produkcyjnych."},
+              {"subject": "Analiza Ryzyka w Produkcji", "description": "Techniki oceny ryzyka w procesach produkcyjnych."},
+              {"subject": "Logistyka Produkcji", "description": "Zarządzanie logistyką w procesach produkcyjnych."},
+              {"subject": "Kontrola Jakości", "description": "Metody i narzędzia kontroli jakości."},
+              {"subject": "Optymalizacja Procesów", "description": "Zaawansowane metody optymalizacji produkcji."}
+            ]
+          },
+          {
+            "semester": 5,
+            "subjects": [
+              {"subject": "Zaawansowane Systemy ERP", "description": "Systemy zarządzania zasobami przedsiębiorstwa."},
+              {"subject": "Zrównoważona Produkcja", "description": "Zasady ekologicznej produkcji przemysłowej."},
+              {"subject": "Projektowanie Procesów Produkcyjnych", "description": "Metody projektowania linii produkcyjnych."},
+              {"subject": "Techniki Six Sigma", "description": "Metody poprawy jakości w produkcji."},
+              {"subject": "Automatyzacja Produkcji", "description": "Nowoczesne technologie automatyzacji produkcji."}
+            ]
+          },
+          {
+            "semester": 6,
+            "subjects": [
+              {"subject": "Analiza Danych Produkcyjnych", "description": "Techniki analizy danych w produkcji."},
+              {"subject": "Systemy Zarządzania Jakością", "description": "Normy ISO i certyfikacja jakości."},
+              {"subject": "Nowoczesne Technologie Produkcyjne", "description": "Innowacyjne technologie w przemyśle."},
+              {"subject": "Symulacje Procesów Produkcyjnych", "description": "Symulacje komputerowe procesów produkcyjnych."},
+              {"subject": "Zarządzanie Utrzymaniem Ruchu", "description": "Metody zarządzania utrzymaniem ruchu w produkcji."}
+            ]
+          },
+          {
+            "semester": 7,
+            "subjects": [
+              {"subject": "Projekt Dyplomowy", "description": "Realizacja końcowego projektu produkcyjnego."},
+              {"subject": "Innowacje w Produkcji", "description": "Nowoczesne podejścia i innowacje w produkcji."},
+              {"subject": "Analiza Kosztów Produkcji", "description": "Techniki analizy kosztów w procesach produkcyjnych."},
+              {"subject": "Automatyzacja Procesów Jakości", "description": "Nowoczesne metody automatycznej kontroli jakości."},
+              {"subject": "Zarządzanie Zasobami Produkcyjnymi", "description": "Planowanie i zarządzanie zasobami w produkcji."}
+            ]
+          }
+        ]
+      }
+    ]
+  }
