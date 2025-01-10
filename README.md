@@ -10,15 +10,15 @@ Projekt realizowany w ramach przedmiotu Podstawy Baz Danych na kierunku Informat
 
 ## Polecenie
 
-[Treść polecenia](/Projektowanie/BD_2024.pdf)
+[Treść polecenia](/projektowanie/BD_2024.pdf)
 
 ## Schemat bazy danych
 
-![schemat](/Projektowanie/Schemat-2025-01-10.png)
+![schemat](/projektowanie/Schemat-2025-01-10.png)
 
 ## Dokumentacja
 
-1. **[Funkcje systemu](/Projektowanie/funkcjeSystemu.md)**
+1. **[Funkcje systemu](/projektowanie/funkcjeSystemu.md)**
 2. **Opis tabel, relacji, warunków integralnościowych**
     * [Kategoria Users](/opis-tabel/Users.md)
     * [Kategoria Orders](/opis-tabel/Orders.md)
