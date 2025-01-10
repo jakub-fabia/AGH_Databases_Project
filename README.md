@@ -20,7 +20,7 @@ Projekt realizowany w ramach przedmiotu Podstawy Baz Danych na kierunku Informat
 
 1. **[Funkcje systemu](/Projektowanie/funkcjeSystemu.md)**
 2. **Opis tabel, relacji, warunków integralnościowych**
-    * [Kategoria Users](/"Tabele, relacje, warunki integralnościowe"/Users.md)
-    * [Kategoria Orders](/"Tabele, relacje, warunki integralnościowe"/Orders.md)
-    * [Kategoria Meetings](/"Tabele, relacje, warunki integralnościowe"/Meetings.md)
-    * [Kategoria Classes](/"Tabele, relacje, warunki integralnościowe"/Classes.md)
+    * [Kategoria Users](/opis-tabel/Users.md)
+    * [Kategoria Orders](/opis-tabel/Orders.md)
+    * [Kategoria Meetings](/opis-tabel/Meetings.md)
+    * [Kategoria Classes](/opis-tabel/Classes.md)
