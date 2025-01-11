@@ -40,6 +40,10 @@ CREATE TABLE Subjects (
     subjectCoordinatorID int NOT NULL,
     subjectName varchar(50) NOT NULL,
     syllabusLink varchar(400) NOT NULL,
+    semester int NOT NULL,
+    CONSTRAINT valid_semester CHECK (
+        semester BETWEEN 1 AND 7
+    ),
     CONSTRAINT valid_link_syllabusLink CHECK (
         syllabusLink LIKE 'https://www.kaite.edu.pl/Syllabus/%'
     ),
@@ -52,6 +56,7 @@ CREATE TABLE SubjectMeeting (
     meetingID int NOT NULL,
     subjectID int NOT NULL,
     productID int NOT NULL,
+    capacity int NOT NULL DEFAULT 20,
     CONSTRAINT SubjectMeeting_Meetings FOREIGN KEY (meetingID) REFERENCES Meetings (meetingID),
     CONSTRAINT StudyMeetings_Subjects FOREIGN KEY (subjectID) REFERENCES Subjects (subjectID),
     CONSTRAINT Products_StudyMeetings FOREIGN KEY (productID) REFERENCES Products (productID),
