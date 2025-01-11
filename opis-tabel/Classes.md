@@ -56,6 +56,7 @@ Tabela **Studies** przechowuje informacje o programach studiów:
     - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
 - productID - id produktu (klucz obcy do Products, int)
 - capacity - liczba dostępnych miejsc (int)
+    - wartość domyślna: 20
     - warunek: wartość wieksza od 0
 
 ```sql
@@ -109,6 +110,7 @@ Tabela **SubjectMeeting** jest tabelą pomocniczą służącą do reprezentowani
 - subjectID - id przedmiotu (klucz obcy do Subjects, int)
 - productID - id produktu (klucz obcy do Products, int)
 - capacity - ilość miejsc na przedmiocie (int)
+    - wartość domyślna: 20
     - warunek: ilość miejsc większa od 0
 
 ```sql
