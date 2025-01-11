@@ -1,5 +1,16 @@
 # Kategoria Users
 
+## Tabela Users
+
+Tabela **Users** przechowuje podstawowe informacje o użytkownikach systemu:
+
+- **userID** - id użytkownika (klucz główny, int)
+  - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- firstName - imię użytkownika (varchar(20))
+- lastName - nazwisko użytkownika (varchar(20))
+- email - adres email użytkownika (varchar(50))
+- password - hasło użytkownika (varchar(50))
+
 ```sql
 CREATE TABLE Users (
     userID int NOT NULL IDENTITY(1,1),
@@ -13,6 +24,17 @@ CREATE TABLE Users (
     CONSTRAINT userID PRIMARY KEY (userID)
 );
 ```
+
+## Tabela Employees
+
+Tabela **Employees** przechowuje informacje o pracownikach:
+
+- **employeeID** - id pracownika (klucz główny, int)
+  - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- **userID** - id użytkownika (klucz obcy do Users, int)
+- phone - numer telefonu pracownika (varchar(9))
+- hireDate - data zatrudnienia pracownika (date)
+
 ```sql
 CREATE TABLE Employees (
     employeeID int NOT NULL IDENTITY(1,1),
@@ -32,6 +54,15 @@ CREATE TABLE Employees (
     CONSTRAINT employeeID PRIMARY KEY (employeeID)
 );
 ```
+
+## Tabela Countries
+
+Tabela **Countries** przechowuje informacje o krajach:
+
+- **countryID** - id kraju (klucz główny, int)
+  - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- countryName - nazwa kraju (varchar(20))
+
 ```sql
 CREATE TABLE Countries (
     countryID int NOT NULL IDENTITY(1,1),
@@ -39,6 +70,22 @@ CREATE TABLE Countries (
     CONSTRAINT Countries_pk PRIMARY KEY (countryID)
 );
 ```
+
+## Tabela Students
+
+Tabela **Students** przechowuje informacje o studentach:
+
+- **studentID** - id studenta (klucz główny, int)
+  - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- **userID** - id użytkownika (klucz obcy do Users, int)
+- country - kraj zamieszkania (varchar(20))
+- city - miasto (varchar(20))
+- zip - kod pocztowy (varchar(10))
+- street - ulica (varchar(20))
+- houseNumber - numer domu (varchar(5))
+- apartmentNumber - numer mieszkania (varchar(7))
+- registrationDate - data rejestracji (datetime)
+
 ```sql
 CREATE TABLE Students (
     studentID int NOT NULL IDENTITY(1,1),
@@ -58,6 +105,15 @@ CREATE TABLE Students (
     CONSTRAINT Students_pk PRIMARY KEY (studentID)
 );
 ```
+
+## Tabela Languages
+
+Tabela **Languages** przechowuje informacje o dostępnych językach wykładowych:
+
+- **languageID** - id języka (klucz główny, int)
+  - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- languageName - nazwa języka (varchar(20))
+
 ```sql
 CREATE TABLE Languages (
     languageID int NOT NULL IDENTITY(1,1),
@@ -65,6 +121,14 @@ CREATE TABLE Languages (
     CONSTRAINT Languages_pk PRIMARY KEY (languageID)
 );
 ```
+
+## Tabela EmployeeLanguages
+
+Tabela **EmployeeLanguage**s jest tabelą pomocniczą służącą do reprezentowania relacji wiele-do-wiele pomiędzy tabelami **Employee** i **Languages**:
+
+- **employeeID** - id pracownika (klucz główny, klucz obcy do Employee, int)
+- **languageID** - id języka (klucz główny, klucz obcy do Languages, int)
+
 ```sql
 CREATE TABLE EmployeeLanguages (
     employeeID int NOT NULL,
@@ -74,6 +138,16 @@ CREATE TABLE EmployeeLanguages (
     CONSTRAINT EmployeeLanguages_pk PRIMARY KEY (employeeID,languageID)
 );
 ```
+
+## Tabela Roles
+
+Tabela **Roles** przechowuje informacje o możliwych stanowiskach pracowniczych w systemie:
+
+- **roleID** - id roli (klucz główny, int)
+  - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- roleName - nazwa roli (varchar(20))
+- description - opis roli (varchar(200))
+
 ```sql
 CREATE TABLE Roles (
     roleID int NOT NULL IDENTITY(1,1),
@@ -82,6 +156,14 @@ CREATE TABLE Roles (
     CONSTRAINT roleID PRIMARY KEY (roleID)
 );
 ```
+
+## Tabela EmployeeRole
+
+Tabela **EmployeeRole** jest tabelą pomocniczą służącą do reprezentowania relacji wiele-do-wiele pomiędzy tabelami **Employee** i **Role**. Pozwala na posiadanie wielu ról przez wielu pracowników:
+
+- **roleID** - id roli (klucz główny, klucz obcy do Role, int)
+- **employeeID** - id pracownika (klucz główny, klucz obcy do Employee, int)
+
 ```sql
 CREATE TABLE EmployeeRole (
     roleID int NOT NULL,

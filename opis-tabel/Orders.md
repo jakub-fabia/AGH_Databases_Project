@@ -1,5 +1,17 @@
 # Kategoria Orders
 
+## Tabela Products
+
+Tabela **Products** przechowuje informacje o produktach dostępnych w systemie:
+
+- **productID** - id produktu (klucz główny, int)
+  - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- price - cena produktu (money)
+- name - nazwa produktu (varchar(50))
+- description - opis produktu (varchar(200))
+- createdAt - data utworzenia produktu (datetime)
+- isAvailable - dostępność produktu (bit)
+
 ```sql
 CREATE TABLE Products (
     productID int NOT NULL IDENTITY(1,1),
@@ -17,6 +29,17 @@ CREATE TABLE Products (
     CONSTRAINT Products_pk PRIMARY KEY (productID)
 );
 ```
+
+## Tabela Certificates
+
+Tabela **Certificates** przechowuje informacje o certyfikatach wydanych studentom:
+
+- **certificateID** - id certyfikatu (klucz główny, int)
+  - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- **studentID** - id studenta (klucz obcy do Students, int)
+- **productID** - id produktu (klucz obcy do Products, int)
+- issuedAt - data wydania certyfikatu (datetime)
+
 ```sql
 CREATE TABLE Certificates (
     certificateID int NOT NULL IDENTITY(1,1),
@@ -31,13 +54,34 @@ CREATE TABLE Certificates (
     CONSTRAINT Certificates_pk PRIMARY KEY (certificateID)
 );
 ```
-```
+
+## Tabela OrderStatus
+
+Tabela **OrderStatus** przechowuje informacje o statusach każdego zamówionego przedmiotu:
+
+- **statusID** - id statusu (klucz główny, int)
+  - autoinkrementacja: od wartości 1 , kolejna wartość większa
+- statusName - nazwa statusu (varchar(30))
+- exception - informacja o wyjątkach (bit)
+
+```sql
 CREATE TABLE OrderStatus (
     statusID int NOT NULL IDENTITY(1,1),
     statusName varchar(40) NOT NULL,
     CONSTRAINT OrderStatus_pk PRIMARY KEY (statusID)
 );
 ```
+
+## Tabela Orders
+
+Tabela **Orders** przechowuje informacje o zamówieniach złożonych przez studentów:
+
+- **orderID** - id zamówienia (klucz główny, int)
+  - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- **studentID** - id studenta składającego zamówienie (klucz obcy do Students, int)
+- paymentLink - link do płatności (varchar(100))
+- createdAt - data utworzenia zamówienia (datetime)
+
 ```sql
 CREATE TABLE Orders (
     orderID int NOT NULL IDENTITY(1,1),
@@ -54,6 +98,14 @@ CREATE TABLE Orders (
     CONSTRAINT Orders_pk PRIMARY KEY (orderID)
 );
 ```
+
+## Tabela ShoppingCart
+
+Tabela **ShoppingCart** jest tabelą pomocniczą służącą do reprezentowania relacji wiele-do-wiele pomiędzy tabelami **Students** i **Products**. Przechowuje ona informacje o produktach w koszyku danego studenta (1 koszyk, wiele produktów):
+
+- **studentID** - id studenta (klucz główny, klucz obcy do Students, int)
+- **productID** - id produktu (klucz główny, klucz obcy do Products, int)
+
 ```sql
 CREATE TABLE ShoppingCart (
     studentID int NOT NULL,
@@ -63,6 +115,17 @@ CREATE TABLE ShoppingCart (
     CONSTRAINT ShoppingCart_pk PRIMARY KEY (studentID,productID)
 );
 ```
+
+## Tabela OrderDetails
+
+Tabela **OrderDetails** przechowuje szczegółowe informacje o produktach w zamówieniach:
+
+- **orderID** - id zamówienia (klucz główny, klucz obcy do Orders, int)
+  - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- **productID** - id produktu (klucz główny, klucz obcy do Products, int)
+- **statusID** - id statusu zamówienia (klucz obcy do OrderStatus, int)
+- price - cena produktu w zamówieniu (money)
+
 ```sql
 CREATE TABLE OrderDetails (
     orderID int NOT NULL IDENTITY(1,1),
