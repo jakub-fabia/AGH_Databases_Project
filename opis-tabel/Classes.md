@@ -1,6 +1,11 @@
 # Kategoria Classes
 
 ## Tabela Courses
+Tabela **Courses** przechowuje informacje o kursach:
+- **courseID** - id kursu (klucz główny, int)
+    - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- productID - id produktu (klucz obcy do Products, int)
+- coordinatorID - id koordynatora kursu (klucz obcy do Employees, int)
 
 ```sql
 CREATE TABLE Courses (
@@ -14,6 +19,11 @@ CREATE TABLE Courses (
 ```
 
 ## Tabela CourseModules
+Tabela **CourseModules** przechowuje informacje o modułach kursów:
+- **moduleID** - id modułu kursu (klucz główny, int)
+    - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- courseID - id kursu (klucz obcy do Courses, int)
+- name - nazwa modułu kursu (varchar(50))
 
 ```sql
 CREATE TABLE CourseModules (
@@ -26,6 +36,9 @@ CREATE TABLE CourseModules (
 ```
 
 ## Tabela CourseModuleMeeting
+Tabela **CourseModuleMeeting** jest tabelą pomocniczą służącą do reprezentowania relacji jeden-do-wiele pomiędzy tabelami **Meetings** i **CourseModules** :
+- **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
+- **moduleID** - id modułu kursu (klucz obcy do CourseModules, int)
 
 ```sql
 CREATE TABLE CourseModuleMeeting (
@@ -38,6 +51,12 @@ CREATE TABLE CourseModuleMeeting (
 ```
 
 ## Tabela Studies
+Tabela **Studies** przechowuje informacje o programach studiów:
+- **studyID** - id studiów (klucz główny, int)
+    - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- productID - id produktu (klucz obcy do Products, int)
+- capacity - liczba dostępnych miejsc (int)
+    - warunek: wartość wieksza od 0
 
 ```sql
 CREATE TABLE Studies (
@@ -53,6 +72,14 @@ CREATE TABLE Studies (
 ```
 
 ## Tabela Subjects
+Tabela **Subjects** przechowuje informacje o przedmiotach na studiach:
+- **subjectID** - id przedmiotu (klucz główny, int)
+    - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- studyID - id studiów (klucz obcy do Studies, int)
+- subjectCoordinatorID - id koordynatora przedmiotu (klucz obcy - do Employees, int)
+- subjectName - nazwa przedmiotu (varchar(50))
+- syllabusLink - link do sylabusa (varchar(100))
+    - warunek: link musi być URl-em zaczynającym się od https://www.kaite.edu.pl/Syllabus/
 
 ```sql
 CREATE TABLE Subjects (
@@ -71,6 +98,10 @@ CREATE TABLE Subjects (
 ```
 
 ## Tabela SubjectMeeting
+Tabela **SubjectMeeting** jest tabelą pomocniczą służącą do reprezentowania relacji wiele-do-wiele pomiędzy tabelami **Meetings** i **Subjects**. Pozwala ona także na zakup pojedynczego spotkania dzięki powiązaniu z tabelą **Products**:
+- **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
+- subjectID - id przedmiotu (klucz obcy do Subjects, int)
+- productID - id produktu (klucz obcy do Products, int)
 
 ```sql
 CREATE TABLE SubjectMeeting (
@@ -85,7 +116,11 @@ CREATE TABLE SubjectMeeting (
 ```
 
 ## Tabela Internships
-
+Tabela **Internships** przechowuje informacje o stażach:
+- **internshipID** - id stażu (klucz główny, int)
+    - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- studyID - id studiów (klucz obcy do Studies, int)
+- meeting - id studiów (klucz obcy do Meetings, int)
 ```sql
 CREATE TABLE Internships (
     internshipID int NOT NULL IDENTITY(1,1),
@@ -98,6 +133,11 @@ CREATE TABLE Internships (
 ```
 
 ## Tabela Webinars
+Tabela **Webinars** przechowuje informacje o webinarach:
+- **webinarID** - id webinaru (klucz główny, int)
+    - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- productID - id produktu (klucz obcy do Products, int)
+- meetingID - id spotkania (klucz obcy do Meetings, int)
 
 ```sql
 CREATE TABLE Webinars (

@@ -1,5 +1,9 @@
 # Kategoria Meetings
-
+## Tabela Meetings
+Tabela **Meetings** przechowuje informacje o spotkaniach:
+- **meetingID** - id spotkania (klucz główny, int)
+    - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
+- teacherID - id nauczyciela prowadzącego spotkanie (klucz obcy,int)
 ```sql
 CREATE TABLE Meetings (
     meetingID int NOT NULL IDENTITY(1,1),
@@ -8,6 +12,14 @@ CREATE TABLE Meetings (
     CONSTRAINT Meetings_pk PRIMARY KEY (meetingID)
 );
 ```
+## Tabela Attendance
+Tabela **Attendance** przechowuje informacje o obecności studentów na spotkaniach.  Reprezentuje relację wiele-do-wiele pomiędzy tabelami Meetings i Students:
+- **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
+- **studentID** - id studenta (klucz główny, klucz obcy do Students, int)
+- present - status obecności studenta (bit)
+    - wartość domyślna: 0 (brak obecności)
+- makeUp - informacja czy zajęcia zostały odrobione (bit)
+    - wartość domyślna: 0 (nie zostały odrobione)
 ```sql
 CREATE TABLE Attendence (
     meetingID int NOT NULL,
@@ -19,6 +31,16 @@ CREATE TABLE Attendence (
     CONSTRAINT Attendence_pk PRIMARY KEY (meetingID,studentID)
 );
 ```
+## Tabela Time Schedule
+Tabela **TimeSchedule** przechowuje informacje o harmonogramach spotkań (jeśli spotkanie potrzebuje harmonogramu):
+- **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
+- startTime - czas rozpoczęcia spotkania (datetime)
+    - warunek: musi być pomiędzy 1 stycznia 2020 roku a
+    datą dzisiejszą
+- duration  - czas trwannia spotkania (datetime)
+    - wartość domyślna: 1 godzina 30 minut
+    - warunek: czas trwania jest pomiędzy 15 minut a 4 godziny i 30 minut
+
 ```sql
 CREATE TABLE TimeSchedule (
     meetingID int NOT NULL,
@@ -34,6 +56,12 @@ CREATE TABLE TimeSchedule (
     CONSTRAINT TimeSchedule_pk PRIMARY KEY (meetingID)
 );
 ```
+## Tabela Translators
+Tabela **Translators** przechowuje informacje o tłumaczach na danych spotkaniach i językach ich tłumaczeń:
+- **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
+- translatorID - id tłumacza (klucz obcy do Employees, int)
+- languageID - id języka tłumaczenia (klucz obcy do Languages, int)
+
 ```sql
 CREATE TABLE Translators (
     meetingID int NOT NULL,
@@ -45,6 +73,13 @@ CREATE TABLE Translators (
     CONSTRAINT Translators_pk PRIMARY KEY (meetingID)
 );
 ```
+## Tabela InternshipMeetings 
+Tabela **InternshipMeetings** jest tabelą do przechowywania informacji o stażach reprezentowana w relacji jeden-do-jeden z tabelą **Meetings**:
+- **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
+    - warunek: musi być pomiędzy 1 stycznia 2020 roku a
+    datą dzisiejszą
+- startDate - data rozpoczęcia stażu (date)
+
 ```sql
 CREATE TABLE InternshipMeetings (
     meetingID int NOT NULL,
@@ -56,6 +91,15 @@ CREATE TABLE InternshipMeetings (
     CONSTRAINT InternshipMeeting_pk PRIMARY KEY (meetingID)
 );
 ```
+# Tabela OnlineSyncMeetings 
+Tabela **OnlineSyncMeetings** przechowuje informacje synchronicznych spotkaniach online:
+- **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
+- recordingLink - link do nagrania spotkania (varchar(400))
+    - warunek: link musi być URl-em zaczynającym się od https://www.kaite.edu.pl/RecordingLink/
+- liveMettingLink - link do spotkanie na żywo (varchar(400))
+    - warunek: link musi być URl-em zaczynającym się od https://www.kaite.edu.pl/MeetingLink/
+
+
 ```sql
 CREATE TABLE OnlineSyncMeetings (
     meetingID int NOT NULL,
@@ -71,6 +115,11 @@ CREATE TABLE OnlineSyncMeetings (
     CONSTRAINT OnlineSyncMeetings_pk PRIMARY KEY (meetingID)
 );
 ```
+# Tabela OnlineAsyncMeetings 
+Tabela **OnlineAsyncMeetings** przechowuje informacje o asynchronicznych spotkaniach online:
+- **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
+- recordingLink - link do nagrania spotkania (varchar(400))
+    - warunek: link musi być URl-em zaczynającym się od https://www.kaite.edu.pl/RecordingLink/
 ```sql
 CREATE TABLE OnlineAsyncMeetings (
     meetingID int NOT NULL,
@@ -82,6 +131,11 @@ CREATE TABLE OnlineAsyncMeetings (
     CONSTRAINT OnlineAsyncMeetings_pk PRIMARY KEY (meetingID)
 );
 ```
+# Tabela Location 
+Tabela **Location** przechowuje informacje o możliwych lokalizacjach spotkań:
+- **locationID** - id lokalizacji (klucz główny, int)
+- location - nazwa lokalizacji lub adres (varchar(20))
+
 ```sql
 CREATE TABLE Location (
     locationID int NOT NULL,
@@ -89,6 +143,14 @@ CREATE TABLE Location (
     CONSTRAINT Location_pk PRIMARY KEY (locationID)
 );
 ```
+# Tabela StationaryMeetings 
+Tabela **StationaryMeetings** przechowuje informacje o stacjonarnych spotkaniach:
+- **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
+- locationID - id lokalizacji (klucz obcy do Location, int)
+- capacity - pojemność sali lub liczba dostępnych miejsc (int)
+    - wartość domyślna: 25
+    - warunek: wartość większa od 0
+
 ```sql
 CREATE TABLE StationaryMeetings (
     meetingID int NOT NULL,
