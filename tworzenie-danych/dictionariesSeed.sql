@@ -26,3 +26,6 @@ INSERT INTO Roles (roleName, description) VALUES
 ('Koordynator Kursów','Osoba nadzorujaca realizacje konkretnego kursu'),
 ('Tlumacz','Osoba tlumaczaca formy nauczania');
 
+INSERT INTO Countries (countryName) VALUES
+('Poland'), ('United States'), ('Brazil'), ('Mexico'), ('Germany'), ('United Kingdom'), ('France'), ('Italy'), ('Spain'), ('Canada'), ('Australia'), ('Netherlands'), ('Belgium'), ('Sweden'), ('Portugal'), ('Switzerland'), ('Austria'), ('Denmark'), ('Finland'), ('Norway'), ('Ireland'), ('New Zealand'), ('Greece'), ('Czech Republic'), ('Hungary'), ('Slovakia'), ('Lithuania'), ('Latvia'), ('Estonia'), ('Slovenia'), ('Croatia'), ('Serbia'), ('Montenegro'), ('North Macedonia'), ('Albania'), ('Bulgaria'), ('Romania');
+

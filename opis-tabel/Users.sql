@@ -3,7 +3,6 @@ CREATE TABLE Users (
     firstName varchar(20) NOT NULL,
     lastName varchar(20) NOT NULL,
     email varchar(50) NOT NULL,
-    password varchar(50) NOT NULL,
     CONSTRAINT unique_email UNIQUE (email),
     CONSTRAINT email_format CHECK (
         email LIKE '%_@_%._%'
@@ -17,6 +16,9 @@ CREATE TABLE Employees (
     phone varchar(15) NOT NULL,
     hireDate date NOT NULL DEFAULT GETDATE(),
     isEmployed bit NOT NULL DEFAULT 1,
+    CONSTRAINT hireDate_Employees_reasonable CHECK (
+        hireDate BETWEEN '2020-01-01' AND GETDATE()
+    )
     CONSTRAINT unique_phone UNIQUE (phone),
     CONSTRAINT valid_phone CHECK (
         (LEN(phone) = 9 AND ISNUMERIC(phone) = 1) OR
@@ -42,6 +44,9 @@ CREATE TABLE Students (
     houseNumber varchar(5) NOT NULL,
     apartmentNumber varchar(7) NULL,
     registrationDate datetime NOT NULL DEFAULT GETDATE(),
+    CONSTRAINT registrationDate_Students_reasonable CHECK (
+        registrationDate BETWEEN '2020-01-01' AND GETDATE()
+    ),
     CONSTRAINT Students_Users FOREIGN KEY (userID) REFERENCES Users (userID),
     CONSTRAINT Students_Countries FOREIGN KEY (countryID) REFERENCES Countries (CountryID),
     CONSTRAINT Students_pk PRIMARY KEY (studentID)

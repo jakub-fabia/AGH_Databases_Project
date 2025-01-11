@@ -14,7 +14,7 @@ Projekt realizowany w ramach przedmiotu Podstawy Baz Danych na kierunku Informat
 
 ## Schemat bazy danych
 
-![schemat](/projektowanie/Schemat-2025-01-10.png)
+![schemat](/projektowanie/Schemat.png)
 
 ## Dokumentacja
 
