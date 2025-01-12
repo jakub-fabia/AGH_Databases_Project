@@ -1,0 +1,544 @@
+{
+    "webinars": [
+      {
+        "name": "Wprowadzenie do programowania w Pythonie",
+        "description": "Naucz się podstaw programowania w Pythonie, w tym składni, struktur danych i prostych algorytmów.",
+        "price": 0
+      },
+      {
+        "name": "Zaawansowane techniki uczenia maszynowego",
+        "description": "Poznaj zaawansowane tematy z zakresu uczenia maszynowego, takie jak metody zespołowe, sieci neuronowe i dostrajanie hiperparametrów.",
+        "price": 50
+      },
+      {
+        "name": "Podstawy zarządzania projektami",
+        "description": "Zrozum kluczowe zasady zarządzania projektami, w tym planowanie, realizację i monitorowanie.",
+        "price": 25
+      },
+      {
+        "name": "Wizualizacja danych z Tableau",
+        "description": "Naucz się tworzyć interaktywne i wnikliwe wizualizacje danych za pomocą Tableau.",
+        "price": 30
+      },
+      {
+        "name": "Wprowadzenie do cyberbezpieczeństwa",
+        "description": "Zapoznaj się z podstawami cyberbezpieczeństwa, w tym analizą zagrożeń i strategiami ochrony.",
+        "price": 0
+      },
+      {
+        "name": "Efektywna komunikacja biznesowa",
+        "description": "Popraw swoje umiejętności komunikacyjne w środowisku zawodowym, w tym etykietę e-mailową i prezentacje.",
+        "price": 20
+      },
+      {
+        "name": "Podstawy chmury obliczeniowej",
+        "description": "Poznaj podstawy chmury obliczeniowej z naciskiem na popularne usługi takie jak AWS i Azure.",
+        "price": 40
+      },
+      {
+        "name": "Podstawy technologii blockchain i kryptowalut",
+        "description": "Zrozum, jak działa technologia blockchain i jej zastosowania w kryptowalutach.",
+        "price": 35
+      },
+      {
+        "name": "Zarządzanie czasem dla profesjonalistów",
+        "description": "Opanuj strategie zarządzania czasem, aby zwiększyć produktywność i efektywność w pracy.",
+        "price": 15
+      },
+      {
+        "name": "Wprowadzenie do sztucznej inteligencji",
+        "description": "Poznaj podstawy sztucznej inteligencji, w tym uczenie maszynowe, przetwarzanie języka naturalnego i wizję komputerową.",
+        "price": 50
+      },
+      {
+        "name": "Podstawy programowania w C++",
+        "description": "Opanuj podstawy programowania w C++, w tym obiektowość i zarządzanie pamięcią.",
+        "price": 30
+      },
+      {
+        "name": "Praktyczne zastosowanie Javy w projektach",
+        "description": "Zdobądź umiejętności w zakresie praktycznego wykorzystania języka Java w projektach komercyjnych.",
+        "price": 45
+      },
+      {
+        "name": "Podstawy analizy finansowej",
+        "description": "Naucz się podstaw analizy finansowej, w tym interpretacji bilansów i rachunków zysków i strat.",
+        "price": 20
+      },
+      {
+        "name": "Podstawy UX/UI Design",
+        "description": "Poznaj zasady projektowania doświadczeń użytkownika i interfejsów w aplikacjach internetowych.",
+        "price": 35
+      },
+      {
+        "name": "Wprowadzenie do programowania w R",
+        "description": "Opanuj podstawy analizy danych i statystyki przy użyciu języka R.",
+        "price": 30
+      },
+      {
+        "name": "Podstawy grafiki komputerowej",
+        "description": "Poznaj narzędzia i techniki tworzenia grafiki komputerowej.",
+        "price": 25
+      },
+      {
+        "name": "Wprowadzenie do Internetu Rzeczy (IoT)",
+        "description": "Poznaj podstawy Internetu Rzeczy, w tym integrację urządzeń z siecią.",
+        "price": 50
+      },
+      {
+        "name": "Podstawy administracji systemami Linux",
+        "description": "Naucz się podstaw zarządzania systemami opartymi na Linuxie.",
+        "price": 35
+      },
+      {
+        "name": "Wprowadzenie do uczenia maszynowego",
+        "description": "Poznaj podstawowe pojęcia uczenia maszynowego, takie jak modele, funkcje kosztu i optymalizacja.",
+        "price": 0
+      },
+      {
+        "name": "Sieci neuronowe od podstaw",
+        "description": "Zrozum, jak działają sieci neuronowe, ich architektura i proces trenowania.",
+        "price": 50
+      },
+      {
+        "name": "Uczenie nadzorowane i nienadzorowane",
+        "description": "Dowiedz się, czym różni się uczenie nadzorowane od nienadzorowanego na przykładach praktycznych.",
+        "price": 30
+      },
+      {
+        "name": "Uczenie ze wzmocnieniem",
+        "description": "Wprowadzenie do koncepcji uczenia ze wzmocnieniem i zastosowań w robotyce.",
+        "price": 40
+      },
+      {
+        "name": "Przetwarzanie języka naturalnego (NLP)",
+        "description": "Poznaj techniki przetwarzania języka naturalnego, takie jak tokenizacja, stemming i lematyzacja.",
+        "price": 35
+      },
+      {
+        "name": "Wizualizacja wyników modeli ML",
+        "description": "Naucz się wizualizować wyniki modeli uczenia maszynowego za pomocą bibliotek takich jak Matplotlib i Seaborn.",
+        "price": 20
+      },
+      {
+        "name": "Uczenie głębokie (Deep Learning)",
+        "description": "Poznaj podstawy głębokiego uczenia oraz narzędzia takie jak TensorFlow i Keras.",
+        "price": 50
+      },
+      {
+        "name": "Optymalizacja hiperparametrów",
+        "description": "Naucz się metod dostrajania modeli ML, takich jak Grid Search i Random Search.",
+        "price": 25
+      },
+      {
+        "name": "Uczenie transferowe",
+        "description": "Poznaj techniki transferu wiedzy z jednego modelu ML na inny, aby przyspieszyć trenowanie.",
+        "price": 30
+      },
+      {
+        "name": "Analiza jakości modeli",
+        "description": "Dowiedz się, jak analizować jakość modeli ML za pomocą metryk takich jak F1-score i ROC.",
+        "price": 40
+      },
+      {
+        "name": "Podstawy mechaniki budowli",
+        "description": "Poznaj podstawowe zasady mechaniki budowli, w tym równowagę sił i momentów.",
+        "price": 0
+      },
+      {
+        "name": "Wprowadzenie do inżynierii materiałowej",
+        "description": "Dowiedz się, jak właściwości materiałów wpływają na ich zastosowanie w inżynierii.",
+        "price": 25
+      },
+      {
+        "name": "Zaawansowane techniki CAD",
+        "description": "Opanuj zaawansowane narzędzia projektowania wspomaganego komputerowo (CAD) dla inżynierów.",
+        "price": 50
+      },
+      {
+        "name": "Podstawy elektroniki i obwodów elektrycznych",
+        "description": "Poznaj zasady działania elementów elektronicznych i podstawy projektowania obwodów.",
+        "price": 30
+      },
+      {
+        "name": "Inżynieria termiczna w praktyce",
+        "description": "Zrozum podstawowe prawa termodynamiki i ich praktyczne zastosowania w inżynierii.",
+        "price": 40
+      },
+      {
+        "name": "Automatyka i sterowanie przemysłowe",
+        "description": "Naucz się podstaw automatyki przemysłowej i zasad programowania sterowników PLC.",
+        "price": 45
+      },
+      {
+        "name": "Wprowadzenie do robotyki",
+        "description": "Poznaj zasady działania robotów oraz podstawy programowania manipulatorów.",
+        "price": 50
+      },
+      {
+        "name": "Podstawy inżynierii środowiska",
+        "description": "Dowiedz się, jak inżynieria środowiska przyczynia się do zrównoważonego rozwoju.",
+        "price": 20
+      },
+      {
+        "name": "Analiza wytrzymałości materiałów",
+        "description": "Poznaj metody analizy wytrzymałości materiałów, w tym testy naprężeń i odkształceń.",
+        "price": 35
+      },
+      {
+        "name": "Technologie druku 3D",
+        "description": "Dowiedz się, jak działają technologie druku 3D i jakie mają zastosowania w inżynierii.",
+        "price": 30
+      },
+      {
+        "name": "Podstawy astronomii",
+        "description": "Poznaj podstawowe pojęcia astronomii, takie jak gwiazdy, planety i galaktyki.",
+        "price": 0
+      },
+      {
+        "name": "Eksploracja Układu Słonecznego",
+        "description": "Dowiedz się o planetach Układu Słonecznego, ich księżycach i misjach badawczych.",
+        "price": 30
+      },
+      {
+        "name": "Czarne dziury i tajemnice kosmosu",
+        "description": "Odkryj fascynujący świat czarnych dziur i zjawisk astrofizycznych.",
+        "price": 50
+      },
+      {
+        "name": "Kolonizacja Marsa – wyzwania i możliwości",
+        "description": "Zgłęb wyzwania techniczne i biologiczne związane z eksploracją Marsa.",
+        "price": 40
+      },
+      {
+        "name": "Teleskopy kosmiczne i ich zastosowania",
+        "description": "Poznaj historię i znaczenie teleskopów kosmicznych, takich jak Hubble i James Webb.",
+        "price": 25
+      },
+      {
+        "name": "Historia wyścigu kosmicznego",
+        "description": "Dowiedz się o zimnowojennym wyścigu kosmicznym i pierwszym lądowaniu na Księżycu.",
+        "price": 20
+      },
+      {
+        "name": "Technologie napędów kosmicznych",
+        "description": "Poznaj różne technologie napędów wykorzystywanych w misjach kosmicznych.",
+        "price": 50
+      },
+      {
+        "name": "Życie poza Ziemią – poszukiwania egzoplanet",
+        "description": "Odkryj metody wykrywania egzoplanet i poszukiwań życia w kosmosie.",
+        "price": 30
+      },
+      {
+        "name": "Stacje kosmiczne i życie na orbicie",
+        "description": "Dowiedz się, jak funkcjonują stacje kosmiczne i jak wygląda życie na orbicie.",
+        "price": 35
+      },
+      {
+        "name": "Wprowadzenie do astrobiologii",
+        "description": "Poznaj podstawy astrobiologii i poszukiwania warunków sprzyjających życiu.",
+        "price": 40
+      },
+      {
+        "name": "Wprowadzenie do fizyki kwantowej",
+        "description": "Poznaj podstawowe zasady fizyki kwantowej, takie jak dualizm korpuskularno-falowy i zasada nieoznaczoności.",
+        "price": 0
+      },
+      {
+        "name": "Zjawisko splątania kwantowego",
+        "description": "Dowiedz się, czym jest splątanie kwantowe i jakie ma konsekwencje dla współczesnej fizyki.",
+        "price": 40
+      },
+      {
+        "name": "Mechanika kwantowa a klasyczna",
+        "description": "Porównanie zasad mechaniki kwantowej i klasycznej oraz ich zastosowania.",
+        "price": 25
+      },
+      {
+        "name": "Komputery kwantowe – podstawy działania",
+        "description": "Poznaj zasady działania komputerów kwantowych i różnice w stosunku do klasycznych.",
+        "price": 50
+      },
+      {
+        "name": "Równanie Schrödingera i jego interpretacja",
+        "description": "Wprowadzenie do równania Schrödingera i jego zastosowań w fizyce kwantowej.",
+        "price": 30
+      },
+      {
+        "name": "Superpozycja i zasada nieoznaczoności",
+        "description": "Zrozum kluczowe koncepcje superpozycji stanów i zasady nieoznaczoności.",
+        "price": 35
+      },
+      {
+        "name": "Podstawy teorii kwantowej informacji",
+        "description": "Dowiedz się, jak teoria kwantowa wpływa na przetwarzanie informacji i kryptografię.",
+        "price": 45
+      },
+      {
+        "name": "Eksperyment z dwoma szczelinami",
+        "description": "Analiza słynnego eksperymentu z dwoma szczelinami i jego implikacji filozoficznych.",
+        "price": 20
+      },
+      {
+        "name": "Teleportacja kwantowa",
+        "description": "Poznaj zasady teleportacji kwantowej i jej potencjalne zastosowania.",
+        "price": 50
+      },
+      {
+        "name": "Stan splątany i jego zastosowania",
+        "description": "Zrozum, jak stany splątane są wykorzystywane w kryptografii i komunikacji kwantowej.",
+        "price": 30
+      },
+      {
+        "name": "Podstawy cyberbezpieczeństwa",
+        "description": "Poznaj kluczowe pojęcia cyberbezpieczeństwa, takie jak firewalle, VPN i ochrona sieci.",
+        "price": 0
+      },
+      {
+        "name": "Ochrona przed phishingiem",
+        "description": "Dowiedz się, jak rozpoznawać ataki phishingowe i chronić swoje dane.",
+        "price": 20
+      },
+      {
+        "name": "Podstawy kryptografii",
+        "description": "Poznaj zasady działania szyfrowania i algorytmów kryptograficznych.",
+        "price": 35
+      },
+      {
+        "name": "Bezpieczeństwo w chmurze",
+        "description": "Zrozum zagrożenia i sposoby ochrony danych w środowiskach chmurowych.",
+        "price": 50
+      },
+      {
+        "name": "Audyt bezpieczeństwa IT",
+        "description": "Naucz się przeprowadzać audyt bezpieczeństwa w firmie krok po kroku.",
+        "price": 40
+      },
+      {
+        "name": "Zaawansowane ataki DDoS",
+        "description": "Poznaj metody przeprowadzania i ochrony przed atakami DDoS.",
+        "price": 50
+      },
+      {
+        "name": "Bezpieczeństwo urządzeń IoT",
+        "description": "Dowiedz się, jak zabezpieczyć urządzenia Internetu Rzeczy przed cyberatakami.",
+        "price": 30
+      },
+      {
+        "name": "Testy penetracyjne w praktyce",
+        "description": "Zdobądź umiejętności przeprowadzania testów penetracyjnych na rzeczywistych systemach.",
+        "price": 45
+      },
+      {
+        "name": "Zarządzanie incydentami bezpieczeństwa",
+        "description": "Poznaj procesy zarządzania i reagowania na incydenty bezpieczeństwa.",
+        "price": 25
+      },
+      {
+        "name": "Bezpieczeństwo aplikacji webowych",
+        "description": "Dowiedz się, jak chronić aplikacje webowe przed atakami XSS, CSRF i SQL Injection.",
+        "price": 50
+      },
+      {
+        "name": "Wprowadzenie do statystyki",
+        "description": "Poznaj podstawowe pojęcia statystyki, takie jak średnia, mediana i odchylenie standardowe.",
+        "price": 0
+      },
+      {
+        "name": "Analiza regresji liniowej",
+        "description": "Dowiedz się, jak budować modele regresji liniowej do przewidywania wartości.",
+        "price": 25
+      },
+      {
+        "name": "Teoria prawdopodobieństwa w praktyce",
+        "description": "Poznaj podstawowe zasady rachunku prawdopodobieństwa i jego zastosowania.",
+        "price": 30
+      },
+      {
+        "name": "Wizualizacja danych statystycznych",
+        "description": "Naucz się przedstawiać dane statystyczne za pomocą wykresów i diagramów.",
+        "price": 20
+      },
+      {
+        "name": "Testy statystyczne i ich zastosowania",
+        "description": "Poznaj testy statystyczne, takie jak test t-Studenta i ANOVA.",
+        "price": 35
+      },
+      {
+        "name": "Podstawy wnioskowania statystycznego",
+        "description": "Zrozum, jak wyciągać wnioski z danych na podstawie próbek statystycznych.",
+        "price": 40
+      },
+      {
+        "name": "Analiza wariancji (ANOVA)",
+        "description": "Dowiedz się, jak stosować analizę wariancji w analizie danych eksperymentalnych.",
+        "price": 50
+      },
+      {
+        "name": "Modelowanie statystyczne",
+        "description": "Poznaj metody modelowania statystycznego dla danych ilościowych.",
+        "price": 45
+      },
+      {
+        "name": "Praktyczne użycie statystyki w Pythonie",
+        "description": "Naucz się stosować metody statystyczne w Pythonie z wykorzystaniem bibliotek NumPy i Pandas.",
+        "price": 50
+      },
+      {
+        "name": "Próby losowe i estymacja",
+        "description": "Zrozum, jak działa estymacja punktowa i przedziałowa w statystyce.",
+        "price": 25
+      },
+      {
+        "name": "Wprowadzenie do projektowania CAD",
+        "description": "Poznaj podstawy projektowania wspomaganego komputerowo, w tym interfejsy i narzędzia CAD.",
+        "price": 0
+      },
+      {
+        "name": "Zaawansowane techniki modelowania 3D",
+        "description": "Dowiedz się, jak tworzyć zaawansowane modele 3D za pomocą narzędzi CAD.",
+        "price": 50
+      },
+      {
+        "name": "CAD w inżynierii mechanicznej",
+        "description": "Poznaj zastosowania oprogramowania CAD w projektowaniu elementów mechanicznych.",
+        "price": 40
+      },
+      {
+        "name": "Projektowanie architektoniczne w CAD",
+        "description": "Dowiedz się, jak wykorzystać CAD w projektowaniu budynków i struktur architektonicznych.",
+        "price": 35
+      },
+      {
+        "name": "Podstawy rysunku technicznego w CAD",
+        "description": "Zrozum, jak tworzyć rysunki techniczne w oprogramowaniu CAD zgodnie z normami.",
+        "price": 25
+      },
+      {
+        "name": "Automatyzacja projektów CAD",
+        "description": "Naucz się wykorzystywać makra i skrypty do automatyzacji projektowania CAD.",
+        "price": 45
+      },
+      {
+        "name": "Renderowanie i wizualizacja projektów CAD",
+        "description": "Poznaj techniki renderowania i wizualizacji modeli 3D w CAD.",
+        "price": 30
+      },
+      {
+        "name": "Zarządzanie plikami i wersjami w CAD",
+        "description": "Dowiedz się, jak efektywnie zarządzać plikami projektowymi i kontrolować wersje projektów CAD.",
+        "price": 20
+      },
+      {
+        "name": "Symulacje i analizy w CAD",
+        "description": "Zdobądź umiejętności w przeprowadzaniu symulacji i analiz strukturalnych w CAD.",
+        "price": 50
+      },
+      {
+        "name": "Podstawy CAM w CAD",
+        "description": "Poznaj integrację projektowania CAD z wytwarzaniem komputerowym (CAM).",
+        "price": 40
+      },
+      {
+        "name": "Wprowadzenie do robotyki",
+        "description": "Poznaj podstawowe pojęcia robotyki, w tym kinematykę, dynamikę i podstawy programowania robotów.",
+        "price": 0
+      },
+      {
+        "name": "Podstawy programowania robotów mobilnych",
+        "description": "Dowiedz się, jak programować roboty mobilne i sterować ich ruchem.",
+        "price": 30
+      },
+      {
+        "name": "Robotyka przemysłowa – podstawy",
+        "description": "Poznaj zastosowania robotów przemysłowych oraz podstawowe systemy sterowania.",
+        "price": 50
+      },
+      {
+        "name": "Wizja komputerowa w robotyce",
+        "description": "Zrozum, jak działa rozpoznawanie obrazów i jego zastosowanie w robotyce.",
+        "price": 40
+      },
+      {
+        "name": "Uczenie maszynowe w robotyce",
+        "description": "Poznaj metody uczenia maszynowego wykorzystywane w programowaniu robotów.",
+        "price": 50
+      },
+      {
+        "name": "Zastosowanie sensorów w robotyce",
+        "description": "Dowiedz się, jak wykorzystywać różne czujniki do nawigacji i interakcji robotów.",
+        "price": 25
+      },
+      {
+        "name": "Algorytmy sterowania ruchem robotów",
+        "description": "Naucz się podstawowych algorytmów sterowania ruchem, takich jak PID i DWA.",
+        "price": 35
+      },
+      {
+        "name": "Projektowanie manipulatorów robotycznych",
+        "description": "Poznaj podstawy projektowania manipulatorów robotycznych i ich kinematyki.",
+        "price": 45
+      },
+      {
+        "name": "Autonomiczne roboty eksploracyjne",
+        "description": "Dowiedz się, jak projektować roboty eksploracyjne do zadań takich jak mapowanie terenu.",
+        "price": 50
+      },
+      {
+        "name": "Bezpieczeństwo w systemach robotycznych",
+        "description": "Zrozum zasady bezpieczeństwa w projektowaniu i obsłudze systemów robotycznych.",
+        "price": 20
+      },
+      {
+        "name": "Podstawy elektroniki analogowej",
+        "description": "Poznaj kluczowe zasady elektroniki analogowej, takie jak prąd, napięcie i rezystancja.",
+        "price": 0
+      },
+      {
+        "name": "Projektowanie obwodów drukowanych (PCB)",
+        "description": "Naucz się projektować obwody drukowane przy użyciu specjalistycznych narzędzi CAD.",
+        "price": 50
+      },
+      {
+        "name": "Podstawy układów cyfrowych",
+        "description": "Dowiedz się, jak działają układy cyfrowe, w tym bramki logiczne i flip-flopy.",
+        "price": 30
+      },
+      {
+        "name": "Mikrokontrolery i Arduino",
+        "description": "Poznaj podstawy programowania mikrokontrolerów na przykładzie platformy Arduino.",
+        "price": 40
+      },
+      {
+        "name": "Zasilacze i stabilizatory napięcia",
+        "description": "Dowiedz się, jak projektować zasilacze i układy stabilizacji napięcia.",
+        "price": 25
+      },
+      {
+        "name": "Wprowadzenie do układów FPGA",
+        "description": "Poznaj podstawy programowania układów FPGA oraz ich zastosowania w praktyce.",
+        "price": 35
+      },
+      {
+        "name": "Czujniki i układy pomiarowe",
+        "description": "Naucz się, jak wykorzystać różne czujniki do pomiarów fizycznych i środowiskowych.",
+        "price": 20
+      },
+      {
+        "name": "Elektronika mocy – podstawy",
+        "description": "Poznaj zasady działania układów elektroniki mocy, takich jak falowniki i przekształtniki.",
+        "price": 50
+      },
+      {
+        "name": "Internet Rzeczy (IoT) i elektronika",
+        "description": "Dowiedz się, jak integrować elektronikę z systemami IoT.",
+        "price": 45
+      },
+      {
+        "name": "Diagnostyka i naprawa układów elektronicznych",
+        "description": "Zdobądź umiejętności diagnozowania i naprawy uszkodzonych obwodów elektronicznych.",
+        "price": 35
+      }
+    ]
+  }

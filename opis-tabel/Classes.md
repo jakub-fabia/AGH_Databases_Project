@@ -6,12 +6,18 @@ Tabela **Courses** przechowuje informacje o kursach:
     - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
 - productID - id produktu (klucz obcy do Products, int)
 - coordinatorID - id koordynatora kursu (klucz obcy do Employees, int)
+- capacity - ilość miejsc w kursie (int, nullable)
+    - warunek: capacity większe od 0
 
 ```sql
 CREATE TABLE Courses (
     courseID int NOT NULL IDENTITY(1,1),
     productID int NOT NULL,
     coordinatorID int NOT NULL,
+    capacity int,
+    CONSTRAINT Courses_capacity_positive CHECK (
+        capacity > 0
+    ),
     CONSTRAINT Courses_Products FOREIGN KEY (productID) REFERENCES Products (productID),
     CONSTRAINT Employees_Courses FOREIGN KEY (coordinatorID) REFERENCES Employees (employeeID),
     CONSTRAINT Courses_pk PRIMARY KEY (courseID)
@@ -56,6 +62,7 @@ Tabela **Studies** przechowuje informacje o programach studiów:
     - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
 - productID - id produktu (klucz obcy do Products, int)
 - capacity - liczba dostępnych miejsc (int)
+    - wartość domyślna: 20
     - warunek: wartość wieksza od 0
 
 ```sql
@@ -80,6 +87,8 @@ Tabela **Subjects** przechowuje informacje o przedmiotach na studiach:
 - subjectName - nazwa przedmiotu (varchar(50))
 - syllabusLink - link do sylabusa (varchar(100))
     - warunek: link musi być URl-em zaczynającym się od https://www.kaite.edu.pl/Syllabus/
+- semester - numer semestru (int)
+    - warunek: między 1 a 7
 
 ```sql
 CREATE TABLE Subjects (
@@ -88,6 +97,10 @@ CREATE TABLE Subjects (
     subjectCoordinatorID int NOT NULL,
     subjectName varchar(50) NOT NULL,
     syllabusLink varchar(400) NOT NULL,
+    semester int NOT NULL,
+    CONSTRAINT valid_semester CHECK (
+        semester BETWEEN 1 AND 7
+    ),
     CONSTRAINT valid_link_syllabusLink CHECK (
         syllabusLink LIKE 'https://www.kaite.edu.pl/Syllabus/%'
     ),
@@ -102,12 +115,19 @@ Tabela **SubjectMeeting** jest tabelą pomocniczą służącą do reprezentowani
 - **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
 - subjectID - id przedmiotu (klucz obcy do Subjects, int)
 - productID - id produktu (klucz obcy do Products, int)
+- capacity - ilość miejsc na przedmiocie (int)
+    - wartość domyślna: 20
+    - warunek: ilość miejsc większa od 0
 
 ```sql
 CREATE TABLE SubjectMeeting (
     meetingID int NOT NULL,
     subjectID int NOT NULL,
     productID int NOT NULL,
+    capacity int NOT NULL DEFAULT 20,
+    CONSTRAINT SubjectMeeting_capacity_positive CHECK (
+        capacity > 0
+    ),
     CONSTRAINT SubjectMeeting_Meetings FOREIGN KEY (meetingID) REFERENCES Meetings (meetingID),
     CONSTRAINT StudyMeetings_Subjects FOREIGN KEY (subjectID) REFERENCES Subjects (subjectID),
     CONSTRAINT Products_StudyMeetings FOREIGN KEY (productID) REFERENCES Products (productID),

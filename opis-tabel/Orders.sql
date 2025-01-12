@@ -57,7 +57,7 @@ CREATE TABLE ShoppingCart (
 );
 
 CREATE TABLE OrderDetails (
-    orderID int NOT NULL IDENTITY(1,1),
+    orderID int NOT NULL,
     productID int NOT NULL,
     statusID int NOT NULL,
     pricePaid money NOT NULL,

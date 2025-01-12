@@ -121,14 +121,14 @@ CREATE TABLE ShoppingCart (
 Tabela **OrderDetails** przechowuje szczegółowe informacje o produktach w zamówieniach:
 
 - **orderID** - id zamówienia (klucz główny, klucz obcy do Orders, int)
-  - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
 - **productID** - id produktu (klucz główny, klucz obcy do Products, int)
 - **statusID** - id statusu zamówienia (klucz obcy do OrderStatus, int)
-- price - cena produktu w zamówieniu (money)
+- **pricePaid** - kwota zapłacona za produkt (money)
+    - Warunek: Nieujemna
 
 ```sql
 CREATE TABLE OrderDetails (
-    orderID int NOT NULL IDENTITY(1,1),
+    orderID int NOT NULL,
     productID int NOT NULL,
     statusID int NOT NULL,
     pricePaid money NOT NULL,

@@ -20,7 +20,7 @@ CREATE TABLE TimeSchedule (
     startTime datetime NOT NULL,
     duration time NOT NULL DEFAULT '01:30:00',
     CONSTRAINT startTime_TimeSchedule_reasonable CHECK (
-        startTime BETWEEN '2020-01-01' AND GETDATE()
+        startTime > '2020-01-01'
     ),
     CONSTRAINT duration_TimeSchedule_reasonable CHECK (
         duration BETWEEN '00:15:00' AND '04:30:00'

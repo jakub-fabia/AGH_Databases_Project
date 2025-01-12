@@ -35,8 +35,7 @@ CREATE TABLE Attendence (
 Tabela **TimeSchedule** przechowuje informacje o harmonogramach spotkań (jeśli spotkanie potrzebuje harmonogramu):
 - **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
 - startTime - czas rozpoczęcia spotkania (datetime)
-    - warunek: musi być pomiędzy 1 stycznia 2020 roku a
-    datą dzisiejszą
+    - warunek: musi być większa niż 1 stycznia 2020 roku
 - duration  - czas trwannia spotkania (datetime)
     - wartość domyślna: 1 godzina 30 minut
     - warunek: czas trwania jest pomiędzy 15 minut a 4 godziny i 30 minut
@@ -47,7 +46,7 @@ CREATE TABLE TimeSchedule (
     startTime datetime NOT NULL,
     duration time NOT NULL DEFAULT '01:30:00',
     CONSTRAINT startTime_TimeSchedule_reasonable CHECK (
-        startTime BETWEEN '2020-01-01' AND GETDATE()
+        startTime > '2020-01-01'
     ),
     CONSTRAINT duration_TimeSchedule_reasonable CHECK (
         duration BETWEEN '00:15:00' AND '04:30:00'
