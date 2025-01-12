@@ -1,0 +1,1684 @@
+{
+    "courses": [
+      {
+        "name": "Introduction to Robotics",
+        "description": "A foundational course exploring the basics of robotics and automation.",
+        "price": 1200,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Robotic Kinematics",
+            "description": "Understanding the movement and control of robotic arms.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Programming Basics",
+            "description": "Introduction to programming concepts using Python for robotics.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Sensors and Actuators",
+            "description": "Exploring various sensors and actuators used in robots.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Robotic Simulation",
+            "description": "Simulating robotic movements using software tools.",
+            "type": "OnlineAsync"
+          }
+        ]
+      },
+      {
+        "name": "Renewable Energy Systems",
+        "description": "An in-depth look into modern renewable energy technologies and systems.",
+        "price": 1500,
+        "capacity": 25,
+        "modules": [
+          {
+            "name": "Solar Power Technologies",
+            "description": "Exploring solar panels and photovoltaic systems.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Wind Energy Basics",
+            "description": "Introduction to wind turbines and energy conversion.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Energy Storage Solutions",
+            "description": "Understanding batteries and energy storage technologies.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Energy Management Systems",
+            "description": "Managing and optimizing energy consumption.",
+            "type": "OnlineAsync"
+          }
+        ]
+      },
+      {
+        "name": "Data Science Essentials",
+        "description": "Learn the core concepts of data science and machine learning.",
+        "price": 1000,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Introduction to Python for Data Science",
+            "description": "Learning the basics of Python for data analysis.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Data Visualization Techniques",
+            "description": "Creating informative visualizations using Matplotlib and Seaborn.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Machine Learning Basics",
+            "description": "Understanding basic machine learning algorithms.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Project Presentation",
+            "description": "Presenting a data analysis project.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "3D Printing and Prototyping",
+        "description": "Hands-on experience in 3D printing and prototyping technologies.",
+        "price": 1300,
+        "capacity": 15,
+        "modules": [
+          {
+            "name": "3D Modeling Basics",
+            "description": "Introduction to CAD tools and 3D modeling techniques.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "3D Printing Techniques",
+            "description": "Exploring different 3D printing methods.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Material Selection",
+            "description": "Choosing the right materials for prototyping.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Final Prototyping Project",
+            "description": "Creating a final prototype using the learned techniques.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Cybersecurity Fundamentals",
+        "description": "An introductory course on cybersecurity principles and practices.",
+        "price": 1100,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Introduction to Cyber Threats",
+            "description": "Exploring different types of cyber threats and attacks.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Network Security Basics",
+            "description": "Understanding fundamental concepts of network security.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Data Protection Methods",
+            "description": "Learning encryption and data protection techniques.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Practical Security Measures",
+            "description": "Implementing basic security practices in real-world scenarios.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy Inżynierii Mechanicznej",
+        "description": "Kurs wprowadzający do podstawowych zagadnień inżynierii mechanicznej.",
+        "price": 1200,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Wprowadzenie do mechaniki",
+            "description": "Podstawowe pojęcia i prawa mechaniki klasycznej.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Kinematyka i dynamika",
+            "description": "Analiza ruchu i sił w układach mechanicznych.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Wytrzymałość materiałów",
+            "description": "Wprowadzenie do analizy naprężeń i odkształceń.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Projektowanie mechaniczne",
+            "description": "Zasady projektowania elementów maszyn.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy Programowania",
+        "description": "Kurs wprowadzający do programowania w językach wysokiego poziomu.",
+        "price": 1000,
+        "capacity": 30,
+        "modules": [
+          {
+            "name": "Wprowadzenie do programowania",
+            "description": "Podstawowe koncepcje programistyczne.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Struktury danych",
+            "description": "Omówienie typów danych i struktur.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Algorytmy i logika",
+            "description": "Tworzenie algorytmów i rozwiązywanie problemów.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Praktyka kodowania",
+            "description": "Pisanie kodu na realnych przykładach.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Zaawansowane Systemy Elektroniczne",
+        "description": "Kurs dotyczący projektowania i analizy systemów elektronicznych.",
+        "price": 1500,
+        "capacity": 15,
+        "modules": [
+          {
+            "name": "Podstawy elektroniki",
+            "description": "Wprowadzenie do obwodów elektronicznych.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Projektowanie PCB",
+            "description": "Tworzenie projektów płytek drukowanych.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Programowanie mikrokontrolerów",
+            "description": "Tworzenie oprogramowania dla urządzeń wbudowanych.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Symulacje obwodów",
+            "description": "Symulacja i analiza obwodów elektronicznych.",
+            "type": "OnlineAsync"
+          }
+        ]
+      },
+      {
+        "name": "Nowoczesne Materiały Budowlane",
+        "description": "Omówienie innowacyjnych materiałów w budownictwie.",
+        "price": 800,
+        "capacity": 25,
+        "modules": [
+          {
+            "name": "Wprowadzenie do materiałoznawstwa",
+            "description": "Podstawowe informacje o materiałach budowlanych.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Materiały ekologiczne",
+            "description": "Zastosowanie ekologicznych materiałów w budownictwie.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Analiza trwałości",
+            "description": "Badanie wytrzymałości i trwałości materiałów.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Nowoczesne technologie",
+            "description": "Innowacyjne technologie w produkcji materiałów budowlanych.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy Zarządzania Projektami",
+        "description": "Kurs wprowadzający do zarządzania projektami technicznymi.",
+        "price": 900,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Wprowadzenie do zarządzania projektami",
+            "description": "Podstawowe koncepcje zarządzania projektami.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Planowanie projektu",
+            "description": "Tworzenie harmonogramu i alokacja zasobów.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Zarządzanie ryzykiem",
+            "description": "Identyfikacja i analiza ryzyk w projekcie.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Podsumowanie i kontrola",
+            "description": "Monitorowanie postępu i raportowanie wyników.",
+            "type": "OnlineAsync"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy Rysunku Technicznego",
+        "description": "Wprowadzenie do podstawowych zasad rysunku technicznego.",
+        "price": 1000,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Zasady rysunku technicznego",
+            "description": "Podstawowe normy i zasady tworzenia rysunków technicznych.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Oznaczenia i symbole",
+            "description": "Standardowe oznaczenia i symbole używane w rysunku technicznym.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Szkice techniczne",
+            "description": "Techniki ręcznego szkicowania projektów technicznych.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Praktyczne ćwiczenia w zakresie rysunku technicznego.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Rysunek Izometryczny i Perspektywiczny",
+        "description": "Nauka tworzenia rysunków izometrycznych i perspektywicznych.",
+        "price": 1100,
+        "capacity": 25,
+        "modules": [
+          {
+            "name": "Rysunek izometryczny",
+            "description": "Zasady tworzenia rzutów izometrycznych.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Perspektywa jednozbieżna",
+            "description": "Techniki rysowania perspektywy jednozbieżnej.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Perspektywa dwuzbieżna",
+            "description": "Rysowanie obiektów w perspektywie dwuzbieżnej.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Praktyczne ćwiczenia z rysunkami przestrzennymi.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Zaawansowany Rysunek Techniczny",
+        "description": "Kurs dla zaawansowanych użytkowników rysunku technicznego.",
+        "price": 1300,
+        "capacity": 15,
+        "modules": [
+          {
+            "name": "Dokumentacja techniczna",
+            "description": "Tworzenie pełnej dokumentacji technicznej.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Rysunek złożeniowy",
+            "description": "Techniki tworzenia rysunków złożeniowych.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Tolerancje i pasowania",
+            "description": "Zasady oznaczania tolerancji i pasowań.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Analiza błędów",
+            "description": "Wykrywanie i korekta błędów w rysunkach technicznych.",
+            "type": "OnlineAsync"
+          }
+        ]
+      },
+      {
+        "name": "AutoCAD dla Inżynierów",
+        "description": "Nauka obsługi programu AutoCAD dla inżynierów.",
+        "price": 1500,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Wprowadzenie do AutoCAD",
+            "description": "Podstawy obsługi programu AutoCAD.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Rysunek 2D",
+            "description": "Tworzenie rysunków płaskich w AutoCAD.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Rysunek 3D",
+            "description": "Modelowanie przestrzenne w AutoCAD.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Drukowanie i eksport",
+            "description": "Techniki przygotowania rysunków do druku i eksportu.",
+            "type": "OnlineAsync"
+          }
+        ]
+      },
+      {
+        "name": "Rysunek Techniczny w Przemyśle Lotniczym",
+        "description": "Specjalistyczny kurs rysunku technicznego dla przemysłu lotniczego.",
+        "price": 2000,
+        "capacity": 10,
+        "modules": [
+          {
+            "name": "Wprowadzenie do rysunku lotniczego",
+            "description": "Podstawowe zasady rysunku technicznego w przemyśle lotniczym.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Rysunek konstrukcji lotniczych",
+            "description": "Zasady tworzenia rysunków konstrukcji samolotów.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Materiały lotnicze",
+            "description": "Specyfikacje materiałów w rysunku lotniczym.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Praktyczne zajęcia z rysunku technicznego dla przemysłu lotniczego.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy Uczenia Maszynowego",
+        "description": "Kurs wprowadzający do podstawowych zagadnień uczenia maszynowego.",
+        "price": 1200,
+        "capacity": 25,
+        "modules": [
+          {
+            "name": "Wprowadzenie do uczenia maszynowego",
+            "description": "Podstawowe pojęcia i definicje w uczeniu maszynowym.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Modele liniowe",
+            "description": "Zasady działania regresji liniowej i logistycznej.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ocena modeli",
+            "description": "Metody oceny skuteczności modeli ML.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Zastosowanie podstawowych algorytmów na przykładach.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Uczenie Maszynowe w Pythonie",
+        "description": "Praktyczne podejście do uczenia maszynowego z wykorzystaniem języka Python.",
+        "price": 1400,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Biblioteki Pythona",
+            "description": "Omówienie bibliotek scikit-learn, pandas, numpy.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Przygotowanie danych",
+            "description": "Wstępna analiza i czyszczenie danych.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Implementacja modeli ML",
+            "description": "Tworzenie modeli klasyfikacji i regresji w Pythonie.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Optymalizacja hiperparametrów",
+            "description": "Techniki tuningu modeli ML.",
+            "type": "OnlineAsync"
+          }
+        ]
+      },
+      {
+        "name": "Uczenie Maszynowe dla Przemysłu",
+        "description": "Kurs dostosowany do zastosowań ML w przemyśle i produkcji.",
+        "price": 1600,
+        "capacity": 15,
+        "modules": [
+          {
+            "name": "Uczenie maszynowe w predykcji",
+            "description": "Zastosowania ML w analizie predykcyjnej.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Analiza anomalii",
+            "description": "Wykrywanie anomalii w danych produkcyjnych.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Przykłady przemysłowe",
+            "description": "Przykłady zastosowania ML w przemyśle.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Analiza danych rzeczywistych z przemysłu.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Sieci Neuronowe i Głębokie Uczenie",
+        "description": "Zaawansowany kurs z zakresu sieci neuronowych i deep learningu.",
+        "price": 1800,
+        "capacity": 10,
+        "modules": [
+          {
+            "name": "Podstawy sieci neuronowych",
+            "description": "Zasady działania perceptronu i neuronów sztucznych.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Implementacja w TensorFlow",
+            "description": "Tworzenie modeli sieci neuronowych w TensorFlow.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Uczenie głębokie",
+            "description": "Techniki głębokiego uczenia dla rozpoznawania obrazów.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Transfer learning",
+            "description": "Wykorzystanie transfer learningu w projektach ML.",
+            "type": "OnlineAsync"
+          }
+        ]
+      },
+      {
+        "name": "Uczenie Maszynowe w Analizie Danych",
+        "description": "Kurs ukierunkowany na analizę danych przy użyciu technik ML.",
+        "price": 1500,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Eksploracja danych",
+            "description": "Podstawowe techniki eksploracji zbiorów danych.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Grupowanie danych",
+            "description": "Algorytmy klastrowania, takie jak K-Means.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Redukcja wymiarowości",
+            "description": "Zastosowanie PCA i t-SNE.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Analiza przypadków użycia",
+            "description": "Studia przypadków z analizy danych.",
+            "type": "OnlineAsync"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy Elektroniki Analogowej",
+        "description": "Kurs wprowadzający do podstawowych zasad elektroniki analogowej.",
+        "price": 1100,
+        "capacity": 25,
+        "modules": [
+          {
+            "name": "Obwody elektryczne",
+            "description": "Zasady działania podstawowych obwodów elektrycznych.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Elementy pasywne",
+            "description": "Omówienie rezystorów, kondensatorów i cewek.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Źródła napięcia i prądu",
+            "description": "Podstawy źródeł prądowych i napięciowych.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Budowa prostych obwodów elektronicznych.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy Elektroniki Cyfrowej",
+        "description": "Wprowadzenie do działania układów cyfrowych.",
+        "price": 1200,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Systemy binarne",
+            "description": "Podstawy systemu binarnego i konwersji liczbowych.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Bramki logiczne",
+            "description": "Działanie podstawowych bramek logicznych.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Układy kombinacyjne i sekwencyjne",
+            "description": "Projektowanie układów cyfrowych.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Praktyczne zastosowania bramek logicznych.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Mikrokontrolery w Praktyce",
+        "description": "Kurs dotyczący programowania i używania mikrokontrolerów.",
+        "price": 1500,
+        "capacity": 15,
+        "modules": [
+          {
+            "name": "Podstawy mikrokontrolerów",
+            "description": "Zasady działania mikrokontrolerów.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Programowanie mikrokontrolerów",
+            "description": "Programowanie mikrokontrolerów w języku C.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Przesył danych i komunikacja",
+            "description": "Protokoły komunikacyjne UART, I2C, SPI.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Projektowanie układów z mikrokontrolerami.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Zaawansowane Układy Elektroniczne",
+        "description": "Kurs dla zaawansowanych użytkowników układów elektronicznych.",
+        "price": 1600,
+        "capacity": 10,
+        "modules": [
+          {
+            "name": "Wzmacniacze operacyjne",
+            "description": "Działanie i zastosowania wzmacniaczy operacyjnych.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Filtry elektroniczne",
+            "description": "Projektowanie filtrów pasmowych, dolnoprzepustowych i górnoprzepustowych.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Układy zasilania",
+            "description": "Zasady projektowania zasilaczy stabilizowanych.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Projektowanie i testowanie układów elektronicznych.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Projektowanie PCB",
+        "description": "Kurs projektowania obwodów drukowanych (PCB).",
+        "price": 1400,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Wprowadzenie do PCB",
+            "description": "Podstawowe zasady projektowania PCB.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Oprogramowanie do projektowania",
+            "description": "Praca z programami typu KiCad i Eagle.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Drukowanie prototypów",
+            "description": "Metody tworzenia prototypów PCB.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Testowanie i weryfikacja",
+            "description": "Testowanie poprawności działania zaprojektowanych PCB.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy Telekomunikacji",
+        "description": "Kurs wprowadzający do podstawowych zasad telekomunikacji.",
+        "price": 1100,
+        "capacity": 25,
+        "modules": [
+          {
+            "name": "Historia i zasady telekomunikacji",
+            "description": "Wprowadzenie do podstawowych pojęć i historii telekomunikacji.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Modulacja sygnału",
+            "description": "Zasady modulacji analogowej i cyfrowej.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Transmisja przewodowa i bezprzewodowa",
+            "description": "Omówienie metod transmisji sygnału.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Demonstracja transmisji sygnałów w praktyce.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Sieci Komputerowe i Protokoły",
+        "description": "Kurs obejmujący budowę i działanie sieci komputerowych oraz protokołów komunikacyjnych.",
+        "price": 1200,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Modele sieciowe OSI i TCP/IP",
+            "description": "Omówienie podstawowych modeli sieciowych.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Protokoły sieciowe",
+            "description": "HTTP, FTP, TCP/IP, UDP.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Routing i Switching",
+            "description": "Zasady działania routerów i switchy.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Konfiguracja podstawowej sieci LAN.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Systemy Komunikacji Mobilnej",
+        "description": "Kurs poświęcony systemom komunikacji mobilnej 3G, 4G i 5G.",
+        "price": 1500,
+        "capacity": 15,
+        "modules": [
+          {
+            "name": "Ewolucja technologii mobilnych",
+            "description": "Od 2G do 5G - porównanie technologii.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Podstawy sieci 4G LTE",
+            "description": "Zasady działania sieci 4G LTE.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Sieci 5G i IoT",
+            "description": "Architektura sieci 5G i jej zastosowanie w IoT.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Analiza sygnałów mobilnych w środowisku testowym.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Techniki Transmisji Danych",
+        "description": "Kurs dotyczący technik transmisji danych w telekomunikacji.",
+        "price": 1300,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Podstawy transmisji danych",
+            "description": "Sposoby transmisji danych w sieciach telekomunikacyjnych.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Multiplexing i modulacja",
+            "description": "Techniki multipleksowania i modulacji sygnału.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Szyfrowanie transmisji danych",
+            "description": "Podstawowe metody zabezpieczania danych podczas transmisji.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Symulacja transmisji danych w kontrolowanym środowisku.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Telekomunikacja Satelitarna",
+        "description": "Zaawansowany kurs dotyczący telekomunikacji satelitarnej.",
+        "price": 1600,
+        "capacity": 10,
+        "modules": [
+          {
+            "name": "Podstawy telekomunikacji satelitarnej",
+            "description": "Zasady działania komunikacji satelitarnej.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Orbity satelitów i propagacja sygnału",
+            "description": "Analiza torów orbitalnych i propagacji sygnałów.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Systemy GPS i GNSS",
+            "description": "Działanie systemów nawigacji satelitarnej.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Symulacja połączeń satelitarnych.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy Geologii Ogólnej",
+        "description": "Kurs wprowadzający do podstawowych zagadnień geologii.",
+        "price": 1100,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Budowa wnętrza Ziemi",
+            "description": "Omówienie warstw budujących Ziemię.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Minerały i skały",
+            "description": "Klasyfikacja minerałów i rodzaje skał.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Procesy geologiczne",
+            "description": "Erozja, wietrzenie i procesy tektoniczne.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Analiza próbek skał i minerałów.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Geologia Inżynierska",
+        "description": "Kurs skierowany do specjalistów zajmujących się geologią w budownictwie.",
+        "price": 1400,
+        "capacity": 15,
+        "modules": [
+          {
+            "name": "Grunty i ich właściwości",
+            "description": "Podstawy klasyfikacji i badania gruntów.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Stabilność zboczy",
+            "description": "Zasady oceny stabilności terenu.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Geotechniczne badania terenowe",
+            "description": "Metody badań geologicznych w terenie.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Analiza próbek gruntów w laboratorium.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Geologia Środowiskowa",
+        "description": "Kurs omawiający wpływ procesów geologicznych na środowisko.",
+        "price": 1300,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Zanieczyszczenia gleb i wód",
+            "description": "Analiza źródeł i skutków zanieczyszczeń.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Monitoring środowiskowy",
+            "description": "Metody monitorowania jakości środowiska.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Geologia a zmiany klimatu",
+            "description": "Wpływ procesów geologicznych na zmiany klimatyczne.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Pomiar parametrów środowiskowych w terenie.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Hydrogeologia",
+        "description": "Kurs dotyczący wód podziemnych i ich roli w środowisku.",
+        "price": 1500,
+        "capacity": 18,
+        "modules": [
+          {
+            "name": "Podstawy hydrogeologii",
+            "description": "Definicje i podstawowe pojęcia związane z wodami podziemnymi.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Metody badania wód podziemnych",
+            "description": "Techniki badania składu chemicznego wód podziemnych.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Zanieczyszczenia wód",
+            "description": "Analiza źródeł zanieczyszczeń wód podziemnych.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Pobieranie próbek wód podziemnych w terenie.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Geomorfologia i Ewolucja Krajobrazu",
+        "description": "Kurs dotyczący form powierzchni Ziemi i procesów ich kształtowania.",
+        "price": 1250,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Formy terenu",
+            "description": "Rodzaje form terenu i ich powstawanie.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Procesy geomorfologiczne",
+            "description": "Procesy kształtujące krajobraz, takie jak erozja i akumulacja.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Wpływ działalności człowieka",
+            "description": "Zmiany w krajobrazie spowodowane działalnością człowieka.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Analiza map geomorfologicznych w praktyce.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy Tworzenia Stron Internetowych",
+        "description": "Kurs wprowadzający do budowania stron internetowych z użyciem HTML i CSS.",
+        "price": 1000,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "HTML - Struktura Strony",
+            "description": "Podstawy języka HTML i struktury dokumentu.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "CSS - Stylowanie Stron",
+            "description": "Zasady stylowania stron internetowych za pomocą CSS.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Responsywność i Media Queries",
+            "description": "Techniki dostosowywania stron do różnych urządzeń.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Tworzenie prostej strony od podstaw.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "JavaScript dla Początkujących",
+        "description": "Wprowadzenie do podstaw programowania w JavaScript.",
+        "price": 1200,
+        "capacity": 25,
+        "modules": [
+          {
+            "name": "Wprowadzenie do JavaScript",
+            "description": "Podstawowe koncepcje i składnia języka.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Manipulacja DOM",
+            "description": "Techniki manipulacji elementami strony przy użyciu JavaScript.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Event Handling",
+            "description": "Obsługa zdarzeń i interakcji użytkownika.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Tworzenie interaktywnej strony internetowej.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Frontend Development z React",
+        "description": "Kurs budowania aplikacji webowych w React.js.",
+        "price": 1500,
+        "capacity": 15,
+        "modules": [
+          {
+            "name": "Podstawy React.js",
+            "description": "Wprowadzenie do biblioteki React.js.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Komponenty i Propsy",
+            "description": "Tworzenie komponentów i przekazywanie danych.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Stan Aplikacji i Hooks",
+            "description": "Zarządzanie stanem komponentów za pomocą useState i useEffect.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Zbudowanie dynamicznej aplikacji webowej w React.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Backend Development z Node.js",
+        "description": "Kurs budowania backendowych aplikacji z wykorzystaniem Node.js.",
+        "price": 1400,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Wprowadzenie do Node.js",
+            "description": "Podstawowe zasady działania środowiska Node.js.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Tworzenie API REST",
+            "description": "Budowanie prostych API REST z użyciem Express.js.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Bazy Danych MongoDB",
+            "description": "Podstawy pracy z bazami danych NoSQL.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Zbudowanie pełnoprawnej aplikacji backendowej.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Full-Stack Web Development",
+        "description": "Kompleksowy kurs obejmujący frontend i backend web development.",
+        "price": 2000,
+        "capacity": 15,
+        "modules": [
+          {
+            "name": "Frontend z HTML, CSS i JavaScript",
+            "description": "Podstawy budowania interfejsu użytkownika.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Backend z Node.js i Express",
+            "description": "Tworzenie serwera backendowego.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Bazy Danych i Autoryzacja",
+            "description": "Integracja bazy danych i obsługa autoryzacji.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Projekt Full-Stack",
+            "description": "Zbudowanie pełnej aplikacji webowej od podstaw.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy Cyberbezpieczeństwa",
+        "description": "Kurs wprowadzający do podstawowych zagadnień bezpieczeństwa w sieci.",
+        "price": 1200,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Wprowadzenie do cyberbezpieczeństwa",
+            "description": "Podstawowe pojęcia związane z bezpieczeństwem sieciowym.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Zasady bezpiecznego korzystania z sieci",
+            "description": "Jak unikać najczęstszych zagrożeń Online.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Podstawowe narzędzia ochrony",
+            "description": "Zapory sieciowe, antywirusy i oprogramowanie zabezpieczające.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Analiza przypadków",
+            "description": "Studia przypadków naruszeń bezpieczeństwa.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Bezpieczeństwo Aplikacji Webowych",
+        "description": "Kurs poświęcony ochronie aplikacji webowych przed atakami.",
+        "price": 1500,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Podstawy OWASP Top 10",
+            "description": "Omówienie 10 najczęstszych zagrożeń w aplikacjach webowych.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "SQL Injection i XSS",
+            "description": "Analiza najczęstszych typów ataków na aplikacje webowe.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Zasady bezpiecznego kodowania",
+            "description": "Techniki unikania luk w kodzie.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne w testowaniu",
+            "description": "Symulowane ataki na testowe aplikacje webowe.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Hacking Etyczny i Testy Penetracyjne",
+        "description": "Zaawansowany kurs dla specjalistów w zakresie testowania zabezpieczeń.",
+        "price": 2000,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Podstawy testów penetracyjnych",
+            "description": "Omówienie technik i narzędzi do testowania zabezpieczeń.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Nmap i Metasploit",
+            "description": "Zastosowanie popularnych narzędzi w testach penetracyjnych.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Przeprowadzanie testów penetracyjnych",
+            "description": "Ćwiczenia praktyczne w środowisku testowym.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Raportowanie testów penetracyjnych",
+            "description": "Jak efektywnie raportować wyniki testów.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Bezpieczeństwo Sieci Komputerowych",
+        "description": "Kurs dotyczący zabezpieczania sieci komputerowych.",
+        "price": 1400,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Zasady działania sieci",
+            "description": "Podstawowe zasady działania sieci LAN i WAN.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Protokoły bezpieczeństwa",
+            "description": "Omówienie VPN, SSL, TLS oraz IPsec.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Konfiguracja zapory sieciowej",
+            "description": "Konfiguracja firewalli na przykładzie pfSense.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Symulacja ataku sieciowego i jego neutralizacja.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Analiza Zagrożeń i Informatyka Śledcza",
+        "description": "Zaawansowany kurs analizy zagrożeń i badania incydentów.",
+        "price": 1800,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Podstawy analizy zagrożeń",
+            "description": "Techniki wykrywania i analizy zagrożeń w sieci.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Zbieranie dowodów cyfrowych",
+            "description": "Metody zbierania i zabezpieczania dowodów cyfrowych.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Analiza logów i metadanych",
+            "description": "Analiza danych z systemów SIEM i logów systemowych.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Symulacja incydentu",
+            "description": "Symulowany atak i reakcja zespołu bezpieczeństwa.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy CAD 2D",
+        "description": "Kurs wprowadzający do projektowania w środowisku CAD 2D.",
+        "price": 1000,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Wprowadzenie do CAD 2D",
+            "description": "Podstawowe zasady pracy w środowisku CAD 2D.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Tworzenie i edycja rysunków",
+            "description": "Rysowanie linii, kształtów i modyfikacja obiektów.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Wymiarowanie i opisywanie rysunków",
+            "description": "Dodawanie wymiarów i opisów technicznych.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Tworzenie rysunków technicznych w CAD 2D.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Zaawansowany CAD 2D",
+        "description": "Kurs dla osób zaawansowanych w obsłudze oprogramowania CAD 2D.",
+        "price": 1200,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Zaawansowane narzędzia CAD 2D",
+            "description": "Praca z blokami, warstwami i referencjami zewnętrznymi.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Automatyzacja w CAD 2D",
+            "description": "Tworzenie szablonów i dynamicznych bloków.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Drukowanie i eksport projektów",
+            "description": "Przygotowanie rysunków do druku i eksportu.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Projektowanie kompleksowe",
+            "description": "Tworzenie pełnych projektów technicznych.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy CAD 3D",
+        "description": "Kurs wprowadzający do modelowania 3D w programach CAD.",
+        "price": 1500,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Wprowadzenie do CAD 3D",
+            "description": "Zasady modelowania obiektów w przestrzeni trójwymiarowej.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Tworzenie modeli 3D",
+            "description": "Podstawowe bryły, ekstrudowanie i operacje boolowskie.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Rendery i wizualizacje",
+            "description": "Podstawy renderingu modeli 3D.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Tworzenie i prezentacja modeli 3D.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Zaawansowane Modelowanie CAD 3D",
+        "description": "Kurs dla osób zaawansowanych w modelowaniu 3D w CAD.",
+        "price": 1800,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Zaawansowane techniki modelowania",
+            "description": "Krzywe NURBS, operacje powierzchniowe.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Parametryczne projektowanie",
+            "description": "Zasady modelowania parametrycznego w CAD 3D.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Analiza i optymalizacja modeli",
+            "description": "Optymalizacja i testowanie modeli CAD 3D.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Projektowanie prototypów",
+            "description": "Projektowanie modeli do druku 3D.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "CAD dla Architektów",
+        "description": "Specjalistyczny kurs CAD dla projektantów architektonicznych.",
+        "price": 2000,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Podstawy projektowania architektonicznego",
+            "description": "Zasady projektowania obiektów budowlanych w CAD.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Tworzenie planów budynków",
+            "description": "Projektowanie planów pięter i elewacji.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Wizualizacje architektoniczne",
+            "description": "Tworzenie wizualizacji 3D budynków.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Projekt końcowy",
+            "description": "Kompleksowy projekt budynku od podstaw.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy Budowy Maszyn",
+        "description": "Kurs wprowadzający do zasad projektowania i budowy maszyn.",
+        "price": 1200,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Elementy maszyn",
+            "description": "Omówienie podstawowych elementów budowy maszyn, takich jak łożyska, wały i koła zębate.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Zasady projektowania mechanicznego",
+            "description": "Podstawowe zasady projektowania mechanizmów w budowie maszyn.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Materiały w budowie maszyn",
+            "description": "Właściwości materiałów używanych w budowie maszyn.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Tworzenie prostego projektu mechanicznego.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Zaawansowana Mechanika Maszyn",
+        "description": "Kurs dotyczący zaawansowanych zagadnień budowy maszyn.",
+        "price": 1500,
+        "capacity": 15,
+        "modules": [
+          {
+            "name": "Analiza układów mechanicznych",
+            "description": "Analiza dynamiki układów mechanicznych i mechanizmów.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Kinematyka i dynamika maszyn",
+            "description": "Zaawansowane zagadnienia kinematyki i dynamiki w budowie maszyn.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Napędy mechaniczne",
+            "description": "Rodzaje napędów i ich zastosowanie w budowie maszyn.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Projektowanie układów złożonych",
+            "description": "Projektowanie złożonych układów mechanicznych.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Technologie Wytwarzania w Budowie Maszyn",
+        "description": "Kurs skupiający się na procesach produkcji w budowie maszyn.",
+        "price": 1400,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Obróbka skrawaniem",
+            "description": "Podstawy technologii obróbki skrawaniem.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Techniki spawania i zgrzewania",
+            "description": "Zasady łączenia elementów w budowie maszyn.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Technologie CNC",
+            "description": "Wprowadzenie do technologii sterowania numerycznego maszyn.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Demonstracja procesu wytwarzania części maszyn.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Automatyzacja w Budowie Maszyn",
+        "description": "Kurs dotyczący automatyzacji i robotyki w budowie maszyn.",
+        "price": 1600,
+        "capacity": 15,
+        "modules": [
+          {
+            "name": "Elementy automatyki w budowie maszyn",
+            "description": "Omówienie podstawowych elementów układów automatyki.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "PLC i sterowniki przemysłowe",
+            "description": "Wprowadzenie do programowania sterowników PLC.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Roboty przemysłowe",
+            "description": "Zastosowanie robotów w procesach produkcji.",
+            "type": "Stacionary"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Programowanie prostego układu automatyki.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Projektowanie CAD w Budowie Maszyn",
+        "description": "Kurs projektowania elementów maszyn w środowisku CAD.",
+        "price": 1300,
+        "capacity": 20,
+        "modules": [
+          {
+            "name": "Wprowadzenie do projektowania CAD",
+            "description": "Podstawowe zasady projektowania CAD w budowie maszyn.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Modelowanie 3D",
+            "description": "Tworzenie modeli 3D elementów maszyn.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Analiza wytrzymałościowa",
+            "description": "Analiza naprężeń i obciążeń w CAD.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Projektowanie złożonego mechanizmu w środowisku CAD.",
+            "type": "Stacionary"
+          }
+        ]
+      },
+      {
+        "name": "Podstawy Astronomii",
+        "description": "Kurs wprowadzający do podstawowych zagadnień astronomii.",
+        "price": 1200,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Historia i podstawy astronomii",
+            "description": "Omówienie historii astronomii oraz kluczowych pojęć.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Układ Słoneczny",
+            "description": "Charakterystyka planet i obiektów w Układzie Słonecznym.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Gwiazdy i ich ewolucja",
+            "description": "Procesy zachodzące w gwiazdach oraz ich cykl życia.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Obserwacja gwiazd i planet za pomocą aplikacji Online.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Kosmologia i Początek Wszechświata",
+        "description": "Kurs poświęcony kosmologii i teorii Wielkiego Wybuchu.",
+        "price": 1400,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Teoria Wielkiego Wybuchu",
+            "description": "Podstawy teorii Wielkiego Wybuchu i formowania wszechświata.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Struktura i ekspansja wszechświata",
+            "description": "Analiza kosmicznej ekspansji i teorii ciemnej materii.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Czarne dziury i ciemna energia",
+            "description": "Charakterystyka czarnych dziur i pojęcie ciemnej energii.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Analiza danych astronomicznych z teleskopów Online.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Astronomia Obserwacyjna",
+        "description": "Kurs dotyczący metod obserwacji astronomicznych.",
+        "price": 1500,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Rodzaje teleskopów i ich budowa",
+            "description": "Podstawowe typy teleskopów i ich zastosowania.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Techniki obserwacyjne",
+            "description": "Zasady obserwacji astronomicznych i analiza zdjęć.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Fotografia astronomiczna",
+            "description": "Techniki fotografowania nocnego nieba.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Zdalne sterowanie teleskopem i analiza wyników.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Astrofizyka",
+        "description": "Kurs dla zaawansowanych dotyczący fizyki kosmicznej.",
+        "price": 1600,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Podstawy astrofizyki",
+            "description": "Wprowadzenie do podstawowych praw fizyki rządzących kosmosem.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Gwiazdy neutronowe i supernowe",
+            "description": "Zaawansowana analiza zjawisk gwiezdnych.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Grawitacja i teoria względności",
+            "description": "Podstawy ogólnej i szczególnej teorii względności.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Obliczenia i symulacje fizyczne w oprogramowaniu astronomicznym.",
+            "type": "OnlineSync"
+          }
+        ]
+      },
+      {
+        "name": "Poszukiwanie Życia Pozaziemskiego",
+        "description": "Kurs poświęcony astrobiologii i badaniom życia we wszechświecie.",
+        "price": 1300,
+        "capacity": null,
+        "modules": [
+          {
+            "name": "Astrobiologia i warunki życia",
+            "description": "Analiza podstawowych warunków sprzyjających życiu.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Ekstremofile na Ziemi",
+            "description": "Przykłady organizmów żyjących w ekstremalnych warunkach.",
+            "type": "OnlineAsync"
+          },
+          {
+            "name": "Egzoplanety",
+            "description": "Metody wykrywania planet pozasłonecznych.",
+            "type": "OnlineSync"
+          },
+          {
+            "name": "Ćwiczenia praktyczne",
+            "description": "Analiza danych z teleskopów kosmicznych poszukujących egzoplanet.",
+            "type": "OnlineSync"
+          }
+        ]
+      }
+    ]
+  }

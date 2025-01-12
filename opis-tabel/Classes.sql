@@ -2,6 +2,10 @@ CREATE TABLE Courses (
     courseID int NOT NULL IDENTITY(1,1),
     productID int NOT NULL,
     coordinatorID int NOT NULL,
+    capacity int,
+    CONSTRAINT Courses_capacity_positive CHECK (
+        capacity > 0
+    ),
     CONSTRAINT Courses_Products FOREIGN KEY (productID) REFERENCES Products (productID),
     CONSTRAINT Employees_Courses FOREIGN KEY (coordinatorID) REFERENCES Employees (employeeID),
     CONSTRAINT Courses_pk PRIMARY KEY (courseID)
