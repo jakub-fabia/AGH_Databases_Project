@@ -10,7 +10,8 @@ SELECT
 	COUNT(CASE WHEN a.present = 0 THEN 1 ELSE NULL END) AS AbsentCount
 FROM
 	CourseModules cm
-    	JOIN Meetings m ON cm.courseID = m.meetingID
+        JOIN CourseModuleMeeting cms ON cms.moduleID = cm.moduleID
+        JOIN Meetings m ON cms.meetingID = m.meetingID
     	LEFT JOIN Attendence a ON m.meetingID = a.meetingID
 WHERE
 	m.meetingID IN (SELECT meetingID FROM TimeSchedule WHERE startTime < GETDATE())
@@ -43,8 +44,10 @@ SELECT
 	COUNT(CASE WHEN a.present = 0 THEN 1 ELSE NULL END) AS AbsentCount
 FROM
 	SubjectMeeting sm
-    	JOIN Meetings m ON sm.meetingID = m.meetingID
-    	LEFT JOIN Attendence a ON m.meetingID = a.meetingID
+    JOIN 
+        Meetings m ON sm.meetingID = m.meetingID
+    LEFT JOIN   
+        Attendence a ON m.meetingID = a.meetingID
 WHERE
 	m.meetingID IN (SELECT meetingID FROM TimeSchedule WHERE startTime < GETDATE())
 GROUP BY
@@ -60,13 +63,36 @@ SELECT
 	COUNT(CASE WHEN a.present = 0 THEN 1 ELSE NULL END) AS AbsentCount
 FROM
 	Webinars w
-    	JOIN Meetings m ON w.meetingID = m.meetingID
-    	JOIN Products p ON w.productID = p.productID
-    	LEFT JOIN Attendence a ON m.meetingID = a.meetingID
+    JOIN 
+        Meetings m ON w.meetingID = m.meetingID
+    JOIN 
+        Products p ON w.productID = p.productID
+    LEFT JOIN 
+        Attendence a ON m.meetingID = a.meetingID
 WHERE
 	m.meetingID IN (SELECT meetingID FROM TimeSchedule WHERE startTime < GETDATE())
 GROUP BY
 	w.webinarID, p.name
+```
+## Frekwencja na zakończonych modułach kursów
+```sql
+SELECT cm.moduleID,
+    cm.name AS ModuleName,
+    COUNT(CASE WHEN a.present = 1 THEN 1 ELSE 0 END) AS PresentCount,
+    COUNT(CASE WHEN a.present = 0 THEN 1 ELSE 0 END) AS AbsentCount
+FROM CourseModules cm
+    JOIN 
+        CourseModuleMeeting cms ON cm.moduleID = cms.moduleID
+    JOIN 
+        Meetings m ON cms.meetingID = m.meetingID
+    LEFT JOIN 
+        Attendence a ON m.meetingID = a.meetingID
+WHERE m.meetingID IN (
+    SELECT meetingID 
+    FROM TimeSchedule 
+    WHERE startTime < GETDATE()
+)
+GROUP BY cm.moduleID, cm.name
 ```
 ## Procent obecności dla każdego spotkania
 ```sql
@@ -95,12 +121,12 @@ SELECT
     100 * SUM(CAST(A.present AS INT) + CAST(A.makeUp AS INT)) / COUNT(A.present) AS [% Frequence]
 FROM 
     dbo.CourseModules AS CM
-LEFT JOIN 
-    CourseModuleMeeting AS CMM ON CM.moduleID = CMM.moduleID
-JOIN 
-    dbo.Meetings AS M ON CMM.meetingID = M.meetingID
-LEFT JOIN 
-    dbo.Attendence AS A ON M.meetingID = A.meetingID
+    LEFT JOIN 
+        CourseModuleMeeting AS CMM ON CM.moduleID = CMM.moduleID
+    JOIN 
+        dbo.Meetings AS M ON CMM.meetingID = M.meetingID
+    LEFT JOIN 
+        dbo.Attendence AS A ON M.meetingID = A.meetingID
 GROUP BY 
     CM.courseID, A.studentID, CM.moduleID;
 ```
@@ -114,12 +140,12 @@ SELECT
     100 * SUM(CAST(A.present AS INT) + CAST(A.makeUp AS INT)) / COUNT(A.present) AS [% Frequence]
 FROM 
     Subjects AS S
-LEFT JOIN 
-    SubjectMeeting AS SM ON S.subjectID = SM.subjectID
-JOIN 
-    dbo.Meetings AS M ON SM.meetingID = M.meetingID
-LEFT JOIN 
-    dbo.Attendence AS A ON M.meetingID = A.meetingID
+    LEFT JOIN 
+        SubjectMeeting AS SM ON S.subjectID = SM.subjectID
+    JOIN 
+        Meetings AS M ON SM.meetingID = M.meetingID
+    LEFT JOIN 
+        Attendence AS A ON M.meetingID = A.meetingID
 GROUP BY 
     A.studentID, S.subjectID, S.studyID;
 
@@ -139,16 +165,16 @@ SELECT
     ts2.duration AS Duration2
 FROM 
     Attendence AS a1
-JOIN 
-    Attendence AS a2 ON a1.studentID = a2.studentID AND a1.meetingID < a2.meetingID
-JOIN 
-    TimeSchedule AS ts1 ON a1.meetingID = ts1.meetingID
-JOIN 
-    TimeSchedule AS ts2 ON a2.meetingID = ts2.meetingID
-JOIN 
-    meetingType AS m1 ON ts1.meetingID = m1.meetingID
-JOIN 
-    meetingType AS m2 ON ts2.meetingID = m2.meetingID
+    JOIN 
+        Attendence AS a2 ON a1.studentID = a2.studentID AND a1.meetingID < a2.meetingID
+    JOIN 
+        TimeSchedule AS ts1 ON a1.meetingID = ts1.meetingID
+    JOIN 
+        TimeSchedule AS ts2 ON a2.meetingID = ts2.meetingID
+    JOIN 
+        meetingType AS m1 ON ts1.meetingID = m1.meetingID
+    JOIN 
+        meetingType AS m2 ON ts2.meetingID = m2.meetingID
 WHERE 
     m1.meetingType != 'OnlineAsync'
     AND m2.meetingType != 'OnlineAsync'
@@ -167,12 +193,14 @@ SELECT
     DATEADD(MINUTE, DATEDIFF(MINUTE, '00:00:00', ts.duration), ts.startTime) AS EndTime
 FROM 
     CourseModules AS cm
-JOIN 
-    Courses AS c ON cm.courseID = c.courseID
-JOIN 
-    Products AS p ON c.productID = p.productID
-JOIN 
-    TimeSchedule AS ts ON cm.moduleID = ts.meetingID;
+    JOIN 
+        Courses AS c ON cm.courseID = c.courseID
+    JOIN 
+        Products AS p ON c.productID = p.productID
+    JOIN 
+        CourseModuleMeeting cms ON cm.moduleID = cms.moduleID
+    JOIN 
+        TimeSchedule AS ts ON cms.meetingID = ts.meetingID
 
 ```
 ## Lista dłużników
@@ -189,14 +217,14 @@ SELECT
      WHERE p.productID = pbd.productID) AS minStartTime
 FROM 
     Orders AS o
-JOIN 
-    Students AS s ON o.studentID = s.studentID
-JOIN 
-    Users AS u ON s.userID = u.userID
-JOIN 
-    OrderDetails AS od ON o.orderID = od.orderID
-JOIN 
-    Products AS p ON od.productID = p.productID
+    JOIN 
+        Students AS s ON o.studentID = s.studentID
+    JOIN 
+        Users AS u ON s.userID = u.userID
+    JOIN 
+        OrderDetails AS od ON o.orderID = od.orderID
+    JOIN 
+        Products AS p ON od.productID = p.productID
 WHERE 
     (SELECT MIN(pbd.minStartTime) 
      FROM productBeginningDate AS pbd 
@@ -223,8 +251,10 @@ SELECT
     ts.startTime,
     COUNT(a.studentID) AS RegisteredCount
 FROM Meetings m
-JOIN TimeSchedule ts ON m.meetingID = ts.meetingID
-LEFT JOIN Attendence a ON m.meetingID = a.meetingID
+    JOIN 
+        TimeSchedule ts ON m.meetingID = ts.meetingID
+    LEFT JOIN 
+        Attendence a ON m.meetingID = a.meetingID
 WHERE ts.startTime > GETDATE()
 GROUP BY m.meetingID, ts.startTime;
 
@@ -237,24 +267,24 @@ SELECT
     'OnlineSync' AS meetingType
 FROM 
     Meetings
-JOIN 
-    OnlineSyncMeetings ON Meetings.meetingID = OnlineSyncMeetings.meetingID
+    JOIN 
+        OnlineSyncMeetings ON Meetings.meetingID = OnlineSyncMeetings.meetingID
 UNION
 SELECT 
     Meetings.meetingID, 
     'Stacionary' AS meetingType
 FROM 
     Meetings
-JOIN 
-    StationaryMeetings ON Meetings.meetingID = StationaryMeetings.meetingID
+    JOIN 
+        StationaryMeetings ON Meetings.meetingID = StationaryMeetings.meetingID
 UNION
 SELECT 
     Meetings.meetingID, 
     'OnlineAsync' AS meetingType
 FROM 
     Meetings
-JOIN 
-    OnlineAsyncMeetings ON Meetings.meetingID = OnlineAsyncMeetings.meetingID;
+    JOIN 
+        OnlineAsyncMeetings ON Meetings.meetingID = OnlineAsyncMeetings.meetingID;
 
 ```
 ## Wyświetla zamówione produkty z rozróżnieniem na typy
@@ -269,12 +299,12 @@ SELECT
     o.createdAt AS OrderDate
 FROM 
     Studies s
-JOIN 
-    Products p ON s.productID = p.productID
-JOIN 
-    OrderDetails od ON p.productID = od.productID
-JOIN 
-    Orders o ON od.orderID = o.orderID
+    JOIN 
+        Products p ON s.productID = p.productID
+    JOIN 
+        OrderDetails od ON p.productID = od.productID
+    JOIN 
+        Orders o ON od.orderID = o.orderID
 UNION
 SELECT 
     o.orderID,
@@ -285,12 +315,12 @@ SELECT
     o.createdAt AS OrderDate
 FROM 
     Courses s
-JOIN 
-    Products p ON s.productID = p.productID
-JOIN 
-    OrderDetails od ON p.productID = od.productID
-JOIN 
-    Orders o ON od.orderID = o.orderID
+    JOIN 
+        Products p ON s.productID = p.productID
+    JOIN 
+        OrderDetails od ON p.productID = od.productID
+    JOIN 
+        Orders o ON od.orderID = o.orderID
 UNION
 SELECT 
     o.orderID,
@@ -301,12 +331,12 @@ SELECT
     o.createdAt AS OrderDate
 FROM 
     Webinars s
-JOIN 
-    Products p ON s.productID = p.productID
-JOIN 
-    OrderDetails od ON p.productID = od.productID
-JOIN 
-    Orders o ON od.orderID = o.orderID
+    JOIN 
+        Products p ON s.productID = p.productID
+    JOIN 
+        OrderDetails od ON p.productID = od.productID
+    JOIN 
+        Orders o ON od.orderID = o.orderID
 UNION
 SELECT 
     o.orderID,
@@ -317,12 +347,12 @@ SELECT
     o.createdAt AS OrderDate
 FROM 
     SubjectMeeting s
-JOIN 
-    Products p ON s.productID = p.productID
-JOIN 
-    OrderDetails od ON p.productID = od.productID
-JOIN 
-    Orders o ON od.orderID = o.orderID;
+    JOIN 
+        Products p ON s.productID = p.productID
+    JOIN 
+        OrderDetails od ON p.productID = od.productID
+    JOIN 
+        Orders o ON od.orderID = o.orderID;
 ```
 ## Lista obecności do kursów (Imiona i nazwiska uczestników)
 ```sql
@@ -337,18 +367,18 @@ SELECT
     a.makeUp
 FROM 
     Courses c
-JOIN 
-    Products p ON p.productID = c.productID
-JOIN 
-    CourseModules cm ON c.courseID = cm.courseID
-JOIN 
-    Meetings m ON cm.courseID = m.meetingID
-JOIN 
-    Attendence a ON m.meetingID = a.meetingID
-JOIN 
-    Students st ON a.studentID = st.studentID
-JOIN 
-    Users u ON st.userID = u.userID;
+    JOIN 
+        Products p ON p.productID = c.productID
+    JOIN 
+        CourseModules cm ON c.courseID = cm.courseID
+    JOIN 
+        Meetings m ON cm.courseID = m.meetingID
+    JOIN 
+        Attendence a ON m.meetingID = a.meetingID
+    JOIN 
+        Students st ON a.studentID = st.studentID
+    JOIN 
+        Users u ON st.userID = u.userID;
 
 ```
 ## Lista obecności do studiów (Imiona i nazwiska uczestników)
@@ -363,18 +393,18 @@ SELECT
     a.makeUp
 FROM
     Studies s
-JOIN 
-    Products p ON s.productID = p.productID
-JOIN 
-    SubjectMeeting sm ON s.studyID = sm.subjectID
-JOIN 
-    Meetings m ON sm.meetingID = m.meetingID
-JOIN 
-    Attendence a ON m.meetingID = a.meetingID
-JOIN 
-    Students st ON a.studentID = st.studentID
-JOIN 
-    Users u ON st.userID = u.userID;
+    JOIN 
+        Products p ON s.productID = p.productID
+    JOIN 
+        SubjectMeeting sm ON s.studyID = sm.subjectID
+    JOIN 
+        Meetings m ON sm.meetingID = m.meetingID
+    JOIN 
+        Attendence a ON m.meetingID = a.meetingID
+    JOIN 
+        Students st ON a.studentID = st.studentID
+    JOIN 
+        Users u ON st.userID = u.userID;
 ```
 ## Lista obecności do spotkań studyjnych (Imiona i nazwiska uczestników)
 ```sql
@@ -389,16 +419,16 @@ SELECT
     a.makeUp
 FROM
     SubjectMeeting sm
-JOIN 
-    Subjects s ON sm.subjectID = s.subjectID
-JOIN 
-    Meetings m ON sm.meetingID = m.meetingID
-JOIN 
-    Attendence a ON m.meetingID = a.meetingID
-JOIN 
-    Students st ON a.studentID = st.studentID
-JOIN 
-    Users u ON st.userID = u.userID;
+    JOIN 
+        Subjects s ON sm.subjectID = s.subjectID
+    JOIN 
+        Meetings m ON sm.meetingID = m.meetingID
+    JOIN 
+        Attendence a ON m.meetingID = a.meetingID
+    JOIN 
+        Students st ON a.studentID = st.studentID
+    JOIN 
+        Users u ON st.userID = u.userID;
 
 ```
 ## Lista obecności do webinarów (Imiona i nazwiska uczestinków)
@@ -414,16 +444,16 @@ SELECT
     a.makeUp
 FROM
     Webinars w
-JOIN 
-    Products p ON w.productID = p.productID
-JOIN 
-    Meetings m ON w.meetingID = m.meetingID
-JOIN 
-    Attendence a ON m.meetingID = a.meetingID
-JOIN 
-    Students st ON a.studentID = st.studentID
-JOIN 
-    Users u ON st.userID = u.userID;
+    JOIN 
+        Products p ON w.productID = p.productID
+    JOIN 
+        Meetings m ON w.meetingID = m.meetingID
+    JOIN 
+        Attendence a ON m.meetingID = a.meetingID
+    JOIN 
+        Students st ON a.studentID = st.studentID
+    JOIN 
+        Users u ON st.userID = u.userID;
 ```
 ## Data i godzina rozpoczęcia pierwszego spotkania produktu
 ```sql
@@ -433,14 +463,14 @@ SELECT
     MIN(startTime) AS minStartTime
 FROM 
     Studies AS S
-LEFT JOIN 
-    Subjects Sb ON S.studyID = Sb.studyID
-LEFT JOIN 
-    SubjectMeeting SM ON Sb.subjectID = SM.subjectID
-JOIN 
-    Meetings M ON SM.meetingID = M.meetingID
-JOIN 
-    TimeSchedule TS ON M.meetingID = TS.meetingID
+    LEFT JOIN 
+        Subjects Sb ON S.studyID = Sb.studyID
+    LEFT JOIN 
+        SubjectMeeting SM ON Sb.subjectID = SM.subjectID
+    JOIN 
+        Meetings M ON SM.meetingID = M.meetingID
+    JOIN 
+        TimeSchedule TS ON M.meetingID = TS.meetingID
 GROUP BY 
     S.productID
 UNION
@@ -449,10 +479,10 @@ SELECT
     MIN(startTime) AS minStartTime
 FROM 
     SubjectMeeting AS SM
-JOIN 
-    Meetings M ON SM.meetingID = M.meetingID
-JOIN 
-    TimeSchedule TS ON M.meetingID = TS.meetingID
+    JOIN 
+        Meetings M ON SM.meetingID = M.meetingID
+    JOIN 
+        TimeSchedule TS ON M.meetingID = TS.meetingID
 GROUP BY 
     SM.productID
 UNION
@@ -461,14 +491,14 @@ SELECT
     MIN(startTime) AS minStartTime
 FROM 
     Courses AS C
-LEFT JOIN 
-    CourseModules CM ON C.courseID = CM.courseID
-LEFT JOIN 
-    CourseModuleMeeting CMM ON CM.moduleID = CMM.moduleID
-JOIN 
-    Meetings M ON CMM.meetingID = M.meetingID
-JOIN 
-    TimeSchedule TS ON M.meetingID = TS.meetingID
+    LEFT JOIN 
+        CourseModules CM ON C.courseID = CM.courseID
+    LEFT JOIN 
+        CourseModuleMeeting CMM ON CM.moduleID = CMM.moduleID
+    JOIN 
+        Meetings M ON CMM.meetingID = M.meetingID
+    JOIN 
+        TimeSchedule TS ON M.meetingID = TS.meetingID
 GROUP BY 
     C.productID
 UNION
@@ -477,10 +507,10 @@ SELECT
     MIN(startTime) AS minStartTime
 FROM 
     Webinars AS W
-JOIN 
-    Meetings M ON W.meetingID = M.meetingID
-JOIN 
-    TimeSchedule TS ON M.meetingID = TS.meetingID
+    JOIN 
+        Meetings M ON W.meetingID = M.meetingID
+    JOIN 
+        TimeSchedule TS ON M.meetingID = TS.meetingID
 GROUP BY 
     W.productID;
 ```
@@ -493,10 +523,10 @@ SELECT
     SUM(od.pricePaid) AS TotalRevenue
 FROM
     Courses AS c
-JOIN 
-    Products AS p ON c.productID = p.productID
-JOIN 
-    OrderDetails AS od ON p.productID = od.productID
+    JOIN 
+        Products AS p ON c.productID = p.productID
+    JOIN 
+        OrderDetails AS od ON p.productID = od.productID
 GROUP BY
     c.courseID, p.name;
 ```
@@ -509,10 +539,10 @@ SELECT
 	SUM(od.pricePaid) AS TotalRevenue
 FROM
 	Studies s
-JOIN 
-    Products p ON s.productID = p.productID
-JOIN 
-    OrderDetails od ON p.productID = od.productID
+    JOIN 
+        Products p ON s.productID = p.productID
+    JOIN 
+        OrderDetails od ON p.productID = od.productID
 GROUP BY
 	s.studyID, p.name
 ```
@@ -525,10 +555,10 @@ SELECT
     SUM(od.pricePaid) AS TotalRevenue
 FROM 
     SubjectMeeting AS sm
-JOIN 
-    Products AS p ON sm.productID = p.productID
-JOIN 
-    OrderDetails AS od ON p.productID = od.productID
+    JOIN 
+        Products AS p ON sm.productID = p.productID
+    JOIN 
+        OrderDetails AS od ON p.productID = od.productID
 GROUP BY 
     p.name, sm.subjectID;
 ```
@@ -541,10 +571,10 @@ SELECT
     SUM(od.pricePaid) AS TotalRevenue
 FROM
     Webinars AS w
-JOIN 
-    Products AS p ON w.productID = p.productID
-JOIN 
-    OrderDetails AS od ON p.productID = od.productID
+    JOIN 
+        Products AS p ON w.productID = p.productID
+    JOIN 
+        OrderDetails AS od ON p.productID = od.productID
 GROUP BY
     w.webinarID, p.name;
 ```
@@ -558,10 +588,10 @@ SELECT
     DATEADD(MINUTE, DATEDIFF(MINUTE, '00:00:00', ts.duration), ts.startTime) AS endTime
 FROM 
     StationaryMeetings AS sm
-LEFT JOIN 
-    Location AS l ON sm.locationID = l.locationID
-JOIN 
-    TimeSchedule AS ts ON sm.meetingID = ts.meetingID;
+    LEFT JOIN 
+        Location AS l ON sm.locationID = l.locationID
+    JOIN 
+        TimeSchedule AS ts ON sm.meetingID = ts.meetingID;
 ```
 ## Wyświetla listę spotkań studyjnych z ich godziną rozpoczęcia i zakończenia
 ```sql
@@ -575,12 +605,12 @@ SELECT
     DATEADD(MINUTE, DATEDIFF(MINUTE, '00:00:00', ts.duration), ts.startTime) AS EndTime
 FROM 
     SubjectMeeting AS sm
-JOIN 
-    Subjects AS s ON sm.subjectID = s.subjectID
-JOIN 
-    TimeSchedule AS ts ON sm.meetingID = ts.meetingID
-JOIN 
-    Products AS p ON s.studyID = p.productID;
+    JOIN 
+        Subjects AS s ON sm.subjectID = s.subjectID
+    JOIN 
+        TimeSchedule AS ts ON sm.meetingID = ts.meetingID
+    JOIN 
+        Products AS p ON s.studyID = p.productID;
 ```
 ## Raport o liczbie osób zapisanych na przyszłe wydarzenia
 ```sql
@@ -597,14 +627,14 @@ SELECT
     COUNT(DISTINCT a.studentID) AS RegisteredCount
 FROM 
     Meetings AS m
-JOIN 
-    TimeSchedule AS ts ON m.meetingID = ts.meetingID
-JOIN 
-    Attendence AS a ON m.meetingID = a.meetingID
-JOIN 
-    Orders AS o ON a.studentID = o.studentID
-JOIN 
-    OrderDetails AS od ON o.orderID = od.orderID
+    JOIN 
+        TimeSchedule AS ts ON m.meetingID = ts.meetingID
+    JOIN 
+        Attendence AS a ON m.meetingID = a.meetingID
+    JOIN 
+        Orders AS o ON a.studentID = o.studentID
+    JOIN 
+        OrderDetails AS od ON o.orderID = od.orderID
 WHERE 
     ts.startTime > GETDATE()
     AND od.statusID IN (3, 4, 5, 6)
@@ -622,8 +652,8 @@ SELECT
     DATEADD(MINUTE, DATEDIFF(MINUTE, '00:00:00', ts.duration), ts.startTime) AS EndTime
 FROM 
     Webinars AS w
-JOIN 
-    Products AS p ON w.productID = p.productID
-JOIN 
-    TimeSchedule AS ts ON w.meetingID = ts.meetingID;
+    JOIN 
+        Products AS p ON w.productID = p.productID
+    JOIN 
+        TimeSchedule AS ts ON w.meetingID = ts.meetingID;
 ```
