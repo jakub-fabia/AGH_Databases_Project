@@ -1,13 +1,11 @@
 import pyodbc
-import json
-from random import Random
 
 conn = pyodbc.connect(
     "DRIVER={ODBC Driver 18 for SQL Server};"
-    "SERVER={dbmanage.lab.ii.agh.edu.pl};"
-    "DATABASE={u_fabia};"
-    "UID={u_fabia};"
-    "PWD={urtyQqKiDUJH};"
+    "SERVER={};"
+    "DATABASE={};"
+    "UID={};"
+    "PWD={};"
     "TrustServerCertificate=yes"
 )
 cursor = conn.cursor()

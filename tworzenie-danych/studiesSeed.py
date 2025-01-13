@@ -6,15 +6,14 @@ from datetime import datetime, timedelta
 
 conn = pyodbc.connect(
     "DRIVER={ODBC Driver 18 for SQL Server};"
-    "SERVER={dbmanage.lab.ii.agh.edu.pl};"
-    "DATABASE={u_fabia};"
-    "UID={u_fabia};"
-    "PWD={urtyQqKiDUJH};"
+    "SERVER={};"
+    "DATABASE={};"
+    "UID={};"
+    "PWD={};"
     "TrustServerCertificate=yes"
 )
 cursor = conn.cursor()
 
-# Read studiesData.json
 with open('AGH_Databases_Project/tworzenie-danych/studiesData.json', 'r') as file:
     data = json.load(file)
 
@@ -28,11 +27,10 @@ for a in [8,9]:
     isAvailable = 1
     created = '2025-01-01 15:00:00'
     cursor.execute('''
-        EXEC InsertStudies
+        EXEC zInitialStudies
         ?, ?, ?, ?, ?, ?
     ''', (nazwa, opis, cena, capacity, isAvailable, created))
     cursor.commit()
-
 
 # Dodawanie przedmiotów
 for a in [8,9]:

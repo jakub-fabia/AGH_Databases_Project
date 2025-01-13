@@ -3,13 +3,12 @@ import json
 from faker import Faker
 import random
 
- # Initialize DB connection
 conn = pyodbc.connect(
     "DRIVER={ODBC Driver 18 for SQL Server};"
-    "SERVER={dbmanage.lab.ii.agh.edu.pl};"
-    "DATABASE={u_fabia};"
-    "UID={u_fabia};"
-    "PWD={urtyQqKiDUJH};"
+    "SERVER={};"
+    "DATABASE={};"
+    "UID={};"
+    "PWD={};"
     "TrustServerCertificate=yes"
 )
 cursor = conn.cursor()
@@ -37,7 +36,7 @@ for i in range(STUDY_COORDINATOR):
     role_id2 = 6
     role_id3 = 9
     cursor.execute('''
-        EXEC InsertEmployeeData 
+        EXEC zInitialStudyCoordinators 
         ?, ?, ?, ?, ?, ?, ?, ?
     ''', (first_name, last_name, email, phone, hire_date, role_id1, role_id2, role_id3))
 
@@ -54,7 +53,7 @@ for i in range(SUBJECT_COORDINATOR):
     role_id1 = 9
     role_id2 = 6
     cursor.execute('''
-        EXEC InsertEmployeeData2 
+        EXEC zInitialSubjectCoordinators 
         ?, ?, ?, ?, ?, ?, ?
     ''', (first_name, last_name, email, phone, hire_date, role_id1, role_id2))
 
@@ -70,7 +69,7 @@ for i in range(TEACHER):
     hire_date = '2020-01-01'
     role_id = 6
     cursor.execute('''
-        EXEC InsertEmployeeData3 
+        EXEC zInitialTeachers
         ?, ?, ?, ?, ?, ?
     ''', (first_name, last_name, email, phone, hire_date, role_id))
 
@@ -101,7 +100,7 @@ for i in range(500):
         houseNumber = numbers[0]
         apartmentNumber = numbers[1]
     cursor.execute('''
-        EXEC InsertStudentData
+        EXEC zInitialStudents
         ?, ?, ?, ?, ?, ?, ?, ?, ?
     ''', (first_name, last_name, email, rand.randint(34, 69), city, zip, street, houseNumber, apartmentNumber))
 

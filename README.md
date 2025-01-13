@@ -24,6 +24,7 @@ Projekt realizowany w ramach przedmiotu Podstawy Baz Danych na kierunku Informat
     * [Kategoria Orders](/opis-tabel/Orders.md)
     * [Kategoria Meetings](/opis-tabel/Meetings.md)
     * [Kategoria Classes](/opis-tabel/Classes.md)
-3. [**Widoki**](/widoki.md)
-4. [**Procedury**](/procedury.md)
-5. **Funkcje**
+3. [**Tworzenie danych**](/tworzenie-danych.md)
+4. [**Widoki**](/widoki.md)
+5. [**Procedury**](/procedury.md)
+6. **Funkcje**
