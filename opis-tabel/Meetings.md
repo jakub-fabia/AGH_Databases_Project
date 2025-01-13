@@ -129,7 +129,7 @@ CREATE TABLE OnlineAsyncMeetings (
     CONSTRAINT OnlineAsyncMeetings_pk PRIMARY KEY (meetingID)
 );
 ```
-# Tabela Location 
+## Tabela Location 
 Tabela **Location** przechowuje informacje o możliwych lokalizacjach spotkań:
 - **locationID** - id lokalizacji (klucz główny, int)
 - location - nazwa lokalizacji lub adres (varchar(20))
