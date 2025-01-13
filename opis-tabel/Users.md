@@ -9,7 +9,7 @@ Tabela **Users** przechowuje podstawowe informacje o użytkownikach systemu:
 - firstName - imię użytkownika (varchar(20))
 - lastName - nazwisko użytkownika (varchar(20))
 - email - adres email użytkownika (varchar(50))
-  - warunek: Unikalny w formacie '%_@_%._%'
+  - warunek: Unikalny w formacie text@text.text
 
 ```sql
 CREATE TABLE Users (
