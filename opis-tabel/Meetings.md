@@ -35,7 +35,7 @@ CREATE TABLE Attendence (
 Tabela **TimeSchedule** przechowuje informacje o harmonogramach spotkań (jeśli spotkanie potrzebuje harmonogramu):
 - **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
 - startTime - czas rozpoczęcia spotkania (datetime)
-    - warunek: musi być większa niż 1 stycznia 2020 roku
+    - warunek: data między '2020-01-01', a datą dzisiejszą
 - duration  - czas trwannia spotkania (datetime)
     - wartość domyślna: 1 godzina 30 minut
     - warunek: czas trwania jest pomiędzy 15 minut a 4 godziny i 30 minut
@@ -75,9 +75,8 @@ CREATE TABLE Translators (
 ## Tabela InternshipMeetings 
 Tabela **InternshipMeetings** jest tabelą do przechowywania informacji o stażach reprezentowana w relacji jeden-do-jeden z tabelą **Meetings**:
 - **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
-    - warunek: musi być pomiędzy 1 stycznia 2020 roku a
-    datą dzisiejszą
 - startDate - data rozpoczęcia stażu (date)
+    - warunek: musi być pomiędzy 1 stycznia 2020 roku, a datą dzisiejszą
 
 ```sql
 CREATE TABLE InternshipMeetings (

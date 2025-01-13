@@ -7,9 +7,11 @@ Tabela **Products** przechowuje informacje o produktach dostępnych w systemie:
 - **productID** - id produktu (klucz główny, int)
   - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
 - price - cena produktu (money)
+    - warunek: cena większa lub równa 0
 - name - nazwa produktu (varchar(50))
 - description - opis produktu (varchar(200))
 - createdAt - data utworzenia produktu (datetime)
+  - warunek: data między '2020-01-01', a datą dzisiejszą
 - isAvailable - dostępność produktu (bit)
 
 ```sql
@@ -39,6 +41,7 @@ Tabela **Certificates** przechowuje informacje o certyfikatach wydanych studento
 - **studentID** - id studenta (klucz obcy do Students, int)
 - **productID** - id produktu (klucz obcy do Products, int)
 - issuedAt - data wydania certyfikatu (datetime)
+  - warunek: data między '2020-01-01', a datą dzisiejszą
 
 ```sql
 CREATE TABLE Certificates (
@@ -61,8 +64,7 @@ Tabela **OrderStatus** przechowuje informacje o statusach każdego zamówionego 
 
 - **statusID** - id statusu (klucz główny, int)
   - autoinkrementacja: od wartości 1 , kolejna wartość większa
-- statusName - nazwa statusu (varchar(30))
-- exception - informacja o wyjątkach (bit)
+- statusName - nazwa statusu (varchar(40))
 
 ```sql
 CREATE TABLE OrderStatus (
@@ -79,8 +81,10 @@ Tabela **Orders** przechowuje informacje o zamówieniach złożonych przez stude
 - **orderID** - id zamówienia (klucz główny, int)
   - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
 - **studentID** - id studenta składającego zamówienie (klucz obcy do Students, int)
-- paymentLink - link do płatności (varchar(100))
+- paymentLink - link do płatności (varchar(400))
+  - warunek: link w formacie 'https://www.kaite.edu.pl/PaymentLink/%'
 - createdAt - data utworzenia zamówienia (datetime)
+  - warunek: data między '2020-01-01', a datą dzisiejszą
 
 ```sql
 CREATE TABLE Orders (
