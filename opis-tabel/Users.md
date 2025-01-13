@@ -9,7 +9,7 @@ Tabela **Users** przechowuje podstawowe informacje o użytkownikach systemu:
 - firstName - imię użytkownika (varchar(20))
 - lastName - nazwisko użytkownika (varchar(20))
 - email - adres email użytkownika (varchar(50))
-- password - hasło użytkownika (varchar(50))
+  - warunek: Unikalny w formacie '%_@_%._%'
 
 ```sql
 CREATE TABLE Users (
@@ -32,8 +32,12 @@ Tabela **Employees** przechowuje informacje o pracownikach:
 - **employeeID** - id pracownika (klucz główny, int)
   - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
 - **userID** - id użytkownika (klucz obcy do Users, int)
-- phone - numer telefonu pracownika (varchar(9))
+- phone - numer telefonu pracownika (varchar(15))
+  - warunek: Jeśli długość = 9 to wszystkie znaki muszą być cyframi (numery polskie). Jeśli jest dłuższy to na początku musi być +, a następne znaki to cyfry (kierunkowy i zagraniczne numery)
 - hireDate - data zatrudnienia pracownika (date)
+  - domyślnie: Dzisiejsza data
+  - warunek: data między '2020-01-01', a datą dzisiejszą
+- isEmployed - czy pracownik jest zatrudniony (bit)
 
 ```sql
 CREATE TABLE Employees (
@@ -78,13 +82,15 @@ Tabela **Students** przechowuje informacje o studentach:
 - **studentID** - id studenta (klucz główny, int)
   - autoinkrementacja: od wartości 1 , kolejna wartość większa o 1
 - **userID** - id użytkownika (klucz obcy do Users, int)
-- country - kraj zamieszkania (varchar(20))
+- countryID - id kraju zamieszkania (klucz obcy do Countries, int)
 - city - miasto (varchar(20))
 - zip - kod pocztowy (varchar(10))
 - street - ulica (varchar(20))
 - houseNumber - numer domu (varchar(5))
 - apartmentNumber - numer mieszkania (varchar(7))
 - registrationDate - data rejestracji (datetime)
+  - domyślnie: data dzisiejsza
+  - warunek: data rejestracji między '2020-01-01', a datą dzisiejszą
 
 ```sql
 CREATE TABLE Students (
