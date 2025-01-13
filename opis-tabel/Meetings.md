@@ -89,7 +89,7 @@ CREATE TABLE InternshipMeetings (
     CONSTRAINT InternshipMeeting_pk PRIMARY KEY (meetingID)
 );
 ```
-# Tabela OnlineSyncMeetings 
+## Tabela OnlineSyncMeetings 
 Tabela **OnlineSyncMeetings** przechowuje informacje synchronicznych spotkaniach online:
 - **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
 - recordingLink - link do nagrania spotkania (varchar(400))
@@ -113,7 +113,7 @@ CREATE TABLE OnlineSyncMeetings (
     CONSTRAINT OnlineSyncMeetings_pk PRIMARY KEY (meetingID)
 );
 ```
-# Tabela OnlineAsyncMeetings 
+## Tabela OnlineAsyncMeetings 
 Tabela **OnlineAsyncMeetings** przechowuje informacje o asynchronicznych spotkaniach online:
 - **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
 - recordingLink - link do nagrania spotkania (varchar(400))
@@ -141,7 +141,7 @@ CREATE TABLE Location (
     CONSTRAINT Location_pk PRIMARY KEY (locationID)
 );
 ```
-# Tabela StationaryMeetings 
+## Tabela StationaryMeetings 
 Tabela **StationaryMeetings** przechowuje informacje o stacjonarnych spotkaniach:
 - **meetingID** - id spotkania (klucz główny, klucz obcy do Meetings, int)
 - locationID - id lokalizacji (klucz obcy do Location, int)
