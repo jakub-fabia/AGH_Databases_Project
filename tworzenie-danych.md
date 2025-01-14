@@ -12,7 +12,7 @@
 
 ## Pliki
 
-#### Wszystkie pliki można znaleźć w folderze tworzenie-danych
+Wszystkie pliki można znaleźć w folderze [**tworzenie-danych**(/tworzenie-danych)
 
 ## Procedury do generowania danych początkowych:
 
