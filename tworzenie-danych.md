@@ -1,6 +1,6 @@
 # Tworzenie danych
 
-## Narzędzia:
+## Narzędzia
 - [Chat GPT](https://chatgpt.com/) - Nazwy oraz opisy produktów
 - Python z wykorzystaniem bibliotek:
     - pyodbc ze sterownikiem ODBC Driver 18 for SQL Server - łączenie się z bazą danych
@@ -10,12 +10,9 @@
     - uuid - tworzenie losowych ciągów znaków do linków
     - datetime - tworzenie realistycznych dat (np. tylko piątki, soboty itp.)
 
-## Pliki z początkowymi danymi:
+## Pliki
 
-### [specialUsers.sql](tworzenie-danych/specialUsers.sql)
-
-### [dictionariesSeed.sql](tworzenie-danych/dictionariesSeed.sql)
-
+#### Wszystkie pliki można znaleźć w folderze tworzenie-danych
 
 ## Procedury do generowania danych początkowych:
 
