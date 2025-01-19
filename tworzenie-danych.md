@@ -1,4 +1,4 @@
-# Tworzenie danych
+# Tworzenie danych - Jakub Fabia
 
 ## Narzędzia
 - [Chat GPT](https://chatgpt.com/) - Nazwy oraz opisy produktów
@@ -22,17 +22,43 @@ Wszystkie pliki można znaleźć w folderze [**tworzenie-danych**](/tworzenie-d
 CREATE PROCEDURE zInitialCourseRelatedTables
 AS
 BEGIN
-    SET NOCOUNT ON;
+    SET NOCOUNT ON;CREATE PROCEDURE AddStudent
+    @userID INT,
+    @countryID INT,
+    @city VARCHAR(50),
+    @zip VARCHAR(10),
+    @street VARCHAR(30),
+    @houseNumber VARCHAR(5),
+    @apartmentNumber VARCHAR(7) = NULL
+AS
+BEGIN
+    BEGIN TRY
+        -- Sprawdzenie czy użytkownik istnieje
+        IF NOT EXISTS (SELECT 1 FROM Users WHERE userID = @userID)
+            THROW 60006, 'UserID does not exist.', 1;
 
-    DECLARE @meetingID INT, @studentID INT, @productID INT, @capacity INT;
+        -- Sprawdzenie czy kraj istnieje
+        IF NOT EXISTS (SELECT 1 FROM Countries WHERE countryID = @countryID)
+            THROW 60007, 'CountryID does not exist.', 1;
 
-    DECLARE course_cursor CURSOR FOR
-    SELECT C.courseID, P.productID, C.capacity
-    FROM Courses C
-    JOIN Products P ON C.productID = P.productID;
+        -- Wstawianie nowego studenta
+        INSERT INTO Students (userID, countryID, city, zip, street, houseNumber, apartmentNumber)
+        VALUES (@userID, @countryID, @city, @zip, @street, @houseNumber, @apartmentNumber);
+    END TRY
+    BEGIN CATCH
+        DECLARE @ErrorMessage NVARCHAR(4000);
+        DECLARE @ErrorSeverity INT;
+        DECLARE @ErrorState INT;
 
-    OPEN course_cursor;
-    FETCH NEXT FROM course_cursor INTO @meetingID, @productID, @capacity;
+        SELECT
+            @ErrorMessage = ERROR_MESSAGE(),
+            @ErrorSeverity = ERROR_SEVERITY(),
+            @ErrorState = ERROR_STATE();
+
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH
+END;
+go
 
     WHILE @@FETCH_STATUS = 0
     BEGIN
