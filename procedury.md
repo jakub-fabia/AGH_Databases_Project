@@ -1,6 +1,7 @@
 # Procedury
 
 ## Dodawanie kursu - Seweryn Tasior
+
 ```sql
 CREATE PROCEDURE AddCourse
     @name VARCHAR(50),

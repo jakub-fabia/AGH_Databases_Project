@@ -1,6 +1,6 @@
 # Triggery
 
-## Zmień dostępność produktu, jeśli jest już po jego rozpoczęciu
+## Zmień dostępność produktu, jeśli jest już po jego rozpoczęciu - Jakub Fabia
 
 ```sql
 CREATE TRIGGER trg_MakeProductUnavailable
