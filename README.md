@@ -27,4 +27,6 @@ Projekt realizowany w ramach przedmiotu Podstawy Baz Danych na kierunku Informat
 3. [**Tworzenie danych**](/tworzenie-danych.md)
 4. [**Widoki**](/widoki.md)
 5. [**Procedury**](/procedury.md)
-6. **Funkcje**
+6. [**Funkcje**](/funkcje.md)
+7. [**Triggery**](/triggery.md)
+8. [**Indeksy**](/indeksy.md)
