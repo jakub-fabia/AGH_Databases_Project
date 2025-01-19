@@ -149,8 +149,8 @@ FROM
         Attendence AS A ON M.meetingID = A.meetingID
 GROUP BY 
     A.studentID, S.subjectID, S.studyID;
-
 ```
+
 ## Lista osób zapisanych jednocześnie na dwa i więcej kolidujące ze sobą wydarzenia
 ```sql
 CREATE VIEW ConflictingRegistrations AS

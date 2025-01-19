@@ -208,10 +208,6 @@ BEGIN
         BEGIN
             RAISERROR ('Niepoprawne ID Nauczyciela.', 16, 1);
         END
-    IF @TranslatorID IS NOT NULL AND NOT EXISTS (SELECT 1 FROM EmployeeRole WHERE employeeID = @TranslatorID AND roleID = 11)
-        BEGIN
-            RAISERROR ('Niepoprawne ID Tłumacza.', 16, 1);
-        END
 
     INSERT INTO Meetings (teacherID) VALUES (@teacherID)
 
@@ -235,16 +231,9 @@ BEGIN
         BEGIN
             INSERT INTO OnlineAsyncMeetings (meetingID, recordingLink) VALUES (@meetingID, CONCAT('https://www.kaite.edu.pl/RecordingLink/', @meetingID))
         end
-    IF @TranslatorID IS NOT NULL
+    IF @TranslatorID IS NOT NULL AND dbo.IsTranslatorValid(@translatorID, @languageID) = 1
         BEGIN
-            IF NOT EXISTS (SELECT 1 FROM EmployeeLanguages WHERE employeeID = @TranslatorID AND languageID = @languageID)
-                BEGIN
-                    RAISERROR ('Niepoprawny język. Nie dodaję tłumacza!', 0, 1);
-                end
-            ELSE
-                BEGIN
-                    INSERT INTO Translators (meetingID, translatorID, languageID) VALUES (@meetingID, @TranslatorID, @languageID)
-                END
+            INSERT INTO Translators (meetingID, translatorID, languageID) VALUES (@meetingID, @TranslatorID, @languageID)
         END
     PRINT 'Spotkanie pomyślnie dodane do modułu!';
     PRINT 'Detale:';
