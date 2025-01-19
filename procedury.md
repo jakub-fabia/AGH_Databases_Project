@@ -1,6 +1,6 @@
 # Procedury
 
-## Dodawanie kursu
+## Dodawanie kursu - Seweryn Tasior
 ```sql
 CREATE PROCEDURE AddCourse
     @name VARCHAR(50),
@@ -58,7 +58,7 @@ END;
 GO
 ```
 
-## Dodawanie Modułu do Kursu
+## Dodawanie Modułu do Kursu - Seweryn Tasior
 
 ```sql
 CREATE PROCEDURE AddCourseModule
@@ -86,7 +86,7 @@ END;
 GO
 ```
 
-## Dodawanie Spotkania do Modułu Kursu
+## Dodawanie Spotkania do Modułu Kursu - Seweryn Tasior
 
 ```sql
 CREATE PROCEDURE AddCourseModuleMeeting
@@ -121,7 +121,7 @@ END;
 GO
 ```
 
-## Dodawanie Pracownika
+## Dodawanie Pracownika - Mariusz Krause
 
 ```sql
 CREATE PROCEDURE AddEmployee
@@ -145,7 +145,7 @@ END;
 GO
 ```
 
-## Dodawanie stażu
+## Dodawanie stażu - Jakub Fabia
 
 ```sql
 CREATE PROCEDURE AddInternship
@@ -193,7 +193,7 @@ END;
 GO
 ```
 
-## Dodawanie Spotkania (procedura wykorzystywana przez inne procedury)
+## Dodawanie Spotkania (procedura wykorzystywana przez inne procedury) - Jakub Fabia
 
 ```sql
 CREATE PROCEDURE AddMeetingWithDetails
@@ -315,7 +315,7 @@ END;
 GO
 ```
 
-## Dodawanie zamówienia (z jednym przedmiotem)
+## Dodawanie zamówienia (z jednym przedmiotem) - Mariusz Krause
 
 ```sql
 CREATE PROCEDURE AddOrder
@@ -383,7 +383,7 @@ END;
 GO
 ```
 
-## Dodawanie Przedmiotów do już istniejącego zamówienia
+## Dodawanie Przedmiotów do już istniejącego zamówienia - Mariusz Krause
 
 ```sql
 CREATE PROCEDURE AddOrderDetails
@@ -434,7 +434,7 @@ END;
 GO
 ```
 
-## Dodawnie Studenta
+## Dodawnie Studenta - Seweryn Tasior
 
 ```sql
 CREATE PROCEDURE AddStudent
@@ -468,7 +468,7 @@ END;
 GO
 ```
 
-## Dodawanie Studiów
+## Dodawanie Studiów - Jakub Fabia
 
 ```sql
 CREATE PROCEDURE AddStudy
@@ -509,7 +509,7 @@ END;
 GO
 ```
 
-## Dodawanie Przedmiotu do Studiów
+## Dodawanie Przedmiotu do Studiów - Jakub Fabia
 
 ```sql
 CREATE PROCEDURE AddSubject
@@ -562,7 +562,7 @@ END;
 GO
 ```
 
-## Dodawanie Spotkania do Przedmiotu
+## Dodawanie Spotkania do Przedmiotu - Jakub Fabia
 
 ```sql
 CREATE PROCEDURE AddSubjectMeeting
@@ -602,7 +602,7 @@ BEGIN
 GO
 ```
 
-## Dodawanie Tłumacza do Spotkania
+## Dodawanie Tłumacza do Spotkania - Seweryn Tasior
 
 ```sql
 CREATE PROCEDURE AddTranslator
@@ -637,7 +637,7 @@ END;
 GO
 ```
 
-## Dodawanie Webinaru
+## Dodawanie Webinaru - Mariusz Krause
 
 ```sql
 CREATE PROCEDURE AddWebinar
