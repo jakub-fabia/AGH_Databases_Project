@@ -277,28 +277,6 @@ END;
 go
 ```
 
-## Usuwanie kursu i jego modułów
-
-```sql
-CREATE PROCEDURE DeleteCourse
-@courseID INT
-AS
-BEGIN
-    -- Sprawdzenie czy kurs istnieje
-    IF NOT EXISTS (SELECT 1 FROM Courses WHERE courseID = @courseID)
-        BEGIN
-            RAISERROR ('ID kursu nie istnieje.', 16, 1);
-            RETURN;
-        END
-
-    -- Usuwanie wszystkich modułów kursu dla danego kursu
-    DELETE FROM CourseModules WHERE courseID = @courseID;
-
-    -- Usuwanie kursu
-    DELETE FROM Courses WHERE courseID = @courseID;
-END;
-go
-```
 
 ## Dodawanie studiów
 
@@ -379,32 +357,6 @@ END;
 go
 ```
 
-## Usuwanie studiów i przedmiotów w jego ramach
-
-```sql
-CREATE PROCEDURE DeleteStudy
-    @studyID INT
-AS
-BEGIN
-    -- Sprawdzenie czy studia istnieją
-    IF NOT EXISTS (SELECT 1 FROM Studies WHERE studyID = @studyID)
-        BEGIN
-            RAISERROR ('ID studiów nie istnieje.', 16, 1);
-            RETURN;
-        END
-
-    -- Usuwanie wszystkich przedmiotów dla danych studiów
-    DELETE FROM Subjects WHERE studyID = @studyID;
-
-    -- Usuwanie studiów
-    DELETE FROM Studies WHERE studyID = @studyID;
-END;
-go
-
-
-
-```
-
 ## Dodawanie webinaru
 
 ```sql
@@ -441,30 +393,6 @@ BEGIN
 END;
 go
 
-
-```
-
-## Usuwanie webinaru
-
-```sql
-CREATE PROCEDURE DeleteWebinar
-@webinarID INT
-AS
-BEGIN
-    BEGIN TRANSACTION;
-
-    IF EXISTS (SELECT 1 FROM Webinars WHERE webinarID = @webinarID)
-        BEGIN
-            DELETE FROM Webinars WHERE webinarID = @webinarID;
-            COMMIT TRANSACTION;
-        END
-    ELSE
-        BEGIN
-            ROLLBACK TRANSACTION;
-            RAISERROR ('Webinar record not found.', 16, 1);
-        END
-END;
-go
 
 ```
 
@@ -565,30 +493,6 @@ go
 
 ```
 
-## Usuwanie stażu
-
-```sql
-CREATE PROCEDURE DeleteInternship
-@internshipID INT
-AS
-BEGIN
-    BEGIN TRANSACTION;
-
-    IF EXISTS (SELECT 1 FROM Internships WHERE internshipID = @internshipID)
-        BEGIN
-            DELETE FROM Internships WHERE internshipID = @internshipID;
-            COMMIT TRANSACTION;
-        END
-    ELSE
-        BEGIN
-            ROLLBACK TRANSACTION;
-            RAISERROR ('Internship record not found.', 16, 1);
-        END
-END;
-go
-
-```
-
 ## Dodawanie studenta - Jakub Fabia
 
 ```sql
@@ -621,30 +525,6 @@ BEGIN
     end catch
 END;
 go
-```
-
-## Usuwanie studenta
-
-```sql
-CREATE PROCEDURE DeleteStudent
-@studentID INT
-AS
-BEGIN
-    BEGIN TRANSACTION;
-
-    IF EXISTS (SELECT 1 FROM Students WHERE studentID = @studentID)
-        BEGIN
-            DELETE FROM Students WHERE studentID = @studentID;
-            COMMIT TRANSACTION;
-        END
-    ELSE
-        BEGIN
-            ROLLBACK TRANSACTION;
-            RAISERROR ('Student record not found.', 16, 1);
-        END
-END;
-go
-
 ```
 
 ## Dodawanie nowego tłumacza - Jakub Fabia
@@ -682,30 +562,6 @@ END;
 go
 ```
 
-## Usuwanie tłumacza
-
-```sql
-CREATE PROCEDURE DeleteTranslator
-@meetingID INT
-AS
-BEGIN
-    BEGIN TRANSACTION;
-
-    IF EXISTS (SELECT 1 FROM Translators WHERE meetingID = @meetingID)
-        BEGIN
-            DELETE FROM Translators WHERE meetingID = @meetingID;
-            COMMIT TRANSACTION;
-        END
-    ELSE
-        BEGIN
-            ROLLBACK TRANSACTION;
-            RAISERROR ('Translator record not found.', 16, 1);
-        END
-END;
-go
-
-```
-
 ## Dodawanie pracownika - Jakub Fabia
 
 ```sql
@@ -728,30 +584,6 @@ BEGIN
     end catch
 END;
 go
-```
-
-## Usuwanie pracownika
-
-```sql
-CREATE PROCEDURE DeleteEmployee
-@employeeID INT
-AS
-BEGIN
-    BEGIN TRANSACTION;
-
-    IF EXISTS (SELECT 1 FROM Employees WHERE employeeID = @employeeID)
-        BEGIN
-            DELETE FROM Employees WHERE employeeID = @employeeID;
-            COMMIT TRANSACTION;
-        END
-    ELSE
-        BEGIN
-            ROLLBACK TRANSACTION;
-            RAISERROR ('Employee record not found.', 16, 1);
-        END
-END;
-go
-
 ```
 
 ## Dodawanie spotkań
