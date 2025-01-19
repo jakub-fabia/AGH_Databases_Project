@@ -18,9 +18,10 @@ WHERE
 GROUP BY
 	cm.moduleID, cm.name
 GO
+```
 
-
-Frekwencja na zakończonych wydarzeniach
+## Frekwencja na zakończonych wydarzeniach
+```sql
 CREATE VIEW AttendancePastEvents AS
 SELECT
 	m.meetingID,
@@ -203,7 +204,7 @@ FROM
         TimeSchedule AS ts ON cms.meetingID = ts.meetingID
 
 ```
-## Lista dłużników
+## Lista dłużników - Jakub Fabia
 ```sql
 CREATE VIEW DebtorsList AS
 SELECT 
@@ -455,7 +456,7 @@ FROM
     JOIN 
         Users u ON st.userID = u.userID;
 ```
-## Data i godzina rozpoczęcia pierwszego spotkania produktu
+## Data i godzina rozpoczęcia pierwszego spotkania produktu - Jakub Fabia
 ```sql
 CREATE VIEW ProductBeginningDate AS
 SELECT 
@@ -578,7 +579,7 @@ FROM
 GROUP BY
     w.webinarID, p.name;
 ```
-## Wyświetla harmonogram pokoi zarezerwowanych
+## Wyświetla harmonogram pokoi zarezerwowanych - Jakub Fabia
 ```sql
 CREATE VIEW RoomSchedule AS
 SELECT 

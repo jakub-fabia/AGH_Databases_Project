@@ -95,60 +95,66 @@ END;
 go
 ```
 
-## Dodawanie nowego kursu
+## Dodawanie nowego kursu - Jakub Fabia
 
 ```sql
 CREATE PROCEDURE AddCourse
-    @productID INT,
+    @name VARCHAR(50),
+    @description VARCHAR(200),
+    @price MONEY,
     @coordinatorID INT,
-    @capacity INT
+    @capacity INT = NULL
 AS
 BEGIN
-    -- Sprawdzenie czy produkt jest już przypisany do innych tabel
-    IF EXISTS (SELECT 1 FROM Studies WHERE productID = @productID)
+    DECLARE @ProductID INT;
+    DECLARE @CourseID INT;
+
+    IF (@price <= 0)
         BEGIN
-            RAISERROR (N'Produkt jest już przypisany do studiów.', 16, 1);
-            RETURN;
+            RAISERROR ('Cena kursu musi być większa niż 0.', 16, 1);
+        END
+    IF (@capacity <= 0)
+        BEGIN
+            RAISERROR ('Pojemność kursu musi być większa niż 0. (Jeśli jest konieczna)', 16, 1);
         END
 
-    IF EXISTS (SELECT 1 FROM Webinars WHERE productID = @productID)
-        BEGIN
-            RAISERROR ('Produkt jest już przypisany do webinaru.', 16, 1);
-            RETURN;
-        END
+    INSERT INTO Products (price, name, description) VALUES
+    (@price, @name, @description);
 
-    -- Sprawdzenie czy produkt istnieje w tabeli Products
-    IF NOT EXISTS (SELECT 1 FROM Products WHERE productID = @productID)
-        BEGIN
-            RAISERROR ('ID produktu nie istnieje.', 16, 1);
-            RETURN;
-        END
+    SET @ProductID = SCOPE_IDENTITY()
 
     -- Sprawdzenie czy koordynator istnieje w tabeli Employees
-    IF NOT EXISTS (SELECT 1 FROM Employees WHERE employeeID = @coordinatorID)
+    IF NOT EXISTS
+        (SELECT 1 FROM Employees WHERE employeeID = @coordinatorID)
         BEGIN
-            RAISERROR ('ID koordynatora nie istnieje.', 16, 1);
-            RETURN;
+            RAISERROR ('Niepoprawne ID Pracownika.', 16, 1);
         END
+
     -- Sprawdzenie czy koordynator ma przypisaną rolę 'Koordynator Kursów'
-    IF NOT EXISTS (
-        SELECT 1
+    IF NOT EXISTS
+        (SELECT 1
         FROM EmployeeRole ER
-                 INNER JOIN Roles R ON ER.roleID = R.roleID
-        WHERE ER.employeeID = @coordinatorID AND ( R.roleName = 'Koordynator Kursów' OR R.roleName = 'Koordynator')
-    )
+        INNER JOIN Roles R ON ER.roleID = R.roleID
+        WHERE ER.employeeID = @coordinatorID AND R.roleName = 'Koordynator Kursów')
         BEGIN
             RAISERROR (N'Pracownik nie ma przypisanej roli Koordynator Kursów.', 16, 1);
-            RETURN;
         END
+
     -- Dodawanie nowego kursu z określoną pojemnością
     INSERT INTO Courses (productID, coordinatorID, capacity)
     VALUES (@productID, @coordinatorID, @capacity);
+
+    SET @CourseID = SCOPE_IDENTITY()
+
+    PRINT 'Kurs dodany pomyślnie!';
+    PRINT 'Detale:';
+    PRINT CONCAT('Numer produktu: ', @ProductID);
+    PRINT CONCAT('Numer krusu: ', @CourseID);
 END;
 go
 ```
 
-## Dodawanie modułu do istniejącego kursu
+## Dodawanie modułu do istniejącego kursu - Jakub Fabia
 
 ```sql
 CREATE PROCEDURE AddCourseModule
@@ -156,19 +162,119 @@ CREATE PROCEDURE AddCourseModule
     @name VARCHAR(50)
 AS
 BEGIN
+    DECLARE @ModuleID INT;
     -- Sprawdzenie czy kurs istnieje
     IF NOT EXISTS (SELECT 1 FROM Courses WHERE courseID = @courseID)
         BEGIN
             RAISERROR ('ID kursu nie istnieje.', 16, 1);
-            RETURN;
         END
 
     -- Dodawanie modułu do kursu
     INSERT INTO CourseModules (courseID, name)
     VALUES (@courseID, @name);
+    SET @ModuleID = SCOPE_IDENTITY();
+
+    PRINT 'Moduł pomyślnie dodany do kursu!';
+    PRINT 'Detale:';
+    PRINT CONCAT('Numer krusu: ', @CourseID);
+    PRINT CONCAT('Numer modułu: ', @ModuleID);
 END;
 go
+```
 
+## Dodanie spotkania do modułu - Jakub Fabia
+
+```sql
+CREATE PROCEDURE AddCourseModuleMeeting
+    @ModuleID INT,
+    @Type VARCHAR(15),
+    @teacherID INT,
+    @startDatetime DATETIME,
+    @duration TIME,
+    @TranslatorID INT = NULL,
+    @languageID INT = NULL
+AS
+BEGIN
+    DECLARE @meetingID INT;
+    DECLARE @capacity INT;
+    DECLARE @roomID INT;
+
+    SET @capacity = (SELECT capacity FROM Courses JOIN dbo.CourseModules CM on Courses.courseID = CM.courseID WHERE moduleID = @ModuleID);
+
+    IF @Type NOT IN ('Stationary', 'OnlineSync', 'OnlineAsync')
+        BEGIN
+            RAISERROR ('Niepoprawna nazwa typu spotkania! Poprawne nazwy: ''Stationary'', ''OnlineSync'', ''OnlineAsync''', 16, 1);
+        end
+    ELSE
+        IF @Type = 'Stationary' AND @capacity IS NULL
+            BEGIN
+                RAISERROR ('Spotkania nie mogą być stacjonarne, ponieważ kurs nie ma pojemności.', 16, 1);
+            end
+
+    IF @startDatetime < GETDATE()
+        BEGIN
+            RAISERROR ('Niepoprawna data spotkania!', 16, 1);
+        end
+
+    IF @duration > '4:00:00'
+        BEGIN
+            RAISERROR ('Niepoprawna długość spotkania!', 16, 1);
+        end
+    -- Sprawdzenie czy kurs istnieje
+    IF NOT EXISTS (SELECT 1 FROM CourseModules WHERE moduleID = @ModuleID)
+        BEGIN
+            RAISERROR ('ID Modułu nie istnieje.', 16, 1);
+        END
+
+    IF NOT EXISTS (SELECT 1 FROM EmployeeRole WHERE employeeID = @teacherID AND roleID = 6)
+        BEGIN
+            RAISERROR ('Niepoprawne ID Nauczyciela.', 16, 1);
+        END
+    IF @TranslatorID IS NOT NULL AND NOT EXISTS (SELECT 1 FROM EmployeeRole WHERE employeeID = @TranslatorID AND roleID = 11)
+        BEGIN
+            RAISERROR ('Niepoprawne ID Tłumacza.', 16, 1);
+        END
+
+    INSERT INTO Meetings (teacherID) VALUES (@teacherID)
+
+    SET @meetingID = SCOPE_IDENTITY()
+
+    INSERT INTO CourseModuleMeeting (meetingID, moduleID) VALUES (@meetingID, @ModuleID);
+    INSERT INTO TimeSchedule (meetingID, startTime, duration) VALUES (@meetingID, @startDatetime, @duration)
+    IF @Type = 'Stationary'
+        BEGIN
+            SET @roomID = (SELECT TOP 1 locationName FROM Location
+            EXCEPT
+            SELECT locationName FROM RoomSchedule
+            WHERE startTime BETWEEN @startDatetime AND DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', @duration), @startDatetime) AND endTime BETWEEN @startDatetime AND DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', @duration), @startDatetime));
+            INSERT INTO StationaryMeetings (meetingID, locationID) VALUES (@meetingID, @roomID)
+        end
+    IF @Type = 'OnlineSync'
+        BEGIN
+            INSERT INTO OnlineSyncMeetings (meetingID, recordingLink, liveMeetingLink) VALUES (@meetingID, CONCAT('https://www.kaite.edu.pl/RecordingLink/', @meetingID), CONCAT('https://www.kaite.edu.pl/MeetingLink/', @meetingID))
+        end
+    IF @Type = 'OnlineAsync'
+        BEGIN
+            INSERT INTO OnlineAsyncMeetings (meetingID, recordingLink) VALUES (@meetingID, CONCAT('https://www.kaite.edu.pl/RecordingLink/', @meetingID))
+        end
+    IF @TranslatorID IS NOT NULL
+        BEGIN
+            IF NOT EXISTS (SELECT 1 FROM EmployeeLanguages WHERE employeeID = @TranslatorID AND languageID = @languageID)
+                BEGIN
+                    RAISERROR ('Niepoprawny język. Nie dodaję tłumacza!', 0, 1);
+                end
+            ELSE
+                BEGIN
+                    INSERT INTO Translators (meetingID, translatorID, languageID) VALUES (@meetingID, @TranslatorID, @languageID)
+                END
+        END
+    PRINT 'Spotkanie pomyślnie dodane do modułu!';
+    PRINT 'Detale:';
+    PRINT CONCAT('Numer modułu: ', @ModuleID);
+    PRINT CONCAT('Numer spotkania: ', @meetingID);
+    PRINT CONCAT('Miejsce spotkania: ', @roomID)
+END;
+go
 ```
 
 ## Usuwanie kursu i jego modułów
@@ -483,11 +589,13 @@ go
 
 ```
 
-## Dodawanie studenta
+## Dodawanie studenta - Jakub Fabia
 
 ```sql
 CREATE PROCEDURE AddStudent
-    @userID INT,
+    @firstName VARCHAR(20),
+    @lastName VARCHAR(20),
+    @email VARCHAR(50),
     @countryID INT,
     @city VARCHAR(50),
     @zip VARCHAR(10),
@@ -496,35 +604,23 @@ CREATE PROCEDURE AddStudent
     @apartmentNumber VARCHAR(7) = NULL
 AS
 BEGIN
+    IF NOT EXISTS (SELECT 1 FROM Countries WHERE countryID = @countryID)
+        BEGIN
+            RAISERROR ('Niepoprawny kraj!', 16, 1);
+        END
     BEGIN TRY
-        -- Sprawdzenie czy użytkownik istnieje
-        IF NOT EXISTS (SELECT 1 FROM Users WHERE userID = @userID)
-            THROW 60006, 'UserID does not exist.', 1;
-
-        -- Sprawdzenie czy kraj istnieje
-        IF NOT EXISTS (SELECT 1 FROM Countries WHERE countryID = @countryID)
-            THROW 60007, 'CountryID does not exist.', 1;
-
-        -- Wstawianie nowego studenta
-        INSERT INTO Students (userID, countryID, city, zip, street, houseNumber, apartmentNumber)
-        VALUES (@userID, @countryID, @city, @zip, @street, @houseNumber, @apartmentNumber);
+        DECLARE @userID INT;
+        INSERT INTO Users (firstName, lastName, email) VALUES (@firstName, @lastName, @email)
+        SET @userID = SCOPE_IDENTITY();
+        INSERT INTO Students (userID, countryID, city, zip, street, houseNumber, apartmentNumber) 
+        VALUES (@userID, @countryID, @city, @zip, @street, @houseNumber, @apartmentNumber)
     END TRY
     BEGIN CATCH
-        DECLARE @ErrorMessage NVARCHAR(4000);
-        DECLARE @ErrorSeverity INT;
-        DECLARE @ErrorState INT;
-
-        SELECT
-            @ErrorMessage = ERROR_MESSAGE(),
-            @ErrorSeverity = ERROR_SEVERITY(),
-            @ErrorState = ERROR_STATE();
-
-        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
-    END CATCH
+        DELETE FROM Users WHERE userID = @userID
+        RAISERROR ('Niepoprawne Dane!', 16, 1);
+    end catch
 END;
 go
-
-
 ```
 
 ## Usuwanie studenta
@@ -619,45 +715,28 @@ go
 
 ```
 
-## Dodawanie pracownika
+## Dodawanie pracownika - Jakub Fabia
 
 ```sql
-CREATE PROCEDURE AddEmployee
-    @userID INT,
-    @phone VARCHAR(20),
-    @hireDate DATE = NULL,
-    @isEmployed BIT = 1
+CCREATE PROCEDURE AddEmployee
+    @firstName VARCHAR(20),
+    @lastName VARCHAR(20),
+    @email VARCHAR(50),
+    @phone VARCHAR(20)
 AS
 BEGIN
     BEGIN TRY
-        -- Sprawdzenie czy użytkownik istnieje
-        IF NOT EXISTS (SELECT 1 FROM Users WHERE userID = @userID)
-            THROW 60011, 'UserID does not exist.', 1;
-
-        -- Ustawienie domyślnej daty zatrudnienia, jeśli nie została podana
-        IF @hireDate IS NULL
-            SET @hireDate = GETDATE();
-
-        -- Wstawianie nowego pracownika
-        INSERT INTO Employees (userID, phone, hireDate, isEmployed)
-        VALUES (@userID, @phone, @hireDate, @isEmployed);
+        DECLARE @userID INT;
+        INSERT INTO Users (firstName, lastName, email) VALUES (@firstName, @lastName, @email)
+        SET @userID = SCOPE_IDENTITY();
+        INSERT INTO Employees (userID, phone) VALUES (@userID, @phone)
     END TRY
     BEGIN CATCH
-        DECLARE @ErrorMessage NVARCHAR(4000);
-        DECLARE @ErrorSeverity INT;
-        DECLARE @ErrorState INT;
-
-        SELECT
-            @ErrorMessage = ERROR_MESSAGE(),
-            @ErrorSeverity = ERROR_SEVERITY(),
-            @ErrorState = ERROR_STATE();
-
-        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
-    END CATCH
+        DELETE FROM Users WHERE userID = @userID
+        RAISERROR ('Niepoprawne Dane!', 16, 1);
+    end catch
 END;
 go
-
-
 ```
 
 ## Usuwanie pracownika
