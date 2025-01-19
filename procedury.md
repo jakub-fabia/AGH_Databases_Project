@@ -73,28 +73,6 @@ END;
 go
 ```
 
-## Usuwanie zamówienia i jego szczegółów
-
-```sql
-CREATE PROCEDURE DeleteOrder
-    @orderID INT
-AS
-BEGIN
-    -- Sprawdzenie czy zamówienie istnieje
-    IF NOT EXISTS (SELECT 1 FROM Orders WHERE orderID = @orderID)
-        BEGIN
-            RAISERROR ('ID zamówienia nie istnieje.', 16, 1);
-            RETURN;
-        END
-
-    -- Wywołanie procedury usuwania szczegółów zamówienia
-    DELETE FROM OrderDetails WHERE orderID = @orderID;
-    -- Usuwanie zamówienia
-    DELETE FROM Orders WHERE orderID = @orderID;
-END;
-go
-```
-
 ## Dodawanie nowego kursu - Jakub Fabia
 
 ```sql
