@@ -643,18 +643,91 @@ GROUP BY
     m.meetingID,
     ts.startTime;
 ```
-## Spis wszystkich webinarów wraz z ramami czasowymi
+
+## Struktura Kusru
+
 ```sql
-CREATE VIEW WebinarsList AS
-SELECT 
-    w.webinarID,
-    p.name AS WebinarName,
-    ts.startTime,
-    DATEADD(MINUTE, DATEDIFF(MINUTE, '00:00:00', ts.duration), ts.startTime) AS EndTime
-FROM 
-    Webinars AS w
-    JOIN 
-        Products AS p ON w.productID = p.productID
-    JOIN 
-        TimeSchedule AS ts ON w.meetingID = ts.meetingID;
+CREATE VIEW StructureCourse AS
+    SELECT C.courseID, P.name as 'CourseName', CM.moduleID, CM.name as 'ModuleName', 'Stationary' as 'Type', startTime,
+           DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime', locationName as Location, NULL as Recording
+    FROM Courses as C
+    JOIN dbo.Products P on P.productID = C.productID
+    LEFT OUTER JOIN dbo.CourseModules CM on C.courseID = CM.courseID
+    LEFT JOIN dbo.CourseModuleMeeting CMM on CM.moduleID = CMM.moduleID
+    JOIN TimeSchedule TS on TS.meetingID = CMM.meetingID
+    JOIN StationaryMeetings SM ON SM.meetingID = CMM.meetingID
+    JOIN Location ON SM.locationID = Location.locationID
+    UNION
+    SELECT C.courseID, P.name as 'CourseName', CM.moduleID, CM.name as 'ModuleName', 'OnlineSync' as 'Type', startTime,
+           DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime', liveMeetingLink as Location, recordingLink as Recording
+    FROM Courses as C
+    JOIN dbo.Products P on P.productID = C.productID
+    LEFT OUTER JOIN dbo.CourseModules CM on C.courseID = CM.courseID
+    LEFT JOIN dbo.CourseModuleMeeting CMM on CM.moduleID = CMM.moduleID
+    JOIN TimeSchedule TS on TS.meetingID = CMM.meetingID
+    JOIN OnlineSyncMeetings OM ON OM.meetingID = CMM.meetingID
+    UNION
+    SELECT C.courseID, P.name as 'CourseName', CM.moduleID, CM.name as 'ModuleName', 'OnlineAsync' as 'Type', startTime,
+           DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime', NULL as Location, recordingLink as Recording
+    FROM Courses as C
+    JOIN dbo.Products P on P.productID = C.productID
+    LEFT OUTER JOIN dbo.CourseModules CM on C.courseID = CM.courseID
+    LEFT JOIN dbo.CourseModuleMeeting CMM on CM.moduleID = CMM.moduleID
+    JOIN TimeSchedule TS on TS.meetingID = CMM.meetingID
+    JOIN OnlineAsyncMeetings OM ON OM.meetingID = CMM.meetingID
+GO
+```
+
+## Struktura Studiów
+
+```sql
+CREATE VIEW StructureStudies AS
+    SELECT S.studyID, P.name as 'StudyName', SB.subjectID, SB.subjectName as 'SubjectName', 'Stationary' as 'Type', startTime,
+            DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime', locationName as Location, NULL as Recording
+    FROM Studies as S
+    JOIN Products P ON P.productID = S.productID
+    LEFT OUTER JOIN Subjects SB ON S.studyID = SB.studyID
+    LEFT OUTER JOIN SubjectMeeting SBM ON SB.subjectID = SBM.subjectID
+    JOIN TimeSchedule TS ON SBM.meetingID = TS.meetingID
+    JOIN StationaryMeetings SM ON SBM.meetingID = SM.meetingID
+    JOIN Location L ON SM.locationID = L.locationID
+    UNION
+    SELECT S.studyID, P.name as 'StudyName', SB.subjectID, SB.subjectName as 'SubjectName', 'OnlineSync' as 'Type', startTime,
+            DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime', liveMeetingLink as Location, recordingLink as Recording
+    FROM Studies as S
+    JOIN Products P ON P.productID = S.productID
+    LEFT OUTER JOIN Subjects SB ON S.studyID = SB.studyID
+    LEFT OUTER JOIN SubjectMeeting SBM ON SB.subjectID = SBM.subjectID
+    JOIN TimeSchedule TS ON SBM.meetingID = TS.meetingID
+    JOIN OnlineSyncMeetings OM ON SBM.meetingID = OM.meetingID
+    UNION
+    SELECT S.studyID, P.name as 'StudyName', SB.subjectID, SB.subjectName as 'SubjectName', 'OnlineAsync' as 'Type', startTime,
+            DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime', NULL as Location, recordingLink as Recording
+    FROM Studies as S
+    JOIN Products P ON P.productID = S.productID
+    LEFT OUTER JOIN Subjects SB ON S.studyID = SB.studyID
+    LEFT OUTER JOIN SubjectMeeting SBM ON SB.subjectID = SBM.subjectID
+    JOIN TimeSchedule TS ON SBM.meetingID = TS.meetingID
+    JOIN OnlineAsyncMeetings OM ON SBM.meetingID = OM.meetingID
+GO
+```
+
+## Struktura Webinaróœ
+
+```sql
+CREATE VIEW StructureWebinar AS
+    SELECT W.webinarID, P.name as 'WebinarName', 'OnlineSync' as 'Type', startTime,
+           DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime', liveMeetingLink as Location, recordingLink as Recording
+    FROM Webinars as W
+    JOIN dbo.Products P on P.productID = W.productID
+    JOIN TimeSchedule TS on TS.meetingID = W.meetingID
+    JOIN OnlineSyncMeetings OM ON OM.meetingID = W.meetingID
+    UNION
+    SELECT W.webinarID, P.name as 'WebinarName', 'OnlineAsync' as 'Type', startTime,
+           DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime', NULL as Location, recordingLink as Recording
+    FROM Webinars as W
+    JOIN dbo.Products P on P.productID = W.productID
+    JOIN TimeSchedule TS on TS.meetingID = W.meetingID
+    JOIN OnlineAsyncMeetings OM ON OM.meetingID = W.meetingID
+GO
 ```
