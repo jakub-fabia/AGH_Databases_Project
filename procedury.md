@@ -114,12 +114,14 @@ BEGIN
 
     EXEC @meetingID = AddMeetingWithDetails @teacherID, @startDatetime, @duration, @Type, @roomID, @capacity, NULL, NULL, @TranslatorID, @languageID
 
+    INSERT INTO CourseModuleMeeting (meetingID, moduleID) VALUES (@meetingID, @moduleID)
+
     PRINT 'Spotkanie pomyślnie dodane do modułu!';
     PRINT 'Detale:';
     PRINT CONCAT('Numer modułu: ', @ModuleID);
     PRINT CONCAT('Numer spotkania: ', @meetingID);
 END;
-GO
+go
 ```
 
 ## Dodawanie Pracownika - Mariusz Krause
@@ -246,14 +248,19 @@ BEGIN
                                         SELECT locationID FROM RoomSchedule
                         WHERE startTime BETWEEN @startTime AND DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', @duration), @startTime) 
                         AND endTime BETWEEN @startTime AND DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', @duration), @startTime)) as LlIRSlI);
-                    END
-
+                    END 
+                ELSE
+                    BEGIN 
+                        IF EXISTS (SELECT 1 FROM RoomSchedule WHERE startTime BETWEEN @startTime AND DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', @duration), @startTime) 
+                                    AND endTime BETWEEN @startTime AND DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', @duration), @startTime) AND locationID = @locationID)    
+                            THROW 61008, 'Room is not empty at that time.', 1;
+                    end
                 IF NOT EXISTS (SELECT 1 FROM Location WHERE locationID = @locationID)
                     THROW 61005, 'LocationID does not exist.', 1;
 
                 IF @capacity IS NULL OR @capacity <= 0
                     THROW 61006, 'Capacity must be a positive integer for Stationary meetings.', 1;
-
+                    
                 INSERT INTO StationaryMeetings (meetingID, locationID, capacity)
                 VALUES (@meetingID, @locationID, @capacity);
             END
@@ -313,7 +320,7 @@ BEGIN
     END CATCH
     RETURN @meetingID
 END;
-GO
+go
 ```
 
 ## Dodawanie zamówienia (z jednym przedmiotem) - Mariusz Krause
@@ -379,9 +386,9 @@ BEGIN
 
     PRINT 'Zamowienie dodany pomyślnie!';
     PRINT 'Detale:';
-    PRINT CONCAT('Numer kursu: ', @OrderID);
+    PRINT CONCAT('Numer zamówienia: ', @OrderID);
 END;
-GO
+go
 ```
 
 ## Dodawanie Przedmiotów do już istniejącego zamówienia - Mariusz Krause
@@ -456,17 +463,21 @@ BEGIN
         END
     BEGIN TRY
         DECLARE @userID INT;
+        DECLARE @studentID INT;
         INSERT INTO Users (firstName, lastName, email) VALUES (@firstName, @lastName, @email)
         SET @userID = SCOPE_IDENTITY();
         INSERT INTO Students (userID, countryID, city, zip, street, houseNumber, apartmentNumber) 
         VALUES (@userID, @countryID, @city, @zip, @street, @houseNumber, @apartmentNumber)
+        SET @studentID = SCOPE_IDENTITY();
     END TRY
     BEGIN CATCH
         DELETE FROM Users WHERE userID = @userID
         RAISERROR ('Niepoprawne Dane!', 16, 1);
     end catch
+    PRINT CONCAT('ID studenta: ', @studentID)
+    RETURN @studentID;
 END;
-GO
+go
 ```
 
 ## Dodawanie Studiów - Jakub Fabia
@@ -506,8 +517,9 @@ BEGIN
     PRINT 'Detale:';
     PRINT CONCAT('Numer produktu: ', @ProductID);
     PRINT CONCAT('Numer studiów: ', @studyID);
+    RETURN @studyID;
 END;
-GO
+go
 ```
 
 ## Dodawanie Przedmiotu do Studiów - Jakub Fabia
@@ -656,6 +668,7 @@ BEGIN
     BEGIN TRY
         DECLARE @meetingID INT;
         DECLARE @productID INT;
+        DECLARE @webinarID INT;
 
         IF @Type NOT IN ('OnlineSync', 'OnlineAsync')
             THROW 60012, 'Wrong meeting type.', 1;
@@ -666,6 +679,9 @@ BEGIN
         EXEC @meetingID = AddMeetingWithDetails @teacherID, @startDatetime, @duration, @Type, NULL, NULL, NULL, NULL, @TranslatorID, @languageID
         
         INSERT INTO Webinars (productID, meetingID) VALUES (@productID, @meetingID)
+        SET @webinarID = SCOPE_IDENTITY();
+        PRINT CONCAT('WebinarID: ', @webinarID)
+        RETURN @productID
     END TRY
     BEGIN CATCH
         DECLARE @ErrorMessage NVARCHAR(4000);
@@ -680,5 +696,5 @@ BEGIN
         RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
     END CATCH
 END;
-GO
+go
 ```
