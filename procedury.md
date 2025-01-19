@@ -647,7 +647,7 @@ go
 
 ```
 
-## Dodawanie nowego tłumacza
+## Dodawanie nowego tłumacza - Jakub Fabia
 
 ```sql
 CREATE PROCEDURE AddTranslator
@@ -656,39 +656,30 @@ CREATE PROCEDURE AddTranslator
     @languageID INT
 AS
 BEGIN
-    BEGIN TRY
-        -- Sprawdzenie czy spotkanie istnieje
-        IF NOT EXISTS (SELECT 1 FROM Meetings WHERE meetingID = @meetingID)
-            THROW 60008, 'MeetingID does not exist.', 1;
-
-        -- Sprawdzenie czy tłumacz istnieje
-        IF NOT EXISTS (SELECT 1 FROM Employees WHERE employeeID = @translatorID)
-            THROW 60009, 'TranslatorID does not exist.', 1;
-
-        -- Sprawdzenie czy język istnieje
-        IF NOT EXISTS (SELECT 1 FROM Languages WHERE languageID = @languageID)
-            THROW 60010, 'LanguageID does not exist.', 1;
-
-        -- Wstawianie nowego tłumacza
-        INSERT INTO Translators (meetingID, translatorID, languageID)
-        VALUES (@meetingID, @translatorID, @languageID);
-    END TRY
-    BEGIN CATCH
-        DECLARE @ErrorMessage NVARCHAR(4000);
-        DECLARE @ErrorSeverity INT;
-        DECLARE @ErrorState INT;
-
-        SELECT
-            @ErrorMessage = ERROR_MESSAGE(),
-            @ErrorSeverity = ERROR_SEVERITY(),
-            @ErrorState = ERROR_STATE();
-
-        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
-    END CATCH
+    -- Sprawdzenie czy spotkanie istnieje
+    IF NOT EXISTS (SELECT 1 FROM Meetings WHERE meetingID = @meetingID)
+        BEGIN
+            RAISERROR ('Niepoprawne ID spotkania!', 16, 1);
+        end
+    -- Sprawdzenie czy tłumacz istnieje
+    IF NOT EXISTS (SELECT 1 FROM Employees WHERE employeeID = @translatorID)
+        BEGIN
+            RAISERROR ('Niepoprawne ID tłumacza!', 16, 1);
+        end
+    -- Sprawdzenie czy język istnieje
+    IF NOT EXISTS (SELECT 1 FROM Languages WHERE languageID = @languageID)
+        BEGIN
+            RAISERROR ('Niepoprawny język!', 16, 1);
+        end
+    IF NOT EXISTS (SELECT 1 FROM EmployeeLanguages WHERE employeeID = @TranslatorID AND languageID = @languageID)
+        BEGIN
+            RAISERROR ('Tłumacz nie mówi w tym języku!', 16, 1);
+        end
+    -- Wstawianie nowego tłumacza
+    INSERT INTO Translators (meetingID, translatorID, languageID)
+    VALUES (@meetingID, @translatorID, @languageID);
 END;
 go
-
-
 ```
 
 ## Usuwanie tłumacza
