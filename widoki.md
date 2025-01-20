@@ -186,7 +186,7 @@ WHERE
     AND ts2.startTime < DATEADD(MINUTE, DATEDIFF(MINUTE, '00:00:00', ts1.duration), ts1.startTime);
 ```
 
-## Spis wszystkich modułów kursów z informacjami o kursie oraz ramach czasowych
+## Spis wszystkich modułów kursów z informacjami o kursie oraz ramach czasowych - Seweryn Tasior
 
 ```sql
 CREATE VIEW CourseModulesList AS
