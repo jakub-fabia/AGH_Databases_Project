@@ -141,7 +141,6 @@ BEGIN
         INSERT INTO Employees (userID, phone) VALUES (@userID, @phone)
     END TRY
     BEGIN CATCH
-        DELETE FROM Users WHERE userID = @userID
         RAISERROR ('Niepoprawne Dane!', 16, 1);
     end catch
 END;
@@ -471,7 +470,6 @@ BEGIN
         SET @studentID = SCOPE_IDENTITY();
     END TRY
     BEGIN CATCH
-        DELETE FROM Users WHERE userID = @userID
         RAISERROR ('Niepoprawne Dane!', 16, 1);
     end catch
     PRINT CONCAT('ID studenta: ', @studentID)
