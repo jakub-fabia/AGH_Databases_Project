@@ -132,16 +132,9 @@ BEGIN
              INNER JOIN Orders o ON inserted.orderID=o.orderID
              INNER JOIN Products p ON p.productID=inserted.productID
              INNER JOIN Studies s ON p.productID = s.productID
-             INNER JOIN Internships i ON i.studyID=s.studyID
-             INNER JOIN Meetings m ON m.meetingID=i.meetingID
-    UNION
-    SELECT m.meetingID,o.StudentID,0,0
-    FROM inserted
-             INNER JOIN Orders o ON inserted.orderID=o.orderID
-             INNER JOIN Products p ON p.productID=inserted.productID
-             INNER JOIN Studies s ON p.productID = s.productID
              INNER JOIN Subjects ss ON ss.studyID=s.studyID
              INNER JOIN SubjectMeeting sm ON sm.subjectID=ss.subjectID
              INNER JOIN Meetings m ON m.meetingID=sm.meetingID
 end
+go
 ```
