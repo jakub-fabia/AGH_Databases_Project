@@ -3,21 +3,17 @@
 ## Frekwencja na zakończonych modułach kursów - Mariusz Krause
 
 ```sql
-CREATE VIEW AttendancePastCourseModules AS
-SELECT
-	cm.moduleID,
-	cm.name AS ModuleName,
-	COUNT(CASE WHEN a.present = 1 THEN 1 ELSE NULL END) AS PresentCount,
-	COUNT(CASE WHEN a.present = 0 THEN 1 ELSE NULL END) AS AbsentCount
-FROM
-	CourseModules cm
-        JOIN CourseModuleMeeting cms ON cms.moduleID = cm.moduleID
-        JOIN Meetings m ON cms.meetingID = m.meetingID
-    	LEFT JOIN Attendence a ON m.meetingID = a.meetingID
-WHERE
-	m.meetingID IN (SELECT meetingID FROM TimeSchedule WHERE startTime < GETDATE())
-GROUP BY
-	cm.moduleID, cm.name
+CREATE view dbo.AttendancePastCourseModules as
+    SELECT cm.moduleID,
+           cm.name                                             AS ModuleName,
+           COUNT(CASE WHEN a.present = 1 THEN 1 ELSE NULL END) AS PresentCount,
+           COUNT(CASE WHEN a.present = 0 THEN 1 ELSE NULL END) AS AbsentCount
+    FROM CourseModules cm
+             JOIN CourseModuleMeeting cms ON cms.moduleID = cm.moduleID
+             JOIN Meetings m ON cms.meetingID = m.meetingID
+             LEFT JOIN Attendence a ON m.meetingID = a.meetingID
+    WHERE m.meetingID IN (SELECT meetingID FROM TimeSchedule WHERE startTime < GETDATE())
+    GROUP BY cm.moduleID, cm.name
 GO
 ```
 
@@ -26,16 +22,17 @@ GO
 ```sql
 CREATE VIEW AttendancePastEvents AS
 SELECT
-	m.meetingID,
-	COUNT(CASE WHEN a.present = 1 THEN 1 ELSE NULL END) AS PresentCount,
-	COUNT(CASE WHEN a.present = 0 THEN 1 ELSE NULL END) AS AbsentCount
+    m.meetingID,
+    COUNT(CASE WHEN a.present = 1 THEN 1 ELSE NULL END) AS PresentCount,
+    COUNT(CASE WHEN a.present = 0 THEN 1 ELSE NULL END) AS AbsentCount
 FROM
-	Meetings m
-    	LEFT JOIN Attendence a ON m.meetingID = a.meetingID
+    Meetings m
+        LEFT JOIN Attendence a ON m.meetingID = a.meetingID
 WHERE
-	m.meetingID IN (SELECT meetingID FROM TimeSchedule WHERE startTime < GETDATE())
+    m.meetingID IN (SELECT meetingID FROM TimeSchedule WHERE startTime < GETDATE())
 GROUP BY
-m.meetingID
+    m.meetingID
+GO
 ```
 
 ## Frekwencja na zakończonych spotkaniach studyjnych - Mariusz Krause
@@ -43,19 +40,18 @@ m.meetingID
 ```sql
 CREATE VIEW AttendancePastStudyMeetings AS
 SELECT
-	sm.meetingID,
-	COUNT(CASE WHEN a.present = 1 THEN 1 ELSE NULL END) AS PresentCount,
-	COUNT(CASE WHEN a.present = 0 THEN 1 ELSE NULL END) AS AbsentCount
+    sm.meetingID,
+    COUNT(CASE WHEN a.present = 1 THEN 1 ELSE NULL END) AS PresentCount,
+    COUNT(CASE WHEN a.present = 0 THEN 1 ELSE NULL END) AS AbsentCount
 FROM
-	SubjectMeeting sm
-    JOIN
-        Meetings m ON sm.meetingID = m.meetingID
-    LEFT JOIN
-        Attendence a ON m.meetingID = a.meetingID
+    SubjectMeeting sm
+        JOIN Meetings m ON sm.meetingID = m.meetingID
+        LEFT JOIN Attendence a ON m.meetingID = a.meetingID
 WHERE
-	m.meetingID IN (SELECT meetingID FROM TimeSchedule WHERE startTime < GETDATE())
+    m.meetingID IN (SELECT meetingID FROM TimeSchedule WHERE startTime < GETDATE())
 GROUP BY
-	sm.meetingID
+    sm.meetingID
+GO
 ```
 
 ## Frekwencja na zakończonych webinarach - Mariusz Krause
@@ -63,44 +59,37 @@ GROUP BY
 ```sql
 CREATE VIEW AttendancePastWebinars AS
 SELECT
-	w.webinarID,
-	p.name AS WebinarName,
-	COUNT(CASE WHEN a.present = 1 THEN 1 ELSE NULL END) AS PresentCount,
-	COUNT(CASE WHEN a.present = 0 THEN 1 ELSE NULL END) AS AbsentCount
+    w.webinarID,
+    p.name AS WebinarName,
+    COUNT(CASE WHEN a.present = 1 THEN 1 ELSE NULL END) AS PresentCount,
+    COUNT(CASE WHEN a.present = 0 THEN 1 ELSE NULL END) AS AbsentCount
 FROM
-	Webinars w
-    JOIN
-        Meetings m ON w.meetingID = m.meetingID
-    JOIN
-        Products p ON w.productID = p.productID
-    LEFT JOIN
-        Attendence a ON m.meetingID = a.meetingID
+    Webinars w
+        JOIN Meetings m ON w.meetingID = m.meetingID
+        JOIN Products p ON w.productID = p.productID
+        LEFT JOIN Attendence a ON m.meetingID = a.meetingID
 WHERE
-	m.meetingID IN (SELECT meetingID FROM TimeSchedule WHERE startTime < GETDATE())
+    m.meetingID IN (SELECT meetingID FROM TimeSchedule WHERE startTime < GETDATE())
 GROUP BY
-	w.webinarID, p.name
+    w.webinarID, p.name
+GO
 ```
 
 ## Frekwencja na zakończonych modułach kursów - Mariusz Krause
 
 ```sql
-SELECT cm.moduleID,
-    cm.name AS ModuleName,
-    COUNT(CASE WHEN a.present = 1 THEN 1 ELSE 0 END) AS PresentCount,
-    COUNT(CASE WHEN a.present = 0 THEN 1 ELSE 0 END) AS AbsentCount
-FROM CourseModules cm
-    JOIN
-        CourseModuleMeeting cms ON cm.moduleID = cms.moduleID
-    JOIN
-        Meetings m ON cms.meetingID = m.meetingID
-    LEFT JOIN
-        Attendence a ON m.meetingID = a.meetingID
-WHERE m.meetingID IN (
-    SELECT meetingID
-    FROM TimeSchedule
-    WHERE startTime < GETDATE()
-)
-GROUP BY cm.moduleID, cm.name
+CREATE view dbo.AttendencePastCourseModules as
+    SELECT cm.moduleID,
+           cm.name                                          AS ModuleName,
+           COUNT(CASE WHEN a.present = 1 THEN 1 ELSE 0 END) AS PresentCount,
+           COUNT(CASE WHEN a.present = 0 THEN 1 ELSE 0 END) AS AbsentCount
+    FROM CourseModules cm
+             JOIN CourseModuleMeeting cms ON cm.moduleID = cms.moduleID
+             JOIN Meetings m ON cms.meetingID = m.meetingID
+             LEFT JOIN Attendence a ON m.meetingID = a.meetingID
+    WHERE m.meetingID IN (SELECT meetingID FROM TimeSchedule WHERE startTime < GETDATE())
+    GROUP BY cm.moduleID, cm.name
+GO
 ```
 
 ## Procent obecności dla każdego spotkania - Mariusz Krause
@@ -692,19 +681,110 @@ GROUP BY
     ts.startTime;
 ```
 
-## Spis wszystkich webinarów wraz z ramami czasowymi - Seweryn Tasior
+## Struktura Webinarów - Seweryn Tasior
 
 ```sql
-CREATE VIEW WebinarsList AS
-SELECT
-    w.webinarID,
-    p.name AS WebinarName,
-    ts.startTime,
-    DATEADD(MINUTE, DATEDIFF(MINUTE, '00:00:00', ts.duration), ts.startTime) AS EndTime
-FROM
-    Webinars AS w
-    JOIN
-        Products AS p ON w.productID = p.productID
-    JOIN
-        TimeSchedule AS ts ON w.meetingID = ts.meetingID;
+CREATE VIEW StructureWebinar AS
+    SELECT W.webinarID, P.name as 'WebinarName', 'OnlineSync' as 'Type', startTime,
+           DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime', liveMeetingLink as Location, recordingLink as Recording
+    FROM Webinars as W
+    JOIN dbo.Products P on P.productID = W.productID
+    JOIN TimeSchedule TS on TS.meetingID = W.meetingID
+    JOIN OnlineSyncMeetings OM ON OM.meetingID = W.meetingID
+    UNION
+    SELECT W.webinarID, P.name as 'WebinarName', 'OnlineAsync' as 'Type', startTime,
+           DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime', NULL as Location, recordingLink as Recording
+    FROM Webinars as W
+    JOIN dbo.Products P on P.productID = W.productID
+    JOIN TimeSchedule TS on TS.meetingID = W.meetingID
+    JOIN OnlineAsyncMeetings OM ON OM.meetingID = W.meetingID
+GO
+```
+
+## Sturktura Kursów - Jakub Fabia
+```sql
+CREATE view dbo.StructureCourse as
+    SELECT C.courseID,
+           P.name                                                                   as 'CourseName',
+           CM.moduleID,
+           CM.name                                                                  as 'ModuleName',
+           'Stationary'                                                             as 'Type',
+           startTime,
+           DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime',
+           locationName                                                             as Location,
+           NULL                                                                     as Recording
+    FROM Courses as C
+             JOIN dbo.Products P on P.productID = C.productID
+             LEFT OUTER JOIN dbo.CourseModules CM on C.courseID = CM.courseID
+             LEFT OUTER JOIN dbo.CourseModuleMeeting CMM on CM.moduleID = CMM.moduleID
+             JOIN TimeSchedule TS on TS.meetingID = CMM.meetingID
+             JOIN StationaryMeetings SM ON SM.meetingID = CMM.meetingID
+             JOIN Location ON SM.locationID = Location.locationID
+    UNION
+    SELECT C.courseID,
+           P.name                                                                   as 'CourseName',
+           CM.moduleID,
+           CM.name                                                                  as 'ModuleName',
+           'OnlineSync'                                                             as 'Type',
+           startTime,
+           DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime',
+           liveMeetingLink                                                          as Location,
+           recordingLink                                                            as Recording
+    FROM Courses as C
+             JOIN dbo.Products P on P.productID = C.productID
+             LEFT OUTER JOIN dbo.CourseModules CM on C.courseID = CM.courseID
+             LEFT OUTER JOIN dbo.CourseModuleMeeting CMM on CM.moduleID = CMM.moduleID
+             JOIN TimeSchedule TS on TS.meetingID = CMM.meetingID
+             JOIN OnlineSyncMeetings OM ON OM.meetingID = CMM.meetingID
+    UNION
+    SELECT C.courseID,
+           P.name                                                                   as 'CourseName',
+           CM.moduleID,
+           CM.name                                                                  as 'ModuleName',
+           'OnlineAsync'                                                            as 'Type',
+           startTime,
+           DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime',
+           NULL                                                                     as Location,
+           recordingLink                                                            as Recording
+    FROM Courses as C
+             JOIN dbo.Products P on P.productID = C.productID
+             LEFT OUTER JOIN dbo.CourseModules CM on C.courseID = CM.courseID
+             LEFT OUTER JOIN dbo.CourseModuleMeeting CMM on CM.moduleID = CMM.moduleID
+             JOIN TimeSchedule TS on TS.meetingID = CMM.meetingID
+             JOIN OnlineAsyncMeetings OM ON OM.meetingID = CMM.meetingID
+GO
+```
+
+## Struktura Studiów - Mariusz Krause
+
+```sql
+CREATE VIEW StructureStudies AS
+    SELECT S.studyID, P.name as 'StudyName', SB.subjectID, SB.subjectName as 'SubjectName', 'Stationary' as 'Type', startTime,
+            DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime', locationName as Location, NULL as Recording
+    FROM Studies as S
+    JOIN Products P ON P.productID = S.productID
+    LEFT OUTER JOIN Subjects SB ON S.studyID = SB.studyID
+    LEFT OUTER JOIN SubjectMeeting SBM ON SB.subjectID = SBM.subjectID
+    JOIN TimeSchedule TS ON SBM.meetingID = TS.meetingID
+    JOIN StationaryMeetings SM ON SBM.meetingID = SM.meetingID
+    JOIN Location L ON SM.locationID = L.locationID
+    UNION
+    SELECT S.studyID, P.name as 'StudyName', SB.subjectID, SB.subjectName as 'SubjectName', 'OnlineSync' as 'Type', startTime,
+            DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime', liveMeetingLink as Location, recordingLink as Recording
+    FROM Studies as S
+    JOIN Products P ON P.productID = S.productID
+    LEFT OUTER JOIN Subjects SB ON S.studyID = SB.studyID
+    LEFT OUTER JOIN SubjectMeeting SBM ON SB.subjectID = SBM.subjectID
+    JOIN TimeSchedule TS ON SBM.meetingID = TS.meetingID
+    JOIN OnlineSyncMeetings OM ON SBM.meetingID = OM.meetingID
+    UNION
+    SELECT S.studyID, P.name as 'StudyName', SB.subjectID, SB.subjectName as 'SubjectName', 'OnlineAsync' as 'Type', startTime,
+            DATEADD(SECOND, DATEDIFF(SECOND, '00:00:00', ts.duration), ts.startTime) as 'endTime', NULL as Location, recordingLink as Recording
+    FROM Studies as S
+    JOIN Products P ON P.productID = S.productID
+    LEFT OUTER JOIN Subjects SB ON S.studyID = SB.studyID
+    LEFT OUTER JOIN SubjectMeeting SBM ON SB.subjectID = SBM.subjectID
+    JOIN TimeSchedule TS ON SBM.meetingID = TS.meetingID
+    JOIN OnlineAsyncMeetings OM ON SBM.meetingID = OM.meetingID
+GO
 ```
