@@ -40,6 +40,13 @@ BEGIN
     )BEGIN
         RAISERROR('Student o podanym ID jest już zapisany na kurs.', 16, 1);
     END
+    IF EXISTS(     SELECT 1
+                   FROM inserted
+                            INNER JOIN Products p ON p.productID=inserted.productID
+                            WHERE p.isAvailable=0)
+    BEGIN
+        RAISERROR('Produkt jest nie dostępny.', 16, 1);
+    END
     INSERT INTO Attendence (meetingID, studentID, present,makeUp)
     SELECT m.meetingID,o.StudentID,0,0
     FROM inserted
@@ -75,7 +82,13 @@ BEGIN
     )BEGIN
         RAISERROR('Student o podanym ID jest już zapisany na webinar.', 16, 1);
     END
-
+    IF EXISTS(     SELECT 1
+                   FROM inserted
+                            INNER JOIN Products p ON p.productID=inserted.productID
+                            WHERE p.isAvailable=0)
+    BEGIN
+        RAISERROR('Produkt jest nie dostępny.', 16, 1);
+    END
     INSERT INTO Attendence (meetingID, studentID, present,makeUp)
     SELECT m.meetingID,o.StudentID,0,0
     FROM inserted
@@ -125,6 +138,13 @@ BEGIN
         )
     )BEGIN
         RAISERROR('Student o podanym ID jest już zapisany na studium.', 16, 1);
+    END
+    IF EXISTS(     SELECT 1
+                   FROM inserted
+                            INNER JOIN Products p ON p.productID=inserted.productID
+                            WHERE p.isAvailable=0)
+    BEGIN
+        RAISERROR('Produkt jest nie dostępny.', 16, 1);
     END
     INSERT INTO Attendence (meetingID, studentID, present,makeUp)
     SELECT m.meetingID,o.StudentID,0,0
