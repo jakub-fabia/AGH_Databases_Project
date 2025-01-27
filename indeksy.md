@@ -60,6 +60,7 @@ CREATE INDEX idx_Languages_Translators ON Translators(languageID);
 
 ```sql
 CREATE INDEX idx_Meetings_TimeSchedule ON TimeSchedule(meetingID);
+CREATE INDEX idx_TimeSchedule_StartTime ON TimeSchedule(startTime);
 ```
 
 ## Tabela Orders
