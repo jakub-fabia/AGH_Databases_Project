@@ -14,20 +14,20 @@ Projekt realizowany w ramach przedmiotu Podstawy Baz Danych na kierunku Informat
 
 ## Schemat bazy danych
 
-![schemat](/projektowanie/Schemat.png)
+![schemat](./projektowanie/Schemat.png)
 
 ## Dokumentacja
 
-1. **[Funkcje systemu](/projektowanie/funkcjeSystemu.md)**
+1. **[Funkcje systemu](./projektowanie/funkcjeSystemu.md)**
 2. **Opis tabel, relacji, warunków integralnościowych**
-    * [Kategoria Users](/opis-tabel/Users.md)
-    * [Kategoria Orders](/opis-tabel/Orders.md)
-    * [Kategoria Meetings](/opis-tabel/Meetings.md)
-    * [Kategoria Classes](/opis-tabel/Classes.md)
-3. [**Tworzenie danych**](/tworzenie-danych.md)
-4. [**Widoki**](/widoki.md)
-5. [**Procedury**](/procedury.md)
-6. [**Funkcje**](/funkcje.md)
-7. [**Triggery**](/triggery.md)
-8. [**Indeksy**](/indeksy.md)
-9. [**Role**](/role.md)
+    * [Kategoria Users](./opis-tabel/Users.md)
+    * [Kategoria Orders](./opis-tabel/Orders.md)
+    * [Kategoria Meetings](./opis-tabel/Meetings.md)
+    * [Kategoria Classes](./opis-tabel/Classes.md)
+3. [**Tworzenie danych**](./markdown/tworzenie-danych.md)
+4. [**Widoki**](./markdown/widoki.md)
+5. [**Procedury**](./markdown/procedury.md)
+6. [**Funkcje**](./markdown/funkcje.md)
+7. [**Triggery**](./markdown/triggery.md)
+8. [**Indeksy**](./markdown/indeksy.md)
+9. [**Role**](./markdown/role.md)
