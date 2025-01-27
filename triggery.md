@@ -134,18 +134,25 @@ BEGIN
             FROM inserted
                      INNER JOIN Orders o ON inserted.orderID=o.orderID
             WHERE a.studentID=o.studentID
-
         )
     )BEGIN
         RAISERROR('Student o podanym ID jest już zapisany na studium.', 16, 1);
     END
+    IF (SELECT capacity FROM inserted
+        JOIN Products P ON inserted.productID = P.productID
+        JOIN Studies S ON P.productID = S.productID) <=
+       (SELECT COUNT(*) FROM inserted
+        JOIN OrderDetails OD ON OD.productID = inserted.productID)
+        BEGIN
+            RAISERROR('Nie ma wolnych miejsc na wybranych studiach.', 16, 1);
+        end
     IF EXISTS(     SELECT 1
                    FROM inserted
                             INNER JOIN Products p ON p.productID=inserted.productID
-                            WHERE p.isAvailable=0)
-    BEGIN
-        RAISERROR('Produkt jest nie dostępny.', 16, 1);
-    END
+                   WHERE p.isAvailable=0)
+        BEGIN
+            RAISERROR('Produkt jest nie dostępny.', 16, 1);
+        END
     INSERT INTO Attendence (meetingID, studentID, present,makeUp)
     SELECT m.meetingID,o.StudentID,0,0
     FROM inserted
